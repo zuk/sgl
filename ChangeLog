@@ -1,0 +1,76 @@
+2005-04-08  Kouichirou Eto  <2005 eto.com>
+
+	* cocoa-app.rb: Refactoring.
+	* cocoa-window.rb: New file.
+	* cocoa-event.rb: New method check_runtime_finished
+	* opengl.rb: Refactoring.
+	* opengl-app.rb: Refactoring.
+	* opengl-draw.rb: Refactoring.
+	* opengl-window.rb, opengl-modules.rb, opengl-color.rb: New files.
+	* tests/test-opengl-app.rb: New file.
+	* samples/opengl2-draw.rb, opengl3-affine.rb,
+	opengl11-application.rb: New files.
+
+2005-04-07  Kouichirou Eto  <2005 eto.com>
+
+	* cocoa-draw.rb, cocoa-event.rb, cocoa-media.rb: New
+	files. Splited from cocoa-app.rb
+	* tests/test-cocoa-app.rb: Do not test sound and movies.
+
+2005-04-06  Kouichirou Eto  <2005 eto.com>
+
+	* cocoa-app.rb: Add "p" in movie method. Strange bug.
+	* cocoa-app.rb: Check global var.
+
+2005-04-06  Kouichirou Eto  <2005 eto.com>
+
+	* cocoa-app.rb: Remove unused classes.
+	* cocoa-functions.rb: Refactoring.
+	* cocoa-notuse.rb: New file. To backup old classes.
+
+2005-04-06  Kouichirou Eto  <2005 eto.com>
+
+	* test-cocoa-app.rb: New file.
+	* test-cocoa-basic.rb, test-cocoa-core.rb, test-cocoa-media.rb:
+	Removed.
+
+2005-04-06  Kouichirou Eto  <2005 eto.com>
+
+	* cocoa-app.rb, cocoa-functions.rb, opengl-app.rb, opengl.rb,
+	opengl-draw.rb, opengl-functions.rb, sgl-functions.rb,
+	test-all.rb, Makefile: New files.
+	* cocoa-win.rb, sgl-core.rb, sgl-video.rb: Removed.
+	* cocoa.rb: Update to small stub library.
+	* sgl-color.rb: Add test code.
+	* sgl.rb: Branch two methods.
+	* sample/cocoa*.rb: New files.
+	* sample/opengl*.rb: New files.
+
+2005-04-05  Kouichirou Eto  <2005 eto.com>
+
+	* README.en.txt, README.ja.txt: Update.
+	* README.txt: Removed.
+
+2005-01-28  Kouichirou Eto  <2005 eto.com>
+
+	* cocoa.rb: Refactoring. Make @block as hash object.
+	* tests/test-cocoaapp.rb: add test for movie overlay,
+	move view, affine translat.
+
+2005-01-25  Kouichirou Eto  <2005 eto.com>
+
+	* cocoa.rb: Refactoring.
+	* cocoa.rb: CocoaReceiver new class
+
+2005-01-21  Kouichirou Eto  <2005 eto.com>
+
+	* cocoa.rb: Refactoring.
+
+2005-01-19  Kouichirou Eto  <2005 eto.com>
+
+	* change directory name from t to samples and tests.
+
+2005-01-05  Kouichirou Eto  <2005 eto.com>
+
+	* change test file name scheme.
+
