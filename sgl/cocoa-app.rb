@@ -89,7 +89,7 @@ module SGL
       end
       @width, @height = w, h
 
-      cocoa_create_window
+      cocoa_create_window(w, h)
     end
 
     def close_window

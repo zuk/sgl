@@ -2,7 +2,7 @@
 
 module SGL
   class Application
-    def cocoa_create_window
+    def cocoa_create_window(w, h)
       @receiver = CocoaReceiver.alloc.init
       @receiver.setApp(self)
 

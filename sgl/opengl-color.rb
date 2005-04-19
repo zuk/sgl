@@ -8,13 +8,15 @@ module SGL
   def colorHSV(*a)	$__a__.colorHSV(*a)	end
 
   class Application
-    def color_initialize
+    def initialize_color
       @bg_color = @cur_color = nil
       @rgb = ColorTranslatorRGB.new(100, 100, 100, 100)
       @hsv = ColorTranslatorHSV.new(100, 100, 100, 100)
       background(0)
       color(100)
     end
+    private :initialize_color
+
     attr_reader :cur_color # for test
 
     def background(x, y = nil, z = nil, a = nil)

@@ -35,7 +35,7 @@ module SGL
   def useRuntime(*a)	$__a__.useRuntime(*a)	end
 
   class Application
-    def event_initialize
+    def initialize_event
       @setup_done = nil
       @display_drawing = nil
       @block = {}
@@ -45,6 +45,7 @@ module SGL
       @mouseDown = 0
       @keynum = 0
     end
+    private :initialize_event
 
     # get status
     attr_reader :mouseX, :mouseY
@@ -130,13 +131,13 @@ module SGL
       @block[:keydown] = Proc.new
     end
 
-    def keydown_pre
+    def keydown_pre(key)
       exit if key == SDL::Key::ESCAPE
     end
     private :keydown_pre
 
     def do_keydown(key)
-      keydown_pre
+      keydown_pre(key)
       @block[:keydown].call(key) if @block[:keydown]
     end
 
@@ -207,10 +208,10 @@ module SGL
 	  do_mouseup
 	when SDL::Event::KEYDOWN
 	  @keynum = event.info[2]
-	  do_keydown(key)
+	  do_keydown(@keynum)
 	when SDL::Event::KEYUP
 	  @keynum = event.info[2]
-	  do_keyup(key)
+	  do_keyup(@keynum)
 	when SDL::Event::QUIT
 	  exit
 	end
