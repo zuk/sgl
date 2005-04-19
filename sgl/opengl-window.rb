@@ -21,7 +21,7 @@ module SGL
       @width, @height = 100, 100
       @left, @bottom, @right, @top = 0, 0, @width, @height
       @cameraX, @cameraY, @cameraZ = 0, 0, 5
-      initialize_sgl
+      initialize_sdl
     end
 
     def initialize_sdl
