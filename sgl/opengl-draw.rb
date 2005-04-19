@@ -1,6 +1,17 @@
 # Copyright (C) 2004-2005 Kouichirou Eto, All rights reserved.
 
 module SGL
+  LINES		= GL::LINES
+  POINTS	= GL::POINTS
+  LINE_STRIP	= GL::LINE_STRIP
+  LINE_LOOP	= GL::LINE_LOOP
+  TRIANGLES	= GL::TRIANGLES
+  TRIANGLE_STRIP = GL::TRIANGLE_STRIP
+  TRIANGLE_FAN	= GL::TRIANGLE_FAN
+  QUADS		= GL::QUADS
+  QUAD_STRIP	= GL::QUAD_STRIP
+  POLYGON	= GL::POLYGON
+
   # draw
   def beginObj(*a)	$__a__.beginObj(*a)	end
   def endObj(*a)	$__a__.endObj(*a)	end

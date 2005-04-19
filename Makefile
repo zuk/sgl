@@ -1,6 +1,5 @@
 test:
-	cd tests; make; cd ..
+	cd sgl; make test; cd ..
 
 dist:
 	ruby make.rb
-

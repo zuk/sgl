@@ -1,5 +1,21 @@
-test:
-	cd ../tests; make; cd ../sgl
+#RUBY = ruby
+RUBY = ruby16
+
+all:	test
+
+test:	testall
+
+testall:
+	$(RUBY) test-all.rb
+
+testcocoa:
+	$(RUBY) test-cocoa-app.rb
+
+testopengl:
+	$(RUBY) test-opengl-app.rb
 
 testsgl:
-	ruby sgl-color.rb
+	$(RUBY) sgl-color.rb
+
+clean:
+	-rm *~
