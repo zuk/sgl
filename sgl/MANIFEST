@@ -40,7 +40,6 @@ sgl/opengl.rb
 sgl/qp.rb
 sgl/sgl-color.rb
 sgl/sgl.rb
-sgl/util-path.rb
 sgl/version.rb
 tests/Makefile
 tests/all.rb

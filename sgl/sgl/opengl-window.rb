@@ -13,6 +13,7 @@ module SGL
   def useSmooth(*a)	$__a__.useSmooth(*a)	end
   def useCulling(*a)	$__a__.useCulling(*a)	end
   def useFullscreen(*a)	$__a__.useFullscreen(*a)	end
+  alias useFullScreen useFullscreen
   def useCursor(*a)	$__a__.useCursor(*a)	end
 
   class Application

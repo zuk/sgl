@@ -11,6 +11,11 @@ require "sgl/opengl-draw"
 require "sgl/qp"
 
 module SGL
+  # dummy
+  def useSound(*a)	end
+  def stopSound(*a)	end
+  def flip(*a)	end
+
   class Application
     def initialize
       Thread.abort_on_exception = true
