@@ -1,3 +1,9 @@
+2005-04-19  Kouichirou Eto  <2005 eto.com>
+
+	* cocoa-app.rb, cocoa-window.rb: Fix bug.
+	* cocoa-window.rb: Add setGLAttr for fix bug.
+	* cocoa-event.rb: Fix bug for keydown.
+
 2005-04-08  Kouichirou Eto  <2005 eto.com>
 
 	* cocoa-app.rb: Refactoring.

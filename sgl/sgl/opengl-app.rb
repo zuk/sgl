@@ -20,9 +20,9 @@ module SGL
     def initialize
       Thread.abort_on_exception = true
       @options = default_options
-      window_initialize
-      color_initialize
-      event_initialize
+      initialize_window
+      initialize_color
+      initialize_event
     end
 
     def default_options

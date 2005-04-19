@@ -17,17 +17,25 @@ module SGL
   def useCursor(*a)	$__a__.useCursor(*a)	end
 
   class Application
-    def window_initialize
+    def initialize_window
       @width, @height = 100, 100
       @left, @bottom, @right, @top = 0, 0, @width, @height
       @cameraX, @cameraY, @cameraZ = 0, 0, 5
-
-      # sdl_init
-      SDL.init(SDL::INIT_VIDEO)
-      SDL.setGLAttr(SDL::GL_DOUBLEBUFFER, 1)
-      @sdl_event = SDL::Event.new
-
+      initialize_sgl
     end
+
+    def initialize_sdl
+      SDL.init(SDL::INIT_VIDEO)
+      # Setting color size is important for Mac OS X.
+      SDL.setGLAttr(SDL::GL_RED_SIZE, 5)
+      SDL.setGLAttr(SDL::GL_GREEN_SIZE, 5)
+      SDL.setGLAttr(SDL::GL_BLUE_SIZE, 5)
+      SDL.setGLAttr(SDL::GL_DEPTH_SIZE, 16)
+      SDL.setGLAttr(SDL::GL_DOUBLEBUFFER, 1)
+      SDL.setVideoMode(640, 400, 16, SDL::OPENGL)
+      @sdl_event = SDL::Event.new
+    end
+    private :initialize_window, :initialize_sdl
 
     # create window
     def window(*a)
