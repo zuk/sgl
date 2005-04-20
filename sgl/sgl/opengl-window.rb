@@ -32,10 +32,18 @@ module SGL
       SDL.setGLAttr(SDL::GL_BLUE_SIZE, 5)
       SDL.setGLAttr(SDL::GL_DEPTH_SIZE, 16)
       SDL.setGLAttr(SDL::GL_DOUBLEBUFFER, 1)
-      SDL.setVideoMode(640, 400, 16, SDL::OPENGL)
+      if !windows?
+	SDL.setVideoMode(640, 400, 16, SDL::OPENGL)
+      end
       @sdl_event = SDL::Event.new
     end
     private :initialize_window, :initialize_sdl
+
+    def windows?
+      r = RUBY_PLATFORM
+      (r.index("cygwin") || r.index("mswin32") || r.index("mingw32")) != nil
+    end
+    private :windows?
 
     # create window
     def window(*a)
