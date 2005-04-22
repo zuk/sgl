@@ -13,7 +13,7 @@ class String
 end
 
 class ReleaseMaker
-  def self.main
+  def self.main(argv)
     releasemaker = self.new
     puts "make version"
     releasemaker.make_version

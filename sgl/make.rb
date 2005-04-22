@@ -3,4 +3,4 @@
 
 require "sgl/make-release"
 
-SGL::ReleaseMaker.main(ARGV)
+ReleaseMaker.main(ARGV)
