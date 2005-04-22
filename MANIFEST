@@ -30,6 +30,7 @@ sgl/cocoa-media.rb
 sgl/cocoa-notuse.rb
 sgl/cocoa-window.rb
 sgl/cocoa.rb
+sgl/make-release.rb
 sgl/opengl-app.rb
 sgl/opengl-color.rb
 sgl/opengl-draw.rb
@@ -40,6 +41,11 @@ sgl/opengl.rb
 sgl/qp.rb
 sgl/sgl-color.rb
 sgl/sgl.rb
+sgl/test-all.rb
+sgl/test-cocoa-app.rb
+sgl/test-module-ruby16.rb
+sgl/test-opengl-app.rb
+sgl/test-opengl-basic.rb
 sgl/version.rb
 tests/Makefile
 tests/all.rb
