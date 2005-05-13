@@ -5,15 +5,6 @@ $LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
 
 $VERBOSE = true
 
-=begin
-require "pathname"
-class String
-  def path
-    Pathname.new(self)
-  end
-end
-=end
-
 def load_files(dir, base)
   Dir.chdir(dir)
   Dir.glob(base+"*.rb") {|filename|

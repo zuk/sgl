@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>sgl Exercise 1</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>sgl Exercise 1</h1>
+
+<h2>課題 1～10</h2>
+
+<h3>●課題1: 基本 (window, background, color, line)</h3>
+1A: 一本の線を描くプログラムを作りなさい。<br>
+1B: ある考えの元に3本の線を描くプログラムを作りなさい。<br>
+1C: 5本以下の直線で「変化」を表現するプログラムを作りなさい。<br>
+1D: 10本以下の直線で「ハーモニー（調和）」を表現するプログラムを作りなさい。<br>
+<pre>
+require 'sgl'         # プログラムの最初に必ず書く必要がある
+window 100, 100       # windowを開く
+background 0          # 背景を黒にする
+color 100             # 描画する色を白にする
+line 0, 0, 100, 100   # 左下から右上に線を描く
+wait                  # そのまま待つ
+</pre>
+半透明色の使い方
+<pre>
+require 'sgl'
+window 100,100
+color 100, 0, 0       # 赤
+rect 10,10,70,70      # 四角
+color 0,0,100,50      # 半透明の青
+rect 30,30,90,90      # 四角を重ねてかく
+wait
+</pre>
+
+<h3>●課題2A:</h3>
+ 一つの変数を使って２本の直線の構成をコントロールするプログラムを作りなさい。<br>
+<pre>
+require 'sgl'
+window 100, 100
+a = 50
+line   0, 0, 50, a
+line 100, 0, 50, a
+wait
+</pre>
+
+<h3>●課題3A: 繰り返し (for a in 0..100; end)</h3>
+繰り返しを使った形態を描きなさい。
+<pre>
+require 'sgl'
+window 100, 100
+for a in 20..80
+  color a
+  line a, 0, a, 100
+end
+wait
+</pre>
+
+<h3>●課題4A: 計算 (+ - * /)</h3>
+計算を使った形態をかくプログラムを作りなさい。
+<pre>
+require 'sgl'
+window 100, 100
+for a in 20..40
+  color a
+  line(a, 0, a*2, 100)
+end
+wait
+</pre>
+
+<h3>●課題6A: kadai6a.rb</h3>
+●6. 入れ子構造: 6A: 格子状にひろがる形態を作りなさい
+<pre>
+# kadai6a.rb
+require 'sgl'
+window 200,200
+for a in 0..10
+  for b in 0..10
+    color a*10, b*10, b*10
+    rect a*20+5, b*20+5, a*20+15, b*20+15
+  end
+end
+wait
+</pre>
+
+<h3>●課題7A: kadai7a.rb</h3>
+●7. 質問 (if 50 &lt; a; end): 7A: 画面の左右で違う形態をかきなさい。
+<pre>
+# kadai7a.rb
+require 'sgl'
+window 200,200
+for a in 0..200
+  color a/2, 50, 50
+  if a < 100
+    line a, 50, a, 100
+  else
+    line a, 100, a, 150
+  end
+end
+wait
+</pre>
+
+<h3>●課題8A:</h3>
+defを使って自分なりのコマンドを作り、それを用いた形態をかきなさい。
+<br>
+ファイル名: kadai8a.rb<br>
+<pre>
+require 'sgl'
+window 100,100
+background 100
+
+def my_rect(x1, y1, x2, y2, outline, fill)
+  color fill
+  rect x1, y1, x2, y2
+  color outline
+  line x1, y1, x2, y1
+  line x2, y1, x2, y2
+  line x2, y2, x1, y2
+  line x1, y2, x1, y1
+end
+
+my_rect(20, 20, 40, 30, 20, 50)
+my_rect(60, 60, 80, 90, 70, 90)
+wait
+</pre>
+
+defというコマンドで、関数定義をしています。ここで自分がよく使う、枠
+付きの塗りつぶされた四角形を定義しています。その次にくるのが関数名で
+す。アルファベットの小文字から始まっている必要があります。<p>
+
+この四角を描かせてみると、角のところが1ドットだけ欠けてしまうことが
+あると思います。このライブラリーの特性で、そうなってしまいます。動き
+のデザインをするようになる場合は気にならなくなると思いますので御了承
+下さい。<p>
+
+<h3>●課題9A:</h3>
+flipを使ってアニメーションを作りなさい。
+<br>
+ファイル名: kadai9a.rb<br>
+<pre>
+require 'sgl'
+window 100,100
+loop do
+  for a in 0..100
+    line 20,a,80,a
+    flip
+  end
+end
+wait
+</pre>
+
+flipというところがポイントです。ここで、ちょうど紙をめくるような動作をしています。<br>
+loop do ～～～ end というところもポイントです。その間を無限に繰り返すということをしています。
+
+<h3>●課題10A:</h3>
+HSVによる色指定を使い、自分なりの色グラデーションを作りな
+さい。静止画でもアニメーションでもよいです。(colorHSV,
+backgroundHSV)<br>
+ファイル名: kadai10a.rb<br>
+<pre>
+require 'sgl'
+window 100,100
+background 100
+
+loop do
+  for h in 0..100
+    colorHSV h, 50, 100
+    rect 0, h, 100, h+5
+    flip
+  end
+end
+wait
+</pre>
+
+colorHSV(h, s, v) → hue, saturation, value<br>
+hue → 色調<br>
+saturation → どれだけ原色に近いか<br>
+value → 明るさ<br>
+<p>
+4番目のパラメーターを使って、透明度を設定することもできます。<br>
+backgroundHSVというコマンドもあります。<br>
+<p>
+
+<hr>
+課題はいずれもwindowサイズなどは自由です。課題例は100,100のサイズに
+していますが、できるだけ大きいwindowサイズでやってみてください。<p>
+
+ファイル名は必ず指定のものにして、Z:にセーブしてください。課題提出は
+Z:にあるファイルを自動的に認識して、課題を提出したものとみなしていま
+す。ファイル名が違う場合は提出してないことになってしまうので気をつけ
+てください。<p>
+
+</div>
+</body>
+</html>

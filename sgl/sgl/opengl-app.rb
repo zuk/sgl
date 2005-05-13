@@ -7,7 +7,6 @@ require "sgl/opengl-window"
 require "sgl/opengl-color"
 require "sgl/opengl-event"
 require "sgl/opengl-draw"
-#require "sgl/opengl-modules"
 require "sgl/qp"
 
 module SGL

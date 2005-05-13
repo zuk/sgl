@@ -5,6 +5,9 @@ all:	test
 
 test:	testall
 
+x:
+	chmod -x *.rb
+
 testall:
 	$(RUBY) test-all.rb
 

@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>sgl description</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>sgl description</h1>
+
+<h2>sglの詳細について</h2>
+
+<p>sglは、私が多摩美での授業のために作ったシンプルなライブラリーであ
+る。Rubyをベースとし、グラフィックスはOpenGL、Window表示、マウス入力、
+キー入力などにはSDLを用いている。またMIDIの入出力なども組み合せて使
+えるようになっている。一般にあるライブラリーを使う場合は、それ特有の
+初期化方法などを学ぶ必要がある。できるだけそのような段階を省いて、す
+ぐに直接的な処理を始められるように工夫している。
+</p>
+
+<p>基本的なコンセプトは、春学期に使用したDBNを踏襲している。例えば色
+空間を0～100にしているところなど。恣意的に選べる値の範囲は0～100にな
+るようにしている。ライブラリーの構造はGLUTを参考にしている。
+</p>
+
+<pre>
+●基本的なプログラムの例
+reuire 'sgl'        #最初に必ず必要
+window 100,100      #100x100のウィンドウを生成
+background 0        #背景は黒にします
+color 100           #白を指定します
+line 20,20,80,80    #線を引きます
+rect 20,20,80,80    #四角を描きます
+wait                #プログラムが終了しないように待ちます。ESCキーで終了
+
+●色空間
+color 100,0,0          #赤になる。r,g,bで色が使える
+color 100,0,0,50       #半透明の赤。100が不透明(デフォルト)。0が完全に透明。
+colorHSV 50,0,100      #hsv方式での色指定もできる。
+backgroundHSV 70,0,100 #背景の指定もhsvでできる。
+colorHSV 50,0,100,50   #もちろんhsv方式でもアルファ値は指定できる。
+
+●3Dも使える
+useFov(60)             #field of view。画角を指定
+useDepth               #depth bufferを使う
+line 20,20,20,80,80,80 #とりあえず線
+color 0,100,0,50       #とりあえず半透明
+box 20,20,20,80,80,80  #箱。半透明になっているのがわかるはず
+useSmooth              #線にanti aliasがかかる。
+
+●MIDI関係
+useMidi              #midiを使うということ宣言
+note 1, 60, 90, 100  #ch, note, vel, msec。
+
+●詳細な描画について
+beginObj(QUADS)
+vertex 20,20
+vertex 80,20
+vertex 80,80
+vertex 20,80
+endObj
+#同様に、vertexにz軸の情報を加えれば、3Dとなる。
+
+オブジェクトの種類は、
+LINES POINTS LINE_STRIP LINE_LOOP TRIANGLES TRIANGLE_STRIP
+TRIANGLE_FAN QUADS QUAD_STRIP POLYGON
+が使える。OpenGLと同じ。
+
+●基本的なループ構造
+window 100,100
+def display
+  line 0,0,100,100
+end
+mainloop
+とすると、ループして、描画しつづける。
+
+●マウス入力
+ループした状態で、
+def onMouseDown(x,y)
+  line 0,0,x,y
+end
+などとすると、callbackがかかる。
+同様に、onMouseUp, onKeyDown, onKeyUpなど。
+
+●MIDI input関係
+useMidiIn            #midi inを使うということ宣言
+def onNoteOn(ch, note, vel)
+  p [ch, note, vel]
+end
+などとできる。
+
+同様に、onNoteOff(ch, note)もある。
+
+●ソフトサンプラー機能
+useSound
+sound = loadSound('sine.wav')
+sound.play(60, 100, -100) #note, vel, pan
+</pre>
+
+<h3>Rubyについて</h3>
+
+<p>sglはオブジェクト指向スクリプト言語Rubyを基盤として用いている。も
+し授業の範囲を離れてプログラミング言語としての機能を学びたい場合は直
+接Rubyについてのドキュメントを参照してください。
+
+<ul>
+<li><a href="http://www.ruby-lang.org/ja/">http://www.ruby-lang.org/ja/</a>
+</ul>
+
+<p>以下の書籍がおすすめです。
+
+<ul>
+<li><a href="http://www.pearsoned.co.jp/washo/prog/wa_pro44-j.html">デビッド・トーマス、アンドリュー・ハント「プログラミングRuby」ピアソン・エデュケーション, 2001.</a>
+</ul>
+
+<h3>OpenGLについて</h3>
+
+<p>sglはグラフィック描画のためにOpenGLを使っている。そのため直接
+OpenGLの関数を使うこともできる。OpenGLについては様々な書籍があります
+が、以下のテキストがおすすめ。sgl内からOpenGLを呼び出す方法について
+は、私に直接聞いてください。</p>
+
+<ul>
+<li><a href="http://www.nk-exa.co.jp/mmtech/OpenGLEdu/">http://www.nk-exa.co.jp/mmtech/OpenGLEdu/</a>
+<li><a href="http://www.nk-exa.co.jp/mmtech/OpenGLEdu/Documents/OpenGL-text-091.pdf">http://www.nk-exa.co.jp/mmtech/OpenGLEdu/Documents/OpenGL-text-091.pdf</a>
+</ul>
+
+</body>
+</html>

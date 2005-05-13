@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>sgl sound</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>sgl sound</h1>
+<h2>sgl サウンド機能の使い方</h2>
+
+<p>サウンド機能の使い方について簡単に解説します。</p>
+
+<pre>
+require 'sgl'
+useSound         #この行で、soundを使うことを宣言します。
+sound = loadSound('sine.wav')     #この行で、サンプル音を読みこみます。
+                 #同じディレクトリーにsine.wavというファイルがあることが前提条件です。
+sound.play       #そのサンプル音をならします。
+wait             #プログラムがすぐ終了するのをふせぐために待ちます。
+                 #プログラムが終了しなくなるので、Ctrl+Cで終了します。
+</pre>
+
+<p>もっとも簡単な使い方です。
+
+<p>元となるサンプル音は、どこからもってくればいいのか? これ
+は難問で、マイクからサンプリングするとか、CDからサンプリング
+するとかします。どのようにサンプリングするのか。波形編集ソフ
+トを使ってMP3ファイルから切り出したりするのですが、その使い
+方まで教えると結構大変そうなので躊躇してます。
+
+<pre>
+require 'sgl'
+def setup
+  useSound
+  window -200, -200, 200, 200
+  $y = 0
+  $sound = loadSound('sine.wav')
+end
+
+def onMouseDown(x, y)
+  $y = y
+  $sound.play(y / 10 + 60)
+end
+
+def display
+  line -200, $y, 200, $y
+end
+mainloop
+</pre>
+
+<p>マウスが押されると、その高さに応じた音をだします。
+
+<pre>
+require 'sgl'
+def setup
+  useSound
+  window -200, -200, 200, 200
+  $x = 0
+  $y = 0
+  $sound = loadSound('sine.wav')
+end
+
+def onMouseDown(x, y)
+  $x = x
+  $y = y
+  $sound.play(y / 10 + 60, x / 4 + 50)
+end
+
+def display
+  circle($x, $y, 10)
+end
+mainloop
+</pre>
+
+<p>音量も変えてみました。</p>
+
+<h3>注意点</h3>
+
+<p>授業では大急ぎで教えたのでいくつか注意点を教えそこねてしまいました。
+
+<p>音を同時にたくさん出しすぎると、システム全体が固まってしまいます。
+プログラムがとまるだけでなく、マシン全体がかたまります。なのであまり
+にたくさん音を同時に出しすぎないようにプログラム側で調整してください。
+
+<h3>波形編集ソフト</h3>
+
+<p>Tiny Wave Editor (TWE)というフリーの波形編集ソフトを使ってサンプ
+ル音を作る方法を教えました。フリーソフトなので自分のマシンにもインス
+トールできます。
+
+<ul>
+<li><a href="http://www.yamaha.co.jp/product/syndtm/dl/driver.html#ut">ダウンロード先</a>
+(<a href="http://www.yamaha.co.jp/product/syndtm/dl/soft/twe231w.zip">直リンク Wave Editor TWE V2.3.1</a>)
+<li><a href="http://www.yamaha.co.jp/xg/SoundVQ/doc/knowhow/basic_ed.html">TWEの簡単な使い方</a>
+</ul>
+
+<h3>音楽CDからの取り込み</h3>
+
+<p>音楽CDからの取り込みにはRealJukebox Basicというソフトを使用しまし
+た。このソフトは学校のPCにはインストールできませんでした。このソフト
+もフリーなので、自分のPCにインストールして、自分で取り込めるようにす
+るといいと思います。
+
+<p>注意点は、TWEがMP3ファイルの読み込みに対応していないため、WAVファ
+イルにしなくてはいけないというところです。環境設定を変更することで、
+WAVファイルとして取り込めるようになります。
+
+<ul>
+<li><a href="http://www.jp.real.com/jukebox/index_jp.html">RealJukebox Basic</a>
+</ul>
+
+</div>
+</body>
+</html>

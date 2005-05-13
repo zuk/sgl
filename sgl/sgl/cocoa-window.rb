@@ -1,7 +1,71 @@
 # Copyright (C) 2004-2005 Kouichirou Eto, All rights reserved.
 
 module SGL
+  # window functions
+  def window(*a)	$__a__.window(*a);	end
+  def close_window()	$__a__.close_window;	end
+  def width()		$__a__.width;		end
+  def height()		$__a__.height;		end
+
   class Application
+    def initialize_window
+      @options = default_options
+      @win = @bgview = nil
+      @width = @height = nil
+      @oview = @movview = nil
+      @thread = nil
+    end
+    private :initialize_window
+
+    def default_options
+      {
+	:shadow=>true,
+	:border=>true,
+	:movie=>false,
+	:overlay=>false,
+      }
+    end
+    private :default_options
+
+    # create window
+    def window(*a)
+      return if @win
+
+      @options.update(a.pop) if a.last.is_a? Hash
+
+      if defined?($windowShadow)
+	@options[:shadow] = $windowShadow == 1
+      end
+
+      if defined?($windowBorder)
+	@options[:border] = $windowBorder == 1
+      end
+
+      if @block[:display_overlay]
+	@options[:overlay] = true
+      end
+
+      # get window size
+      case a.length
+      when 2
+	w, h = a
+      when 4
+	raise "not implemented" # x1, y1, x2, y3 = a
+      else
+	raise "please specify width and height"
+      end
+      @width, @height = w, h
+
+      cocoa_create_window(w, h)
+    end
+
+    def close_window
+      @win.close if @win
+      @win = @bgview = nil
+    end
+
+    attr_reader :width, :height
+
     def cocoa_create_window(w, h)
       @receiver = CocoaReceiver.alloc.init
       @receiver.setApp(self)
