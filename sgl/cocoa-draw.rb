@@ -8,47 +8,19 @@ module SGL
     private :to_xywh
   end
 
+  def point(*a)	$__a__.point(*a);	end
+  def lineWidth(*a)	$__a__.lineWidth(*a);	end
+  def line(*a)	$__a__.line(*a);	end
+  def rect(*a)	$__a__.rect(*a);	end
+  def circle(*a)	$__a__.circle(*a);	end
+  def rotateZ(*a)	$__a__.rotateZ(*a);	end
+  def translate(*a)	$__a__.translate(*a);	end
+  def scale(*a)	$__a__.scale(*a);	end
+  def reset(*a)	$__a__.reset(*a);	end
+
   class Application
     include FrameTranslator
 
-    # set color
-    def background(x, y=nil, z=nil, a=nil)
-      @bgcolor = @rgb.norm(x,y,z,a)
-    end
-
-    def backgroundHSV(x, y=nil, z=nil, a=nil)
-      @bgcolor = @hsv.norm(x,y,z,a)
-    end
-
-    def color(x, y=nil, z=nil, a=nil)
-      @curcolor = @rgb.norm(x,y,z,a)
-      set_cur_color
-    end
-
-    def colorHSV(x, y=nil, z=nil, a=nil)
-      @curcolor = @hsv.norm(x,y,z,a)
-      set_cur_color
-    end
-
-    def set_cur_color
-      set_color(*@curcolor)
-    end
-
-    def set_color(*a)
-      make_color(*a).set if @win
-    end
-
-    def make_color(r, g, b, a)
-      OSX::NSColor.colorWithDeviceRed(r, :green, g, :blue, b, :alpha, a)
-    end
-    private :set_cur_color, :set_color, :make_color
-
-    # This methos should be public. called from NSFont
-    def color_cur
-      make_color(*@curcolor)
-    end
-
-    # draw
     def point(a,b)
       line(a,b,a,b)
     end
@@ -58,6 +30,8 @@ module SGL
     end
 
     def line(a,b,c,d)
+      #OSX::NSBezierPath.strokeLine({:fromPoint=>OSX::NSPoint.new(a, b),
+      #				     :toPoint=>OSX::NSPoint.new(c, d)})
       OSX::NSBezierPath.strokeLineFromPoint(OSX::NSPoint.new(a, b),
 					    :toPoint, OSX::NSPoint.new(c, d))
     end

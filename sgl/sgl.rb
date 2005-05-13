@@ -1,7 +1,7 @@
 # Copyright (C) 2004-2005 Kouichirou Eto, All rights reserved.
 
 module SGL
-  #DEFAULT_TYPE = "cocoa"
+ #DEFAULT_TYPE = "cocoa"
   DEFAULT_TYPE = "opengl"
 end
 

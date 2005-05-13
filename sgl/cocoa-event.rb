@@ -1,7 +1,53 @@
 # Copyright (C) 2004-2005 Kouichirou Eto, All rights reserved.
 
 module SGL
+  # callback functions
+  def setup()		end
+  def onMouseDown(x,y)	end
+  def onMouseUp(x,y)	end
+  def onKeyDown(k)	end
+  def onKeyUp(k)	end
+  def display()		end
+
+  # mainloop
+  def mainloop
+    $__a__.set_setup { setup }
+    $__a__.set_mousedown {|x, y| onMouseDown(x, y) }
+    $__a__.set_mouseup   {|x, y| onMouseUp(x, y) }
+    $__a__.set_keydown   {|k| onKeyDown(k) }
+    $__a__.set_keyup     {|k| onKeyUp(k) }
+    $__a__.set_display { display }
+    $__a__.mainloop
+  end
+
+  # get status functions
+  def mouseX()	$__a__.mouseX;	end
+  def mouseY()	$__a__.mouseY;	end
+  def mouseDown() $__a__.mouseDown;	end
+  def keynum()	$__a__.keynum;	end
+
   class Application
+    def initialize_event
+      # block setting
+      @setup_done = nil
+      @display_drawing = nil
+      @display_overlay_drawing = nil
+      @block = {}
+      @delay_time = 1.0/60
+      @runtime = nil
+
+      # status setting
+      @mouseX, @mouseY = 0, 0
+      @mouseDown = 0
+      @keynum = 0
+    end
+    attr_accessor :runtime # for test
+
+    # get status
+    attr_reader :mouseX, :mouseY
+    attr_reader :mouseDown
+    attr_reader :keynum
+
     # setup
     def set_setup(&b)
       return unless block_given?
@@ -61,7 +107,7 @@ module SGL
     end
 
     def display_bg(rect)
-      set_color(*@bgcolor)
+      set_cur_bg
       OSX::NSRectFill(rect)
     end
 
@@ -78,7 +124,7 @@ module SGL
     # sub view
     def display_mov(rect)
       display_clear_bg(rect)
-      set_color(*@curcolor)	# set back current color
+      set_cur_color	# set back current color
     end
 
     def display_overlay_all(rect)
@@ -87,7 +133,7 @@ module SGL
       return if @display_overlay_drawing
       @display_overlay_drawing = true
       display_clear_bg(rect)
-      set_color(*@curcolor)	# set back current color
+      set_cur_color	# set back current color
       @block[:display_overlay].call if @block[:display_overlay]
       @display_overlay_drawing = nil
     end

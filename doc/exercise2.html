@@ -1,0 +1,611 @@
+<html>
+<head>
+<title>sgl Exercise 2</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="container">
+
+<h1>sgl Exercise 2</h1>
+
+<h2>課題 11～21</h2>
+
+<ul>
+<li>課題15: マウスのボタンが押された時に
+<li>課題16: 円の描き方
+<li>課題18: 三次元
+<li>課題19: 速度
+<li>課題20: キーボードからの入力
+<li>課題21: 配列の使い方
+</ul>
+
+<h3>●課題11A: マウスの位置に反応する形</h3>
+<pre>
+require 'sgl'
+window 200,200
+loop do
+  x = mouseX
+  y = mouseY
+  rect x-5, y-5, x+5, y+5
+  flip
+end
+</pre>
+
+<p>mouseXとmouseYというのがポイントです。rectのところで四角を描いています。<br>
+rectの前に「color x, y, 0」<br>
+rectの後に「<br>
+line   0,   0, x, y<br>
+line 200,   0, x, y<br>
+line   0, 200, x, y<br>
+line 200, 200, x, y<br>
+」<br>
+など試してみてください。<br>
+
+<h3>●課題12A: 複雑な形の描画</h3>
+<pre>
+require 'sgl'
+window -200, -200, 200, 200
+beginObj(POLYGON)
+vertex 60, 90
+vertex -120, 60
+vertex -90, -90
+vertex 120, -90
+endObj
+wait
+</pre>
+
+<p>「window -200, -200, 200, 200」このように四つの値を指定することができます。<br>
+beginObjとendObjではさまれた領域で形を描きます。<br>
+
+<pre>
+beginObj(POLYGON)
+color 100, 0, 0, 100
+vertex 60, 90
+color 0, 100, 0, 100
+vertex -120, 60
+color 0, 0, 100, 100
+vertex -90, -90
+color 100, 100, 0, 100
+vertex 120, -90
+endObj
+</pre>
+
+このように頂点ごとに色を指定できます。
+
+<pre>
+beginObj(POLYGON)
+color 100, 0, 0, 0
+vertex 60, 90
+color 0, 100, 0, 100
+vertex -120, 60
+color 0, 0, 100, 100
+vertex -90, -90
+color 100, 100, 0, 0
+vertex 120, -90
+endObj
+</pre>
+
+このように頂点ごとに、透明度も変えられます。
+
+<h3>●課題13A: スムースな線の描画</h3>
+<pre>
+require 'sgl'
+useSmooth
+window -200, -200, 200, 200
+beginObj(LINE_LOOP)
+color 100, 0, 0, 100
+vertex 60, 90
+color 0, 100, 0, 50
+vertex -120, 60
+color 0, 0, 100, 50
+vertex -90, -90
+color 100, 100, 0, 100
+vertex 120, -90
+endObj
+wait
+</pre>
+
+<p>windowの前にポツンと置いてあるuseSmoothがポイントです。<p>
+
+beginObjの括弧の中は、一般的には <tt>POLYGON</tt> または <tt>LINE_LOOP</tt> を指定します。<p>
+
+この二つだけ使えればほぼ全ての形は描けます。それ以外にもいくつか指定
+できる形があるのですが、使い方は同じなので特にとりあげません。以下に
+一覧だけをあげておきます。<p>
+
+LINES, POINTS, LINE_STRIP, LINE_LOOP, TRIANGLES, TRIANGLE_STRIP,
+TRIANGLE_FAN, QUADS, QUAD_STRIP, POLYGON,
+
+<h3>●課題14A: 物体の移動</h3>
+<pre>
+require 'sgl'
+useSmooth
+window -200, -200, 200, 200
+push
+translate 100, 0
+rotateZ 10
+scale 2
+rect -5, -5, 5, 5
+pop
+wait
+</pre>
+
+<p>今回でてきた新しいコマンドが、push, pop, translate, rotateZ, scaleです。<br>
+pushとpopで囲むことが重要です。translate, rotateZ, scaleと、この順番で指定することが重要です。
+
+<p>このコマンドを使うと、形を描くコマンドと、その位置、回転などを指
+定するコマンドとを分離することができます。
+
+<h3>●課題15A: ボタンが押されたその時に</h3>
+<pre>
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 0
+  $x = 0
+  $y = 0
+end
+
+def onMouseDown(x, y)
+  $x = x
+  $y = y
+end
+
+def display
+  line 0, 0, $x, $y
+end
+
+mainloop
+</pre>
+
+<p>ここで扱っているコマンドの使い方は、いままとまったく違うものです。
+いままではプログラムはかかれている順番通りに実行されるというものでし
+た。しかしここで行っているのは、まずコマンドを登録して、それがその後
+呼ばれて実行されるというものです。このようにプログラムの実行の順番が
+まったく違うというのがいままでと異なる点です。
+
+<p>まず、setup, onMouseDown, displayというコマンドを登録しています。
+その後mainloopというコマンドをよんでいます。このメインループの中で、
+全てのプログラムが実行され、適宜setup, displayがよびだされます。
+そして、マウスのボタンが押された瞬間に、onMouseDownという関数が呼ばれます。
+
+<p>そのonMouseDownの前に、$xという$のついた変数がつかわれています。
+これはなんでしょうか。なぜ$をつける必要があるのでしょうか。これがプ
+ログラムの実行の順番がかわったことと関係しています。実行の順番が、上
+から下という単純な順番ではなくなったので、変数が使える範囲というのも
+単純な順番ではわからなくなったのです。通常の変数は、使う範囲が限られ
+ていて、違うコマンドの中身では同じようには使えませんでした。
+
+<p>そこで$のついた変数を使います。$のついた変数は、プログラムにずっ
+とその値を使いつづけることを指定します。$のついた変数が、違うコマン
+ドにまたがって使われているのがわかるでしょう。このように違うコマンド
+にまたがって使われる変数には$をつける必要があるのです。
+またプログラム中にあらわれているように、$x = 0 といった感じで、
+あらかじめなんらかの値を代入して、この変数を使うということを示す必要があります。
+
+<h3>●課題16A: 円</h3>
+<pre>
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $x = 0
+  $y = 0
+end
+
+def onMouseDown(x, y)
+  $x = x
+  $y = y
+end
+
+def display
+  color 100, 0, 0
+  circle($x, $y, 100)
+end
+
+mainloop
+</pre>
+
+<p>円を描きます。マウスボタンを押すと、ボタンを押したところに移動します。
+
+<p>プログラムの構造は課題15Aで導入された、新しい構造を使っています。
+
+<pre>
+def display
+  colorHSV 66, 100, 100, 30
+  circle($x, $y, 100, POLYGON)
+end
+</pre>
+
+<p>塗り潰された円を描きます。
+
+<pre>
+def display
+  colorHSV 33, 100, 100, 30
+  circle($x, $y, 100, POLYGON, 5)
+end
+</pre>
+
+<p>五角形を描きます。いままで円を書いてきましたが、実は正確には32角形を描いていたのです。
+その証拠に上記circle文の5のところを32にすると、普通の円と同じになります。
+</p>
+
+<pre>
+def display
+  x = mouseX
+  y = mouseY
+  colorHSV 8, 100, 100, 50
+  circle(x, y, 100, POLYGON, 7)
+end
+</pre>
+
+<p>マウスを押されないでもついてくるようにするには、上記のようにします。
+</p>
+
+<h3>●課題18A: 3D</h3>
+<pre>
+require 'sgl'
+window -200, -200, 200, 200
+push
+color 100, 0, 0
+translate 30, 40, 20
+rotateZ 10
+rotateY 20
+rotateX 30
+scale 20
+rect -5, -5, 5, 5
+pop
+wait
+</pre>
+
+<p>課題14のところでだした物体の移動の例とほとんど同じです。
+つまり実はあの課題はほとんど3Dの説明と同じことだったわけですね。
+
+<p>違いは、translate 30, 40, 20というふうに三つの値を指定しているところ、
+rotateZだけじゃなく、rotateY rotateXを使っているところです。
+もちろん三つめの値はZ軸、つまり奥行きです。
+手前にくるのが正の値、奥のほうに行くのが負の値です。
+
+<p>また、vertexを使った形の描画でも、今はvertexの後に値を二つだけ指定していますが、
+これも同じように三つの値を指定することで3Dに対応できます。
+
+<pre>
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+end
+
+def display
+  x = mouseX
+  y = mouseY
+
+  push
+  color 100, 0, 0
+  translate x, y, 0
+  rotateX x
+  rotateY y
+  scale 20
+  rect -5, -5, 5, 5
+  pop
+
+end
+
+mainloop
+</pre>
+
+<p>上記のように、マウスの移動と組み合わせることもできます。
+</p>
+
+<pre>
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $pos = []             #中身が空の配列を用意します。
+end
+
+def display
+  x = mouseX
+  y = mouseY
+
+  $pos << [x, y]     #配列に、現在のマウスの位置を追加します。
+
+  $pos.each {|pos|   #配列の各々の要素について、{}の中身を実行します。
+                     #その各々の要素は、posという変数に入ります。
+    x = pos[0]
+    y = pos[1]
+
+    push
+    colorHSV 0, 100, 100, 10
+    translate x, y, 0
+    rotateX x
+    rotateY y
+    scale 20
+    rect -5, -5, 5, 5
+    pop
+
+  }
+
+  if 10 < $pos.length    #もし配列がたまりすぎた場合は、先頭から順に捨てていきます。
+    $pos.shift
+  end
+
+end
+
+mainloop
+</pre>
+
+<p>配列の使用と組み合わせてみました。
+</p>
+
+<h3>●課題19A: 速度</h3>
+<pre>
+require 'sgl'
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $x = 0
+  $y = 0
+end
+ 
+def display
+  x = mouseX
+  y = mouseY
+  speed = 20.0
+  vx = (x - $x)/speed
+  vy = (y - $y)/speed
+  $x = $x + vx
+  $y = $y + vy
+  color 100, 0, 0
+  circle($x, $y, 50, POLYGON)
+end
+mainloop
+</pre>
+
+<p>いままで物の位置だけを扱ってきましたが、そこに速度を導入しています。
+円がマウスのところに近付こうとします。
+</p>
+
+<pre>
+require 'sgl'
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $pos=[]
+  for i in 0..9
+    $pos[i] = [-200 + i * 40, 0]     #最初の位置を指定します。
+  end
+end
+ 
+def display
+  x = mouseX
+  y = mouseY
+
+  speed = 10.0
+  for i in 0..9
+    pos = $pos[i]
+    vx = (x - pos[0]) / speed     #マウスに吸い寄せられる速度
+    vy = (y - pos[1]) / speed
+    speed += 2.0                  #円によって速度が異なるようにする。
+    pos[0] = pos[0] + vx          #マウスに吸い寄せられた位置
+    pos[1] = pos[1] + vy
+    color 100, 0, 0, 10
+    circle(pos[0], pos[1], 50, POLYGON)
+  end
+ 
+end
+mainloop
+</pre>
+
+<p>配列の使い方をわかりやすく説明しています。
+
+<pre>
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+ 
+  $pos=[]
+  $orgpos=[]
+  for i in 0..19
+    $pos[i]    = [-200 + i * 40, 0]     #最初の位置を指定します。
+    $orgpos[i] = [-200 + i * 40, 0]     #最初の位置をもう一つ別の配列に保存しておきます。
+  end
+end
+ 
+def display
+  x = mouseX
+  y = mouseY
+
+  for i in 0..19
+    pos    = $pos[i]     #現在の円の位置
+    orgpos = $orgpos[i]  #元々の位置
+
+    if mouseDown         #マウスのボタンが押されているときだけ、マウスに吸いつく。
+      vx = x - pos[0]
+      vy = y - pos[1]
+      mag = Math.sqrt(vx * vx + vy * vy)
+      mag = mag / 40
+      mag = mag * mag + 1
+      vx = vx / mag
+      vy = vy / mag
+      pos[0] = pos[0] + vx
+      pos[1] = pos[1] + vy
+    end
+
+    speed = 3.0
+    vx2 = (orgpos[0] - pos[0]) / speed     #元々の位置に吸い寄せられる速度
+    vy2 = (orgpos[1] - pos[1]) / speed
+    pos[0] = pos[0] + vx2                  #マウスに吸い寄せられた位置
+    pos[1] = pos[1] + vy2
+    color 100, 0, 0, 30
+    circle(pos[0], pos[1], 50, POLYGON)
+  end
+ 
+end
+mainloop
+</pre>
+
+<p>マウスにすいよせられる円です。マウスボタンを押しているときだけ反応します。
+簡単そうに見えるかもしれませんが、実際にやってることは難しいです。
+</p>
+
+<pre>
+require 'sgl'
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $xpos = []    #配列を準備する。
+  $ypos = []
+  for i in 0..9
+    $xpos[i] = -200 + i * 40
+    $ypos[i] = 0
+  end
+end
+ 
+def display
+  x = mouseX
+  y = mouseY
+
+  speed = 10.0
+  for i in 0..9
+    vx = (x - $xpos[i]) / speed     #マウスに吸い寄せられる速度
+    vy = (y - $ypos[i]) / speed
+    speed += 2.0                  #円によって速度が異なるようにする。
+    $xpos[i] = $xpos[i] + vx                  #マウスに吸い寄せられた位置
+    $ypos[i] = $ypos[i] + vy
+    color 100, 0, 0, 10
+    circle($xpos[i], $ypos[i], 50, POLYGON)
+  end
+ 
+end
+mainloop
+</pre>
+
+<p>配列の使い方をもう少しわかりやすくしました。
+</p>
+
+<h3>●課題20A: キーボードからの入力の仕方</h3>
+<pre>
+require 'sgl'
+def setup
+  window 200, 200
+  background 100
+  $key = 0
+end
+
+def onKeyDown(key)
+  p key
+  $key = key
+end
+ 
+def display
+  colorHSV $key, 100, 100
+  line $key, 0, $key, 200
+end
+mainloop
+</pre>
+
+<p>アルファベットのキーを押すと、keyというところに1～26の値がはいっ
+てきます。Aを押したときは1、Zを押したときは26です。
+
+<p>授業の範囲内ではアルファベットのキーだけでやってみてください。
+以下はそれ以外のキーも使いたい人のためのアドバンスな知識として書いています。
+
+<p>それら以外のキーを押したときは、いろいろな数値がはいってきます。
+例えば数字の0が押されたときは、<tt>SDL::Key::K0</tt>という値がはいってきます。
+このへんはSDLという元のライブラリの数値をそのまま使っています。
+この数値の一覧は、<tt>c:\ruby\doc\rubysdl\rubysdl_const_list.txt</tt>を見てみてください。
+</p>
+
+<h3>●課題21A: 配列の使い方return</h3>
+<pre>
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $pos = []             #中身が空の配列を用意します。
+  for a in 0..10        #配列の要素それぞれについて繰り返します。
+    $pos[a] = 0         #中身に全部0を入れておきます。
+  end
+  $index = 0            #現在配列のどこの部分を指しているかを示す変数です。
+end
+
+def display
+
+  $pos[$index] = mouseX #配列の$indexの示すところに現在のマウスのx座標を入れます。
+
+  for a in 0..10        #配列の要素それぞれについて繰り返します。
+    x = $pos[a]
+    color 0
+    line x, -100, x, 100 #縦線を描きます。
+  end
+
+  $index = $index + 1   #現在を示す$indexを、次の値のところにセットします。
+  if 10 < $index        #$indexが配列の大きさを越えてしまったら、0にセットしなおします。
+    $index = 0
+  end
+
+  p $pos                #この行で、$posという配列の中身がどうなっているかを表示しています。
+
+end
+
+mainloop
+</pre>
+
+<p>配列の使い方の基本形です。
+<p>縦線が、マウスの動きを追って動きます。つまりマウスのx座標だけを保存しています。
+x座標、y座標を保存するとどのようになるでしょうか。
+</p>
+
+<pre>
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $xpos = []             #中身が空の配列を、x座標、y座標について用意します。
+  $ypos = []
+  for a in 0..10        #配列の要素それぞれについて繰り返します。
+    $xpos[a] = 0
+    $ypos[a] = 0
+  end
+  $index = 0            #現在配列のどこの部分を指しているかを示す変数です。
+end
+
+def display
+
+  $xpos[$index] = mouseX
+  $ypos[$index] = mouseY
+
+  for a in 0..10        #配列の要素それぞれについて繰り返します。
+    x = $xpos[a]
+    y = $ypos[a]
+    color 0
+    circle x, y, 50
+  end
+
+  $index = $index + 1   #現在を示す$indexを、次の値のところにセットします。
+  if 10 < $index        #$indexが配列の大きさを越えてしまったら、0にセットしなおします。
+    $index = 0
+  end
+
+  p $xpos
+  p $ypos
+
+end
+
+mainloop
+</pre>
+
+<p>このように値を保存する配列を増やしていけばよいわけです。</p>
+
+</div>
+</body></html>

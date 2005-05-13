@@ -1,7 +1,6 @@
 # Copyright (C) 2004-2005 Kouichirou Eto, All rights reserved.
 
 module SGL
-  # color
   def background(*a)	$__a__.background(*a)	end
   def backgroundHSV(*a)	$__a__.backgroundHSV(*a)	end
   def color(*a)		$__a__.color(*a)	end
@@ -12,8 +11,6 @@ module SGL
       @bg_color = @cur_color = nil
       @rgb = ColorTranslatorRGB.new(100, 100, 100, 100)
       @hsv = ColorTranslatorHSV.new(100, 100, 100, 100)
-      background(0)
-      color(100)
     end
     private :initialize_color
 

@@ -3,8 +3,12 @@
 require "kconv"
 
 module SGL
+  def movie(*a)	$__a__.movie(*a);	end
+  def image(*a)	$__a__.image(*a);	end
+  def font(*a)	$__a__.font(*a);	end
+  def sound(*a)	$__a__.sound(*a);	end
+
   class Application
-    # handle multimedia data
     def movie(u)
       if /\Ahttp:\/\// =~ u || /\Artsp:\/\// =~ u
 	url = OSX::NSURL.URLWithString_(u)
@@ -18,10 +22,10 @@ module SGL
       obj.setMovie(mov)
       obj.showController(false, :adjustingSize, false)
       view = @options[:movie] ? @movview : @bgview
-      # This "p" is needed to show the movie. I don't know why.
+      # This "p" is necessary to show the movie.  I don't know why.
       p [@options[:movie], view]
-      #p view # This does not work.
-      #dummy = view.inspect # This does not work.
+      # p view			# This does not work.
+      # dummy = view.inspect	# This does not work also.
       view.addSubview(obj)
       obj
     end
@@ -53,7 +57,7 @@ module SGL
 
     def rect(a,b,c,d)
       frame(*to_xywh(a, b, c, d))
-      #frame(*@app.to_xywh(a, b, c, d))
+     #frame(*@app.to_xywh(a, b, c, d))
     end
 
     def frame(a,b,c,d)
@@ -94,7 +98,7 @@ module SGL
       drawInRect([x,y,w,h],
 		 :fromRect, [0,0,size.width,size.height],
 		 :operation, OSX::NSCompositeSourceOver,
-		 :fraction, @app.curcolor[3])
+		 :fraction, @app.get_cur_color_alpha)
     end
   end
 
@@ -116,7 +120,7 @@ module SGL
       str.addAttribute(OSX::NSFontAttributeName(),
 		       :value, OSX::NSFont.fontWithName(@name, :size, @size),
 		       :range, [0,str.length])
-      color = @app.color_cur
+      color = @app.make_cur_color
       str.addAttribute(OSX::NSForegroundColorAttributeName(),
 		       :value, color,
 		       :range, [0,str.length])
