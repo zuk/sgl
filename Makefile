@@ -3,3 +3,6 @@ test:
 
 dist:
 	ruby make.rb
+
+x:
+	chmod -x *.html
