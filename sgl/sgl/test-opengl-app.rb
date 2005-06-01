@@ -10,7 +10,7 @@ class TestOpenglBasic < Test::Unit::TestCase
     app = SGL::Application.new
     app.set_setup {
       app.window(100, 100)
-      app.runtime = 0.5
+      app.runtime = 0.1
     }
     i = 0
     app.set_display {
@@ -114,7 +114,7 @@ class TestCocoaDraw < Test::Unit::TestCase
     app = SGL::Application.new
     app.set_setup {
       app.window(100, 100)
-      app.runtime = 0.5
+      app.runtime = 0.2
     }
     i = 0
     app.set_display {
@@ -129,7 +129,7 @@ class TestCocoaDraw < Test::Unit::TestCase
     app = SGL::Application.new
     app.set_setup {
       app.window(300, 300)
-      app.runtime = 0.5
+      app.runtime = 0.2
     }
     i = 0
     app.set_display {
