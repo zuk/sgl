@@ -20,6 +20,10 @@ module SGL
     $__a__.mainloop
   end
 
+  # novice mode
+  def flip(*a)	$__a__.flip(*a)	end
+  def wait(*a)	$__a__.wait(*a)	end
+
   # get status functions
   def mouseX()	$__a__.mouseX;	end
   def mouseY()	$__a__.mouseY;	end
@@ -44,6 +48,8 @@ module SGL
       @mouseX, @mouseY = 0, 0
       @mouseDown = 0
       @keynum = 0
+
+      @starttime = nil
     end
     private :initialize_event
 
@@ -158,31 +164,24 @@ module SGL
 
     def mainloop
       do_setup
-
-      if @options[:framerate]
-	sec_per_frame = 1.0 / @options[:framerate]
-	starttime = Time.now
-	loop {
-	  begintime = Time.now
-	  do_display
-	  endtime = Time.now
-	  diff = sec_per_frame - (endtime - begintime)
-	  sleep(diff) if 0 < diff
-	  return if check_runtime_finished(starttime)
-	}
-      end
-
-      starttime = Time.now
+      @starttime = Time.now
       loop {
+	@begintime = Time.now
 	do_display
 	delay
-	return if check_runtime_finished(starttime)
+	return if check_runtime_finished(@starttime)
       }
     end
 
     def delay
-      delaytime = @options[:delaytime]
-      sleep(delaytime)
+      if @options[:framerate]
+	sec_per_frame = 1.0 / @options[:framerate]
+	diff = sec_per_frame - (Time.now - @begintime)
+	sleep(diff) if 0 < diff
+      else
+	delaytime = @options[:delaytime]
+	sleep(delaytime)
+      end
     end
     private :delay
 
@@ -194,6 +193,25 @@ module SGL
     end
     private :check_runtime_finished
 
+    # novice mode
+    def flip
+      @starttime = Time.now if @starttime.nil?
+      display_post
+      delay
+      display_pre
+      exit if check_runtime_finished(@starttime)
+    end
+
+    def wait
+      #SGL.flip if !$__v__.flipped
+      loop {
+	check_event
+	delay
+	return if check_runtime_finished(@starttime)
+      }
+    end
+
+    # check event
     def check_event
       x, y, l, m, r = SDL::Mouse.state
       # x pos, y pos, left button, middle button, right button

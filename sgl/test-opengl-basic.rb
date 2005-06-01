@@ -2,7 +2,7 @@
 # Copyright (C) 2004-2005 Kouichirou Eto, All rights reserved.
 
 $LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
-require "sgl"
+require "sgl/opengl"
 require "test/unit"
 
 class TestOpenGLBasic < Test::Unit::TestCase
@@ -10,7 +10,7 @@ class TestOpenGLBasic < Test::Unit::TestCase
     app = SGL::Application.new
     app.set_setup {
       app.window(100, 100)
-      app.runtime = 0.5
+      app.runtime = 0.1
     }
     @i = 0
     app.set_display {
@@ -21,3 +21,4 @@ class TestOpenGLBasic < Test::Unit::TestCase
     app.mainloop
   end
 end
+

@@ -13,7 +13,6 @@ module SGL
   # dummy
   def useSound(*a)	end
   def stopSound(*a)	end
-  def flip(*a)	end
 
   class Application
     def initialize
