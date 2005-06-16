@@ -9,7 +9,7 @@
 - Ruby/Math3D
 - Ruby/SDL
 
-Chech this installation memo.
+Chech an installation memo.
 http://eto.com/wiki/RubySDLonWindows.html
 
 ** on Mac OS X
@@ -21,30 +21,28 @@ http://eto.com/wiki/RubySDLonWindows.html
 
 Use Anonymous CVS.
 
+ % cd
  % cvs -d:pserver:anonymous@rubyforge.org:/var/cvs/sgl login
  % cvs -z3 -d:pserver:anonymous@rubyforge.org:/var/cvs/sgl co sgl
 
 * Install
 
-I suppose the tarball is extracted to "~/sgl".
+I suppose you put the CVS files to "~/sgl".
 
-** On Mac OS X 10.2
+** on Windows
  % cd ~/sgl
- % sudo mkdir -p /usr/lib/ruby/site_ruby/1.6
- % sudo mv sgl sgl.rb /usr/lib/ruby/site_ruby/1.6
+ % mv sgl c:/usr/local/lib/ruby/site_ruby/1.8/
+ % mv sgl.rb c:/usr/local/lib/ruby/site_ruby/1.8/
 
-** On Mac OS X 10.3
- % cd ~/sgl
- % sudo mkdir -p /usr/local/lib/ruby/site_ruby/1.6
- % sudo mv sgl sgl.rb /usr/local/lib/ruby/site_ruby/1.6
-
+** on Mac OS X
+not yet.
 
 * How to use
 
-Use this program.
+Use this test program.
 
 ==> test1.rb <==
- require "sgl"
+ require "sgl/opengl"
  def setup
    window 100, 100
  end
@@ -53,11 +51,11 @@ Use this program.
  end
  mainloop
 
-Use this command to run the program.
-And you can see a small window.
+Type this command from command line.
 
  % ruby test1.rb
 
+You can see a small window.
 The install is successfully finished.
 Please see sample code on futher documentation.
 And also you can see test code.

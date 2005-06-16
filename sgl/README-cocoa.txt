@@ -21,10 +21,10 @@ I suppose the tarball is extracted to "~/sgl".
 
 * How to use
 
-Use this program.
+Use this test program.
 
 ==> test1.rb <==
- require "sgl"
+ require "sgl/cocoa"
  def setup
    window 100, 100
  end
