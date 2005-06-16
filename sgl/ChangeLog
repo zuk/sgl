@@ -4,6 +4,7 @@
 	* doc/style.css: Update.
 	* doc/*: Reformat.
 	* sample/sample*.rb: New files.
+	* README.txt, README-opengl.txt, README-cocoa.txt: New files.
 
 2005-06-01  Kouichirou Eto  <2005 eto.com>
 
