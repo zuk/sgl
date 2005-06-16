@@ -23,6 +23,7 @@ module SGL
   # novice mode
   def flip(*a)	$__a__.flip(*a)	end
   def wait(*a)	$__a__.wait(*a)	end
+  def process(&b)	$__a__.process(&b)	end
 
   # get status functions
   def mouseX()	$__a__.mouseX;	end
@@ -187,7 +188,7 @@ module SGL
 
     def check_runtime_finished(starttime)
       runtime = @options[:runtime]
-      return if runtime.nil?
+      return false if runtime.nil?
       diff = Time.now - starttime
       return (runtime && runtime < diff)
     end
@@ -199,13 +200,25 @@ module SGL
       display_post
       delay
       display_pre
-      exit if check_runtime_finished(@starttime)
+#      exit if check_runtime_finished(@starttime)
     end
 
     def wait
       #SGL.flip if !$__v__.flipped
       loop {
 	check_event
+	delay
+	return if check_runtime_finished(@starttime)
+      }
+    end
+
+    def process(&b)
+      block = Proc.new
+      @starttime = Time.now
+      loop {
+	check_event
+	block.call
+	#yield
 	delay
 	return if check_runtime_finished(@starttime)
       }
