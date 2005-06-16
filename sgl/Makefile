@@ -1,5 +1,5 @@
-#RUBY = ruby
-RUBY = ruby16
+RUBY = ruby
+#RUBY = ruby16
 
 all:	test
 

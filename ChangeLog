@@ -1,3 +1,15 @@
+2005-06-16  Kouichirou Eto  <2005 eto.com>
+
+	* opengl-event.rb: New method process.
+	* doc/style.css: Update.
+	* doc/*: Reformat.
+	* sample/sample*.rb: New files.
+
+2005-06-01  Kouichirou Eto  <2005 eto.com>
+
+	* opengl-app.rb: delete flip
+	* opengl-event.rb: add flip, wait for novice mode.
+
 2005-05-13  Kouichirou Eto  <2005 eto.com>
 
 	* add documentation.
