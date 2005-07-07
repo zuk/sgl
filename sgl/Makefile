@@ -1,9 +1,11 @@
 RUBY = ruby
 #RUBY = ruby16
+DRUBY_SERVER_URL = druby://localhost:12345
 
-all:	test
+all:	testall
 
-test:	testall
+run:
+	$(RUBY) sgl-server.rb $(DRUBY_SERVER_URL)
 
 x:
 	chmod -x *.rb

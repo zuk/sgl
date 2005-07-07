@@ -1,3 +1,10 @@
+2005-07-07  Kouichirou Eto  <2005 eto.com>
+
+	* sgl-client.rb: New file for network test.
+	* sgl-server.rb: Ditto.
+	* sgl-connect.rb: Ditto.
+	* samples/sample15.rb, sample16.rb, sample16a.rb: New files.
+
 2005-06-16  Kouichirou Eto  <2005 eto.com>
 
 	* opengl-event.rb: New method process.
