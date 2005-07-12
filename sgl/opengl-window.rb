@@ -137,7 +137,9 @@ module SGL
     end
 
     def useFullscreen(w = nil, h = nil)
-      @options[:fullscreen] = (w.nil? || h.nil?) ? nil : [w, h]
+      if @options[:fullscreen].nil?
+        @options[:fullscreen] = (w.nil? || h.nil?) ? nil : [w, h]
+      end
     end
 
     def useCursor(bmpfile)

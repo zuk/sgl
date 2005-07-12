@@ -21,13 +21,13 @@ module SGL
     $__a__.set_keydown   {|k| onKeyDown(k) }
     $__a__.set_keyup     {|k| onKeyUp(k) }
     if ! $__a__.check_display0
-      qp "set display0, etc"
+      #qp "set display0, etc"
       $__a__.set_display0 { display0 }
       $__a__.set_mousedown0 {|x, y| onMouseDown0(x, y) }
     end
     #qp display0
     $__a__.set_display { display }
-    qp "go mainloop"
+    #qp "go mainloop"
     $__a__.mainloop
   end
 
@@ -202,9 +202,9 @@ module SGL
     private :calc_keynum
 
     def mainloop
-      qp "start mainloop"
+      #qp "start mainloop"
       do_setup
-      qp "setup done"
+      #qp "setup done"
       @starttime = Time.now
       loop {
 	@begintime = Time.now
