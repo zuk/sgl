@@ -60,17 +60,20 @@ module SGL
 
       @width, @height = (@right - @left), (@top - @bottom)
 
-      # sdl_window_init
-      mode =  SDL::OPENGL
-      if @options[:fullscreen]
-	mode |= SDL::FULLSCREEN
-	w, h = @options[:fullscreen]
-	SDL.setVideoMode(w, h, 0, mode)
-      else
-	SDL.setVideoMode(@width, @height + 1, 0, mode) # why +1?
+      if ! defined?($sdl_window_initialized)
+        # sdl_window_init
+        mode =  SDL::OPENGL
+        if @options[:fullscreen]
+          mode |= SDL::FULLSCREEN
+          w, h = @options[:fullscreen]
+          SDL.setVideoMode(w, h, 0, mode)
+        else
+          SDL.setVideoMode(@width, @height + 1, 0, mode) # why +1?
+        end
+        GC.start
+        SDL::WM.setCaption("sgl", "sgl")
+        $sdl_window_initialized = true
       end
-      GC.start
-      SDL::WM.setCaption("sgl", "sgl")
 
       # setCurosr
       if @options[:cursor]
