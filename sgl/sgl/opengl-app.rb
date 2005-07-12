@@ -18,9 +18,9 @@ module SGL
     def initialize
       Thread.abort_on_exception = true
       @options = default_options
-      initialize_window
-      initialize_color
-      initialize_event
+      initialize_window	# opengl-window.rb
+      initialize_color	# sgl-color.rb
+      initialize_event	# opengl-event.rb
     end
 
     def default_options

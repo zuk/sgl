@@ -9,6 +9,10 @@ module SGL
   def onKeyUp(k)	end
   def display()		end
 
+  # callback functions for fullscreen
+  def onMouseDown0(x,y)	end
+  def display0()	end
+
   # mainloop
   def mainloop
     $__a__.set_setup { setup }
@@ -16,7 +20,14 @@ module SGL
     $__a__.set_mouseup   {|x, y| onMouseUp(x, y) }
     $__a__.set_keydown   {|k| onKeyDown(k) }
     $__a__.set_keyup     {|k| onKeyUp(k) }
+    if ! $__a__.check_display0
+      qp "set display0, etc"
+      $__a__.set_display0 { display0 }
+      $__a__.set_mousedown0 {|x, y| onMouseDown0(x, y) }
+    end
+    #qp display0
     $__a__.set_display { display }
+    qp "go mainloop"
     $__a__.mainloop
   end
 
@@ -28,11 +39,13 @@ module SGL
   # get status functions
   def mouseX()	$__a__.mouseX;	end
   def mouseY()	$__a__.mouseY;	end
-  def mouseX0()	$__a__.mouseX0;	end
-  def mouseY0()	$__a__.mouseY0;	end
   def mouseDown()	$__a__.mouseDown;	end
   def key(k)	$__a__.key[k];	end
   def keynum()	$__a__.keynum;	end
+
+  # get status functions for fullscreen
+  def mouseX0()	$__a__.mouseX0;	end
+  def mouseY0()	$__a__.mouseY0;	end
 
   # event control
   def useDelay(*a)	$__a__.useDelay(*a)	end
@@ -47,6 +60,7 @@ module SGL
 
       # status setting
       @mouseX, @mouseY = 0, 0
+      @mouseX0, @mouseY0 = 0, 0
       @mouseDown = 0
       @keynum = 0
 
@@ -56,6 +70,7 @@ module SGL
 
     # get status
     attr_reader :mouseX, :mouseY
+    attr_reader :mouseX0, :mouseY0
     attr_reader :mouseDown
     attr_reader :keynum
 
@@ -86,6 +101,15 @@ module SGL
       @block[:display] = Proc.new
     end
 
+    def set_display0(&b)
+      return unless block_given?
+      @block[:display0] = Proc.new
+    end
+
+    def check_display0
+      return ! @block[:display0].nil?
+    end
+
     def display_pre
       set_camera_position
       check_event
@@ -93,8 +117,10 @@ module SGL
     end
 
     def do_display # callback
+      #qp @setup_done
       return if @setup_done.nil?
-      return if @display_drawing
+#      qp @display_drawing
+#      return if @display_drawing
       @display_drawing = true
       display_pre
       @block[:display].call if @block[:display]
@@ -105,6 +131,7 @@ module SGL
     def display_post
       set_fullscreen_camera_position
       cur_color = @cur_color
+      @block[:display0].call if @block[:display0]
       color(*cur_color)
       SDL.GLSwapBuffers
       #GC.start
@@ -120,6 +147,7 @@ module SGL
     def do_mousedown
       @mouseDown = 1
       @block[:mousedown].call(@mouseX, @mouseY) if @block[:mousedown]
+      @block[:mousedown0].call(@mouseX0, @mouseY0) if @block[:mousedown0]
     end
 
     def set_mouseup(&b)
@@ -130,6 +158,16 @@ module SGL
     def do_mouseup
       @mouseDown = 0
       @block[:mouseup].call(@mouseX, @mouseY) if @block[:mouseup]
+    end
+
+    # mouse events for fullscreen
+    def set_mousedown0(&b)
+      return unless block_given?
+      @block[:mousedown0] = Proc.new
+    end
+
+    def check_mousedown0
+      return ! @block[:mousedown0].nil?
     end
 
     # key events
@@ -164,11 +202,14 @@ module SGL
     private :calc_keynum
 
     def mainloop
+      qp "start mainloop"
       do_setup
+      qp "setup done"
       @starttime = Time.now
       loop {
 	@begintime = Time.now
 	do_display
+	#qp "do display done"
 	delay
 	return if check_runtime_finished(@starttime)
       }
@@ -200,7 +241,7 @@ module SGL
       display_post
       delay
       display_pre
-#      exit if check_runtime_finished(@starttime)
+     #exit if check_runtime_finished(@starttime)
     end
 
     def wait
@@ -229,7 +270,7 @@ module SGL
       x, y, l, m, r = SDL::Mouse.state
       # x pos, y pos, left button, middle button, right button
       @mouseX, @mouseY = calc_mouse_xy(x, y)
-      # @mouseX0, @mouseY0 = calc_fullscreen_mouse_xy(x, y)
+      @mouseX0, @mouseY0 = calc_fullscreen_mouse_xy(x, y)
       event = @sdl_event
       while event.poll != 0
 	case event.type

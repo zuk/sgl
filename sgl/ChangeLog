@@ -1,3 +1,12 @@
+2005-07-11  Kouichirou Eto  <2005 eto.com>
+
+	* opengl-event.rb: Add fullscreen methods.
+	* test-opengl-fullscreen.rb: Test case.
+	* sgl-spring.rb: Spring object.
+	* sgl-button.rb: Button object.
+	* sgl-bass.rb: Bass object.
+	* sgl-objlib.rb: Obj library.
+
 2005-07-07  Kouichirou Eto  <2005 eto.com>
 
 	* sgl-client.rb: New file for network test.
