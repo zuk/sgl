@@ -4,9 +4,10 @@
 $LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
 require "sgl/opengl"
 require "test/unit"
-puts $LOAD_PATH
-puts $"
+#puts $LOAD_PATH
+#puts $"
 
+if $0 == __FILE__
 class TestOpenGLNovice < Test::Unit::TestCase
   def test_1st
     window 100, 100
@@ -34,4 +35,4 @@ class TestOpenGLNovice < Test::Unit::TestCase
     }
   end
 end
-
+end
