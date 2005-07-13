@@ -21,14 +21,21 @@ module SGL
     $__a__.set_keydown   {|k| onKeyDown(k) }
     $__a__.set_keyup     {|k| onKeyUp(k) }
     if ! $__a__.check_display0
-      #qp "set display0, etc"
       $__a__.set_display0 { display0 }
       $__a__.set_mousedown0 {|x, y| onMouseDown0(x, y) }
     end
-    #qp display0
     $__a__.set_display { display }
-    #qp "go mainloop"
-    $__a__.mainloop
+
+    if ! defined?($__sgl_in_mainloop__)
+      $__sgl_in_mainloop__ = true
+      $__a__.mainloop
+    else
+      # do setup only.
+      $__a__.mainloop_setup
+
+      # for debug
+      # $__a__.mainloop
+    end
   end
 
   # novice mode
@@ -201,15 +208,16 @@ module SGL
     end
     private :calc_keynum
 
-    def mainloop
-      #qp "start mainloop"
+    def mainloop_setup
       do_setup
-      #qp "setup done"
+    end
+
+    def mainloop
+      mainloop_setup
       @starttime = Time.now
       loop {
 	@begintime = Time.now
 	do_display
-	#qp "do display done"
 	delay
 	return if check_runtime_finished(@starttime)
       }

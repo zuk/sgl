@@ -17,8 +17,13 @@ module SGL
   def useCursor(*a)	$__a__.useCursor(*a)	end
 
   class Application
+    DEFAULT_WINDOW_WIDTH  = 100
+    DEFAULT_WINDOW_HEIGHT = 100
+    DEFAULT_FULLSCREEN_WIDTH  = 1024
+    DEFAULT_FULLSCREEN_HEIGHT = 768
+
     def initialize_window
-      @width, @height = 100, 100
+      @width, @height = DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT
       @left, @bottom, @right, @top = 0, 0, @width, @height
       @cameraX, @cameraY, @cameraZ = 0, 0, 5
       initialize_sdl
@@ -60,7 +65,8 @@ module SGL
 
       @width, @height = (@right - @left), (@top - @bottom)
 
-      if ! defined?($sdl_window_initialized)
+      # Do not initialize twice.
+      if ! defined?($__sgl_sdl_window_initialized__)
         # sdl_window_init
         mode =  SDL::OPENGL
         if @options[:fullscreen]
@@ -72,7 +78,7 @@ module SGL
         end
         GC.start
         SDL::WM.setCaption("sgl", "sgl")
-        $sdl_window_initialized = true
+        $__sgl_sdl_window_initialized__ = true
       end
 
       # setCurosr
@@ -136,7 +142,7 @@ module SGL
       @options[:culling] ? GL.Enable(GL::CULL_FACE) : GL.Disable(GL::CULL_FACE)
     end
 
-    def useFullscreen(w = nil, h = nil)
+    def useFullscreen(w=DEFAULT_FULLSCREEN_WIDTH, h=DEFAULT_FULLSCREEN_HEIGHT)
       if @options[:fullscreen].nil?
         @options[:fullscreen] = (w.nil? || h.nil?) ? nil : [w, h]
       end
