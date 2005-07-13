@@ -65,7 +65,14 @@ class ButtonColumn
   end
 
   def move(x, y)
-    @y_spring.target = y.abs < (768/2 - 120) ? @hy : @dy
+    # @y_spring.target = y.abs < (768/2 - 120) ? @hy : @dy
+    #if y.abs < (768/2 - 120)
+    #qp @dy, y, (@dy - y), (@dy - y).abs
+    if (@dy - y).abs < 50
+      @y_spring.target = @dy
+    else
+      @y_spring.target = @hy
+    end
     @y_spring.moving = true
     @y_spring.move
     y = @y_spring.x
@@ -102,7 +109,7 @@ end
 if defined?($test) && $test
   class TestSglButton < Test::Unit::TestCase
     def test_button
-      b = Button.new(nil, 1, 2)
+      b = Button.new(1, 2)
       assert_equal(1, b.x)
       assert_equal(2, b.y)
       assert_equal([1, 2], b.pos)
@@ -115,7 +122,7 @@ if defined?($test) && $test
 	app.runtime = 0.1
       }
       i = 0
-      button = Button.new(app, 0, 0)
+      button = Button.new(0, 0)
       app.set_display {
 	button.move_to(i, i)
 	button.draw(i)

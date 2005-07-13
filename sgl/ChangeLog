@@ -1,3 +1,9 @@
+2005-07-14  Kouichirou Eto  <2005 eto.com>
+
+	* opengl-event.rb: Bug fix. Do not reentrant mainloop.
+	* opengl-window.rb: Add default size for fullscreen.
+	* sgl-button.rb: Show them near by the buttons.
+
 2005-07-11  Kouichirou Eto  <2005 eto.com>
 
 	* opengl-event.rb: Add fullscreen methods.
