@@ -6,7 +6,7 @@ h2. What
 
 'sgl' is a simgple generic library to create a program with graphics and sound.
 
-You can also use <a href="cocoa.html">cocoa versoin</a> of sgl.
+You can also use <a href="cocoa.html">cocoa version</a> of sgl.
 
 h2. Requirement
 

@@ -1,6 +1,6 @@
 h1. sgl-cocoa
 
-h1. &#x2192; cocoa version of sgl
+h1. &#x2192; sgl with Ruby/Cocoa
 
 h2. What
 
