@@ -45,7 +45,7 @@ NAME = "sgl"
 REV = nil 
 # UNCOMMENT IF REQUIRED: 
 # REV = `svn info`.each {|line| if line =~ /^Revision:/ then k,v = line.split(': '); break v.chomp; else next; end} rescue nil
-VERS = Sgl::VERSION::STRING + (REV ? ".#{REV}" : "")
+VERS = SGL::VERSION::STRING + (REV ? ".#{REV}" : "")
 CLEAN.include ['**/.*.sw?', '*.gem', '.config', '**/.DS_Store']
 CLEAN.include ['*~']
 RDOC_OPTS = ['--quiet', '--title', 'sgl documentation',
