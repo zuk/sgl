@@ -6,12 +6,11 @@ h2. What
 
 'sgl' is a simgple generic library to create a program with graphics and sound.
 
-This library contains two version.
+You can also use <a href="cocoa.html">cocoa versoin</a> of sgl.
 
 h2. Requirement
 
 h3. Windows
-
 * Ruby 1.8.5 or later
 * Ruby/OpenGL
 * Ruby/Math3D
@@ -21,7 +20,6 @@ You can see a document to install these libraries here.
 http://eto.com/wiki/RubySDLonWindows.html
 
 h3. Mac OS X
-
 * Mac OS X 10.3 or later
 * Ruby 1.8.5 or later
 * X Window system
