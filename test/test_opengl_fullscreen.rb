@@ -5,7 +5,7 @@ $LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
 require "sgl/opengl"
 require "test/unit"
 
-class TestOpenGLBasic < Test::Unit::TestCase
+class TestOpenGLFullscreen < Test::Unit::TestCase
   def test_all
     app = SGL::Application.new
     app.set_setup {
