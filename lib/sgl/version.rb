@@ -1,3 +1,6 @@
+# Copyright (C) 2004-2007 Kouichirou Eto, All rights reserved.
+# License: Ruby License
+
 module SGL #:nodoc:
   module VERSION #:nodoc:
     MAJOR = 0
@@ -5,7 +8,5 @@ module SGL #:nodoc:
     TINY  = 1
 
     STRING = [MAJOR, MINOR, TINY].join('.')
-
-    RELEASE_DATE = "20070619"
   end
 end
