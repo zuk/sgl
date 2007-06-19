@@ -1,0 +1,113 @@
+h1. sglの説明
+
+h2. What is sgl?
+
+sglは，Rubyからグラフィックやサウンドを簡単に扱えるようにしたライブラ
+リである．できるだけ優しくプログラミングを初められるように，シンプルな
+記述で必要最小限の動作するプログラムを作成できるようになっている．
+
+"DBN":http://dbn.media.mit.edu/ というプログラミング環境が提供していた
+理念を継承し，可能な限り簡単にプログラミングに取り組めるように工夫して
+いる．DBNの理念を継承した環境として，
+"Processing":http://www.processing.org/ とは兄弟関係にあると言える．
+
+グラフィックスはOpenGL，Window表示，マウス入力，キー入力などにはSDLを
+用いている．またMIDIの入出力なども組み合せて使えるようになっている．ラ
+イブラリーの構造はGLUTを参考にしている．
+
+<pre syntax="ruby">
+# 基本的なプログラムの例
+reuire 'sgl'        # 最初に必ず必要
+window 100,100      # 100x100のウィンドウを生成
+background 0        # 背景は黒にします
+color 100           # 白を指定します
+line 20,20,80,80    # 線を引きます
+rect 20,20,80,80    # 四角を描きます
+wait                # プログラムが終了しないように待つ．ESCキーで終了する．
+
+# 色空間
+color 100,0,0          # 赤になる．r,g,bで色が使える
+color 100,0,0,50       # 半透明の赤．100が不透明(デフォルト)．0が完全に透明．
+colorHSV 50,0,100      # hsv方式での色指定もできる．
+backgroundHSV 70,0,100 # 背景の指定もhsvでできる．
+colorHSV 50,0,100,50   # もちろんhsv方式でもアルファ値は指定できる．
+
+# 3Dも使える
+useFov(60)             # field of view．画角を指定
+useDepth               # depth bufferを使う
+line 20,20,20,80,80,80 # とりあえず線
+color 0,100,0,50       # とりあえず半透明
+box 20,20,20,80,80,80  # 箱．半透明になっている
+useSmooth              # 線にanti aliasがかかる．
+
+# MIDI関係
+useMidi              # midiを使うということ宣言
+note 1, 60, 90, 100  # ch, note, vel, msec．
+
+# 詳細な描画について
+beginObj(QUADS)
+vertex 20,20
+vertex 80,20
+vertex 80,80
+vertex 20,80
+endObj
+# 同様に，vertexにz軸の情報を加えれば，3Dとなる．
+
+オブジェクトの種類は，
+LINES POINTS LINE_STRIP LINE_LOOP TRIANGLES TRIANGLE_STRIP
+TRIANGLE_FAN QUADS QUAD_STRIP POLYGON
+が使える．OpenGLと同じ．
+
+# 基本的なループ構造
+window 100,100
+def display
+  line 0,0,100,100
+end
+mainloop
+とすると，ループして，描画しつづける．
+
+# マウス入力
+ループした状態で，
+def onMouseDown(x,y)
+  line 0,0,x,y
+end
+などとすると，callbackがかかる．
+同様に，onMouseUp, onKeyDown, onKeyUpなど．
+
+# MIDI input関係
+useMidiIn            # midi inを使うということ宣言
+def onNoteOn(ch, note, vel)
+  p [ch, note, vel]
+end
+などとできる．
+
+同様に，onNoteOff(ch, note)もある．
+
+# ソフトサンプラー機能
+useSound
+sound = loadSound('sine.wav')
+sound.play(60, 100, -100) # note, vel, pan
+</pre>
+
+h2. What is Ruby?
+
+sglはオブジェクト指向スクリプト言語Rubyを基盤として用いている．もし授
+業の範囲を離れてプログラミング言語としての機能を学びたい場合は直接Ruby 
+についてのドキュメントを参照してください．
+
+* "Ruby":http://www.ruby-lang.org/ja/
+
+以下の書籍をおすすめする．
+
+* "プログラミングRuby 第2版 言語編":http://www.amazon.co.jp/dp/4274066428/etocom05-22
+* "プログラミングRuby 第2版 ライブラリ編":http://www.amazon.co.jp/dp/4274066436/etocom05-22
+
+h2. What is OpenGL?
+
+sglはグラフィック描画のためにOpenGLを使っている．そのため直接OpenGLの
+関数を使うことも可能である．OpenGLについては様々な書籍があるが，下記の
+テキストをおすすめする．sgl内からOpenGLを呼び出す方法については，直接
+聞いてください．
+
+* "OpenGLプログラミングコース":http://www.exa-corp.co.jp/solution/UBIQ/OpenGL/index.shtml
+** "OpenGLプログラミングテキスト":http://www.exa-corp.co.jp/solution/UBIQ/OpenGL/OpenGL-text-091.pdf

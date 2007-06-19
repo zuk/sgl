@@ -1,0 +1,79 @@
+h1. sgl sound
+
+h2. sgl サウンド機能の使い方
+
+サウンド機能の使い方について解説する．
+
+<pre syntax="ruby">
+require 'sgl'
+useSound         # soundを使うことを宣言する．
+sound = loadSound('sine.wav')     # サンプル音をファイルから読みこむ．
+                 # 同じディレクトリーにsine.wavというファイルを置いておく．
+sound.play       # そのサンプル音を再生する．
+wait             # プログラムがすぐ終了するのをふせぐために待つ．
+                 # Ctrl+Cで，プログラムが終了する．
+</pre>
+
+元となるサンプル音は，マイクからサンプリングしたり，インターネットから
+フリーの音源をダウンロードする．波形編集ソフトを使ってMP3ファイルから
+切り出したりする方法もある．
+
+<pre syntax="ruby">
+require 'sgl'
+def setup
+  useSound
+  window -200, -200, 200, 200
+  $y = 0
+  $sound = loadSound('sine.wav')
+end
+
+def onMouseDown(x, y)
+  $y = y
+  $sound.play(y / 10 + 60)
+end
+
+def display
+  line -200, $y, 200, $y
+end
+mainloop
+</pre>
+
+マウスが押されると，その高さに応じた音を再生する．音量も変化する．
+
+<pre syntax="ruby">
+require 'sgl'
+def setup
+  useSound
+  window -200, -200, 200, 200
+  $x = 0
+  $y = 0
+  $sound = loadSound('sine.wav')
+end
+
+def onMouseDown(x, y)
+  $x = x
+  $y = y
+  $sound.play(y / 10 + 60, x / 4 + 50)
+end
+
+def display
+  circle($x, $y, 10)
+end
+mainloop
+</pre>
+
+h2. 注意点
+
+音を同時にたくさん出すと，システム全体が固まる．プログラムが止まるだけ
+でなく，マシン全体が固まる．あまりたくさん音を同時に出しすぎないように
+プログラム側で調整する．
+
+h2. 波形編集ソフト
+
+AudacityやWave Editor TWEなどのフリーの波形編集ソフトを使ってサンプル
+音を編集できる．自分が持っているMP3ファイルを元に編集することもできる．
+AudacityなどでMP3ファイルを開き，該当個所のみを切り出して保存しなおす
+とよい．
+
+* "Audacity":http://audacity.sourceforge.net/
+* "Wave Editor TWE":http://www.yamaha.co.jp/product/syndtm/dl/utility/twe/
