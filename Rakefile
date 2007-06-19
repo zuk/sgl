@@ -167,4 +167,16 @@ task :chmod => [:clean] do
   sh "chmod 755 scripts/*"
 end
 
+task :replace do
+  require "qp"
+  Dir.glob("*/*/*.rb").each {|file|
+    str = open(file) {|f| f.read }
+    if /\$test/ =~ str
+      str.gsub!(/\$test/) { '$__sgl_test__' }
+      qp file, str.length
+      open(file, "wb") {|f| f.print str }
+    end
+  }
+end
+
 #task :default => :test
