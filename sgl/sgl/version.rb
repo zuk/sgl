@@ -1,4 +1,0 @@
-module SGL
-  VERSION = "0.3"
-  RELEASE_DATE = "20070610"
-end
