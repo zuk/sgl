@@ -6,8 +6,6 @@ h2. What
 
 'sgl' is a simgple generic library to create a program with graphics and sound.
 
-You can also use <a href="cocoa.html">cocoa version</a> of sgl.
-
 h2. Requirement
 
 h3. Windows
@@ -53,6 +51,24 @@ end
 
 mainloop
 </pre>
+
+h2. Pages
+* <a href="cocoa.html">cocoa version</a>
+* <a href="description.html">sglの説明</a>
+* <a href="setup.html">sgl設定方法</a>
+* <a href="howto.html">便利情報</a>
+* <a href="sound.html">サウンド機能の説明</a>
+
+h2. Classes
+
+We have had classes using sgl.
+I'll include some materials for the classes.
+
+* <a href="exercise1.html">課題 1〜10</a>
+* <a href="exercise2.html">課題 11〜21</a>
+* <a href="challenge1.html">特別課題1</a>
+* <a href="challenge2.html">特別課題2</a>
+* <a href="challenge3.html">最終課題</a>
 
 h2. Repositry
 

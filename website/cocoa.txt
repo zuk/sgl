@@ -34,11 +34,3 @@ mainloop
 </pre>
 
 Run the program with <tt>ruby test1.rb</tt>.
-
-h2. License
-
-Ruby License.
-
-h2. Contact
-
-Comments are welcome. Send an email to "Kouichirou Eto" <eto at rubyforge dot org>.

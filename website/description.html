@@ -1,153 +1,173 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>sgl description</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      sglの説明
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
 </head>
 <body>
+<div id="main">
 
-<div class="container">
-<div class="main">
-<div class="adminmenu">
-<p><a href="index.html">back</a></p>
-</div>
+    <h1>sglの説明</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/sgl"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/sgl" class="numbers">0.3.1</a>
+    </div>
+    <h2>What is sgl?</h2>
 
-<h1>sgl description</h1>
 
-<div class="day">
-<h2>sgl�̏ڍׂɂ���</h2>
-<div class="body">
-<div class="section">
+	<p>sglは，Rubyからグラフィックやサウンドを簡単に扱えるようにしたライブラ
+リである．できるだけ優しくプログラミングを初められるように，シンプルな
+記述で必要最小限の動作するプログラムを作成できるようになっている．</p>
 
-<p>sgl�́A�����������ł̎��Ƃ̂��߂ɍ�����V���v���ȃ��C�u�����[�ł�
-��BRuby���x�[�X�Ƃ��A�O���t�B�b�N�X��OpenGL�AWindow�\���A�}�E�X���́A
-�L�[���͂Ȃǂɂ�SDL��p���Ă���B�܂�MIDI�̓��o�͂Ȃǂ��g�ݍ����Ďg
-����悤�ɂȂ��Ă���B��ʂɂ��郉�C�u�����[���g���ꍇ�́A������L��
-���������@�Ȃǂ��w�ԕK�v������B�ł��邾�����̂悤�Ȓi�K���Ȃ��āA��
-���ɒ��ړI�ȏ������n�߂���悤�ɍH�v���Ă���B
-</p>
 
-<p>��{�I�ȃR���Z�v�g�́A�t�w���Ɏg�p����DBN�𓥏P���Ă���B�Ⴆ�ΐF
-��Ԃ�0�`100�ɂ��Ă���Ƃ���ȂǁB���ӓI�ɑI�ׂ�l�͈̔͂�0�`100�ɂ�
-��悤�ɂ��Ă���B���C�u�����[�̍\����GLUT���Q�l�ɂ��Ă���B
-</p>
+	<p>これは元々DBNというプログラミング環境が提供していた仕様を継承したもの
+であり，基本的には同じようなコマンドを使えるようにしている．また，DBN
+の意図を継承したという点で，Processingとは兄弟のような関係にある．</p>
 
-<pre>
-����{�I�ȃv���O�����̗�
-reuire 'sgl'        #�ŏ��ɕK���K�v
-window 100,100      #100x100�̃E�B���h�E�𐶐�
-background 0        #�w�i�͍��ɂ��܂�
-color 100           #�����w�肵�܂�
-line 20,20,80,80    #���������܂�
-rect 20,20,80,80    #�l�p��`���܂�
-wait                #�v���O�������I�����Ȃ��悤�ɑ҂��܂��BESC�L�[�ŏI��
 
-���F���
-color 100,0,0          #�ԂɂȂ�Br,g,b�ŐF���g����
-color 100,0,0,50       #�������̐ԁB100���s����(�f�t�H���g)�B0�����S�ɓ����B
-colorHSV 50,0,100      #hsv�����ł̐F�w����ł���B
-backgroundHSV 70,0,100 #�w�i�̎w���hsv�łł���B
-colorHSV 50,0,100,50   #�������hsv�����ł��A���t�@�l�͎w��ł���B
+	<p>グラフィックスはOpenGL，Window表示，マウス入力，キー入力などにはSDLを
+用いている．またMIDIの入出力なども組み合せて使えるようになっている．ラ
+イブラリーの構造はGLUTを参考にしている．</p>
 
-��3D���g����
-useFov(60)             #field of view�B��p���w��
-useDepth               #depth buffer���g��
-line 20,20,20,80,80,80 #�Ƃ肠������
-color 0,100,0,50       #�Ƃ肠����������
-box 20,20,20,80,80,80  #���B�������ɂȂ��Ă���̂��킩��͂�
-useSmooth              #����anti alias��������B
 
-��MIDI�֌W
-useMidi              #midi���g���Ƃ������Ɛ錾
-note 1, 60, 90, 100  #ch, note, vel, msec�B
+<pre syntax="ruby">
+●基本的なプログラムの例
+reuire 'sgl'        # 最初に必ず必要
+window 100,100      # 100x100のウィンドウを生成
+background 0        # 背景は黒にします
+color 100           # 白を指定します
+line 20,20,80,80    # 線を引きます
+rect 20,20,80,80    # 四角を描きます
+wait                # プログラムが終了しないように待つ．ESCキーで終了する．
 
-���ڍׂȕ`��ɂ���
+●色空間
+color 100,0,0          # 赤になる．r,g,bで色が使える
+color 100,0,0,50       # 半透明の赤．100が不透明(デフォルト)．0が完全に透明．
+colorHSV 50,0,100      # hsv方式での色指定もできる．
+backgroundHSV 70,0,100 # 背景の指定もhsvでできる．
+colorHSV 50,0,100,50   # もちろんhsv方式でもアルファ値は指定できる．
+
+●3Dも使える
+useFov(60)             # field of view．画角を指定
+useDepth               # depth bufferを使う
+line 20,20,20,80,80,80 # とりあえず線
+color 0,100,0,50       # とりあえず半透明
+box 20,20,20,80,80,80  # 箱．半透明になっている
+useSmooth              # 線にanti aliasがかかる．
+
+●MIDI関係
+useMidi              # midiを使うということ宣言
+note 1, 60, 90, 100  # ch, note, vel, msec．
+
+●詳細な描画について
 beginObj(QUADS)
 vertex 20,20
 vertex 80,20
 vertex 80,80
 vertex 20,80
 endObj
-#���l�ɁAvertex��z���̏���������΁A3D�ƂȂ�B
+# 同様に，vertexにz軸の情報を加えれば，3Dとなる．
 
-�I�u�W�F�N�g�̎�ނ́A
+オブジェクトの種類は，
 LINES POINTS LINE_STRIP LINE_LOOP TRIANGLES TRIANGLE_STRIP
 TRIANGLE_FAN QUADS QUAD_STRIP POLYGON
-���g����BOpenGL�Ɠ����B
+が使える．OpenGLと同じ．
 
-����{�I�ȃ��[�v�\��
+●基本的なループ構造
 window 100,100
 def display
   line 0,0,100,100
 end
 mainloop
-�Ƃ���ƁA���[�v���āA�`�悵�Â���B
+とすると，ループして，描画しつづける．
 
-���}�E�X����
-���[�v������ԂŁA
+●マウス入力
+ループした状態で，
 def onMouseDown(x,y)
   line 0,0,x,y
 end
-�ȂǂƂ���ƁAcallback��������B
-���l�ɁAonMouseUp, onKeyDown, onKeyUp�ȂǁB
+などとすると，callbackがかかる．
+同様に，onMouseUp, onKeyDown, onKeyUpなど．
 
-��MIDI input�֌W
-useMidiIn            #midi in���g���Ƃ������Ɛ錾
+●MIDI input関係
+useMidiIn            # midi inを使うということ宣言
 def onNoteOn(ch, note, vel)
   p [ch, note, vel]
 end
-�ȂǂƂł���B
+などとできる．
 
-���l�ɁAonNoteOff(ch, note)������B
+同様に，onNoteOff(ch, note)もある．
 
-���\�t�g�T���v���[�@�\
+●ソフトサンプラー機能
 useSound
 sound = loadSound('sine.wav')
-sound.play(60, 100, -100) #note, vel, pan
+sound.play(60, 100, -100) # note, vel, pan
 </pre>
-</div>
-</div>
+
+	<h2>What is Ruby?</h2>
+
+
+	<p>sglはオブジェクト指向スクリプト言語Rubyを基盤として用いている．もし授
+業の範囲を離れてプログラミング言語としての機能を学びたい場合は直接Ruby
+についてのドキュメントを参照してください．</p>
+
+
+	<ul>
+	<li>http://www.ruby-lang.org/ja/</li>
+	</ul>
+
+
+	<p>以下の書籍をおすすめする．</p>
+
+
+	<ul>
+	<li><a href="http://www.pearsoned.co.jp/washo/prog/wa_pro44-j.html">デビッド・トーマス，アンドリュー・ハント「プログラミングRuby」ピアソン・エデュケーション, 2001.</a></li>
+	</ul>
+
+
+	<h2>What is OpenGL?</h2>
+
+
+	<p>sglはグラフィック描画のためにOpenGLを使っている．そのため直接OpenGLの
+関数を使うことも可能である．OpenGLについては様々な書籍があるが，下記の
+テキストをおすすめする．sgl内からOpenGLを呼び出す方法については，直接
+聞いてください．</p>
+
+
+	<ul>
+	<li>http://www.nk-exa.co.jp/mmtech/OpenGLEdu/</li>
+		<li>http://www.nk-exa.co.jp/mmtech/OpenGLEdu/Documents/OpenGL-text-091.pdf</li>
+	</ul>
+    <p class="coda">
+      19th June 2007<br>
+      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
+    </p>
 </div>
 
-<div class="day">
-<h2>Ruby�ɂ���</h2>
-<div class="body">
-<div class="section">
-
-<p>sgl�̓I�u�W�F�N�g�w���X�N���v�g����Ruby����ՂƂ��ėp���Ă���B��
-�����Ƃ͈̔͂𗣂�ăv���O���~���O����Ƃ��Ă̋@�\���w�т����ꍇ�͒�
-��Ruby�ɂ��Ẵh�L�������g���Q�Ƃ��Ă��������B
-
-<ul>
-<li><a href="http://www.ruby-lang.org/ja/">http://www.ruby-lang.org/ja/</a>
-</ul>
-
-<p>�ȉ��̏��Ђ��������߂ł��B
-
-<ul>
-<li><a href="http://www.pearsoned.co.jp/washo/prog/wa_pro44-j.html">�f�r�b�h�E�g�[�}�X�A�A���h�����[�E�n���g�u�v���O���~���ORuby�v�s�A�\���E�G�f���P�[�V����, 2001.</a>
-</ul>
-</div>
-</div>
-</div>
-
-<div class="day">
-<h2>OpenGL�ɂ���</h2>
-<div class="body">
-<div class="section">
-
-<p>sgl�̓O���t�B�b�N�`��̂��߂�OpenGL���g���Ă���B���̂��ߒ���
-OpenGL�̊֐����g�����Ƃ��ł���BOpenGL�ɂ��Ă͗l�X�ȏ��Ђ�����܂�
-���A�ȉ��̃e�L�X�g���������߁Bsgl������OpenGL���Ăяo�����@�ɂ���
-�́A���ɒ��ڕ����Ă��������B</p>
-
-<ul>
-<li><a href="http://www.nk-exa.co.jp/mmtech/OpenGLEdu/">http://www.nk-exa.co.jp/mmtech/OpenGLEdu/</a>
-<li><a href="http://www.nk-exa.co.jp/mmtech/OpenGLEdu/Documents/OpenGL-text-091.pdf">http://www.nk-exa.co.jp/mmtech/OpenGLEdu/Documents/OpenGL-text-091.pdf</a>
-</ul>
-</div>
-</div>
-</div>
+<!-- insert site tracking codes here, like Google Urchin -->
 
 </body>
 </html>

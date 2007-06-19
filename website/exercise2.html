@@ -1,35 +1,57 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>sgl Exercise 2</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      sgl Exercise 2
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
 </head>
 <body>
+<div id="main">
 
-<div class="container">
-<div class="main">
-<div class="adminmenu">
-<p><a href="index.html">back</a></p>
-</div>
+    <h1>sgl Exercise 2</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/sgl"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/sgl" class="numbers">0.3.1</a>
+    </div>
+    <h2>課題 11〜21</h2>
 
-<h1>sgl Exercise 2</h1>
 
-<div class="day">
-<h2>�ۑ� 11�`21</h2>
-<div class="body">
-<div class="section">
+	<ul>
+	<li>課題15: マウスのボタンが押された時に</li>
+		<li>課題16: 円の描き方</li>
+		<li>課題18: 三次元</li>
+		<li>課題19: 速度</li>
+		<li>課題20: キーボードからの入力</li>
+		<li>課題21: 配列の使い方</li>
+	</ul>
 
-<ul>
-<li>�ۑ�15: �}�E�X�̃{�^���������ꂽ����
-<li>�ۑ�16: �~�̕`����
-<li>�ۑ�18: �O����
-<li>�ۑ�19: ���x
-<li>�ۑ�20: �L�[�{�[�h����̓���
-<li>�ۑ�21: �z��̎g����
-</ul>
 
-<h3>���ۑ�11A: �}�E�X�̈ʒu�ɔ�������`</h3>
-<pre>
+	<h2>課題11A: マウスの位置に反応する形</h2>
+
+
+<pre syntax="ruby">
 require 'sgl'
 window 200,200
 loop do
@@ -40,18 +62,23 @@ loop do
 end
 </pre>
 
-<p>mouseX��mouseY�Ƃ����̂��|�C���g�ł��Brect�̂Ƃ���Ŏl�p��`���Ă��܂��B<br>
-rect�̑O�Ɂucolor x, y, 0�v<br>
-rect�̌�Ɂu<br>
-line   0,   0, x, y<br>
-line 200,   0, x, y<br>
-line   0, 200, x, y<br>
-line 200, 200, x, y<br>
-�v<br>
-�Ȃǎ����Ă݂Ă��������B<br>
+	<p>mouseXとmouseYというのがポイントです。rectのところで四角を描いています。</p>
 
-<h3>���ۑ�12A: ���G�Ȍ`�̕`��</h3>
-<pre>
+
+	<p>rectの前に「color x, y, 0」
+rectの後に「
+line   0,   0, x, y
+line 200,   0, x, y
+line   0, 200, x, y
+line 200, 200, x, y
+」
+など試してみてください。</p>
+
+
+	<h2>課題12A: 複雑な形の描画</h2>
+
+
+<pre syntax="ruby">
 require 'sgl'
 window -200, -200, 200, 200
 beginObj(POLYGON)
@@ -63,10 +90,11 @@ endObj
 wait
 </pre>
 
-<p>�uwindow -200, -200, 200, 200�v���̂悤�Ɏl�̒l���w�肷�邱�Ƃ��ł��܂��B<br>
-beginObj��endObj�ł͂��܂ꂽ�̈�Ō`��`���܂��B<br>
+	<p>「window -200, -200, 200, 200」このように四つの値を指定することができます。
+beginObjとendObjではさまれた領域で形を描きます。</p>
 
-<pre>
+
+<pre syntax="ruby">
 beginObj(POLYGON)
 color 100, 0, 0, 100
 vertex 60, 90
@@ -79,9 +107,10 @@ vertex 120, -90
 endObj
 </pre>
 
-���̂悤�ɒ��_���ƂɐF���w��ł��܂��B
+	<p>このように頂点ごとに色を指定できます。</p>
 
-<pre>
+
+<pre syntax="ruby">
 beginObj(POLYGON)
 color 100, 0, 0, 0
 vertex 60, 90
@@ -94,10 +123,13 @@ vertex 120, -90
 endObj
 </pre>
 
-���̂悤�ɒ��_���ƂɁA�����x���ς����܂��B
+	<p>このように頂点ごとに、透明度も変えられます。</p>
 
-<h3>���ۑ�13A: �X���[�X�Ȑ��̕`��</h3>
-<pre>
+
+	<h2>課題13A: スムースな線の描画</h2>
+
+
+<pre syntax="ruby">
 require 'sgl'
 useSmooth
 window -200, -200, 200, 200
@@ -114,19 +146,25 @@ endObj
 wait
 </pre>
 
-<p>window�̑O�Ƀ|�c���ƒu���Ă���useSmooth���|�C���g�ł��B<p>
+	<p>windowの前にポツンと置いてあるuseSmoothがポイントです。</p>
 
-beginObj�̊��ʂ̒��́A��ʓI�ɂ� <tt>POLYGON</tt> �܂��� <tt>LINE_LOOP</tt> ���w�肵�܂��B<p>
 
-���̓�����g����΂قڑS�Ă̌`�͕`���܂��B����ȊO�ɂ��������w��
-�ł���`������̂ł����A�g�����͓����Ȃ̂œ��ɂƂ肠���܂���B�ȉ���
-�ꗗ�����������Ă����܂��B<p>
+	<p>beginObjの括弧の中は、一般的には <tt><span class="caps">POLYGON</span></tt> または <tt><span class="caps">LINE</span>_LOOP</tt> を指定します。</p>
 
-LINES, POINTS, LINE_STRIP, LINE_LOOP, TRIANGLES, TRIANGLE_STRIP,
-TRIANGLE_FAN, QUADS, QUAD_STRIP, POLYGON,
 
-<h3>���ۑ�14A: ���̂̈ړ�</h3>
-<pre>
+	<p>この二つだけ使えればほぼ全ての形は描けます。それ以外にもいくつか指定
+できる形があるのですが、使い方は同じなので特にとりあげません。以下に
+一覧だけをあげておきます。</p>
+
+
+	<p><span class="caps">LINES</span>, POINTS, <span class="caps">LINE</span>_STRIP, <span class="caps">LINE</span>_LOOP, <span class="caps">TRIANGLES</span>, TRIANGLE_STRIP,
+<span class="caps">TRIANGLE</span>_FAN, <span class="caps">QUADS</span>, QUAD_STRIP, <span class="caps">POLYGON</span>,</p>
+
+
+	<h2>課題14A: 物体の移動</h2>
+
+
+<pre syntax="ruby">
 require 'sgl'
 useSmooth
 window -200, -200, 200, 200
@@ -139,14 +177,18 @@ pop
 wait
 </pre>
 
-<p>����łĂ����V�����R�}���h���Apush, pop, translate, rotateZ, scale�ł��B<br>
-push��pop�ň͂ނ��Ƃ��d�v�ł��Btranslate, rotateZ, scale�ƁA���̏��ԂŎw�肷�邱�Ƃ��d�v�ł��B
+	<p>今回でてきた新しいコマンドが、push, pop, translate, rotateZ, scaleです。
+pushとpopで囲むことが重要です。translate, rotateZ, scaleと、この順番で指定することが重要です。</p>
 
-<p>���̃R�}���h���g���ƁA�`��`���R�}���h�ƁA���̈ʒu�A��]�Ȃǂ��w
-�肷��R�}���h�Ƃ𕪗����邱�Ƃ��ł��܂��B
 
-<h3>���ۑ�15A: �{�^���������ꂽ���̎���</h3>
-<pre>
+	<p>このコマンドを使うと、形を描くコマンドと、その位置、回転などを指
+定するコマンドとを分離することができます。</p>
+
+
+	<h2>課題15A: ボタンが押されたその時に</h2>
+
+
+<pre syntax="ruby">
 require 'sgl'
 
 def setup
@@ -168,33 +210,39 @@ end
 mainloop
 </pre>
 
-<p>�����ň����Ă���R�}���h�̎g�����́A���܂܂Ƃ܂������Ⴄ���̂ł��B
-���܂܂ł̓v���O�����͂�����Ă��鏇�Ԓʂ�Ɏ��s�����Ƃ������̂ł�
-���B�����������ōs���Ă���̂́A�܂��R�}���h��o�^���āA���ꂪ���̌�
-�Ă΂�Ď��s�����Ƃ������̂ł��B���̂悤�Ƀv���O�����̎��s�̏��Ԃ�
-�܂������Ⴄ�Ƃ����̂����܂܂łƈقȂ�_�ł��B
+	<p>ここで扱っているコマンドの使い方は、いままとまったく違うものです。
+いままではプログラムはかかれている順番通りに実行されるというものでし
+た。しかしここで行っているのは、まずコマンドを登録して、それがその後
+呼ばれて実行されるというものです。このようにプログラムの実行の順番が
+まったく違うというのがいままでと異なる点です。</p>
 
-<p>�܂��Asetup, onMouseDown, display�Ƃ����R�}���h��o�^���Ă��܂��B
-���̌�mainloop�Ƃ����R�}���h�����ł��܂��B���̃��C�����[�v�̒��ŁA
-�S�Ẵv���O���������s����A�K�Xsetup, display����т�����܂��B
-�����āA�}�E�X�̃{�^���������ꂽ�u�ԂɁAonMouseDown�Ƃ����֐����Ă΂�܂��B
 
-<p>����onMouseDown�̑O�ɁA$x�Ƃ���$�̂����ϐ��������Ă��܂��B
-����͂Ȃ�ł��傤���B�Ȃ�$������K�v������̂ł��傤���B���ꂪ�v
-���O�����̎��s�̏��Ԃ�����������ƂƊ֌W���Ă��܂��B���s�̏��Ԃ��A��
-���牺�Ƃ����P���ȏ��Ԃł͂Ȃ��Ȃ����̂ŁA�ϐ����g����͈͂Ƃ����̂�
-�P���ȏ��Ԃł͂킩��Ȃ��Ȃ����̂ł��B�ʏ�̕ϐ��́A�g���͈͂������
-�Ă��āA�Ⴄ�R�}���h�̒��g�ł͓����悤�ɂ͎g���܂���ł����B
+	<p>まず、setup, onMouseDown, displayというコマンドを登録しています。
+その後mainloopというコマンドをよんでいます。このメインループの中で、
+全てのプログラムが実行され、適宜setup, displayがよびだされます。
+そして、マウスのボタンが押された瞬間に、onMouseDownという関数が呼ばれます。</p>
 
-<p>������$�̂����ϐ����g���܂��B$�̂����ϐ��́A�v���O�����ɂ���
-�Ƃ��̒l���g���Â��邱�Ƃ��w�肵�܂��B$�̂����ϐ����A�Ⴄ�R�}��
-�h�ɂ܂������Ďg���Ă���̂��킩��ł��傤�B���̂悤�ɈႤ�R�}���h
-�ɂ܂������Ďg����ϐ��ɂ�$������K�v������̂ł��B
-�܂��v���O�������ɂ�����Ă���悤�ɁA$x = 0 �Ƃ����������ŁA
-���炩���߂Ȃ�炩�̒l�������āA���̕ϐ����g���Ƃ������Ƃ������K�v������܂��B
 
-<h3>���ۑ�16A: �~</h3>
-<pre>
+	<p>そのonMouseDownの前に、$xという$のついた変数がつかわれています。
+これはなんでしょうか。なぜ$をつける必要があるのでしょうか。これがプ
+ログラムの実行の順番がかわったことと関係しています。実行の順番が、上
+から下という単純な順番ではなくなったので、変数が使える範囲というのも
+単純な順番ではわからなくなったのです。通常の変数は、使う範囲が限られ
+ていて、違うコマンドの中身では同じようには使えませんでした。</p>
+
+
+	<p>そこで$のついた変数を使います。$のついた変数は、プログラムにずっ
+とその値を使いつづけることを指定します。$のついた変数が、違うコマン
+ドにまたがって使われているのがわかるでしょう。このように違うコマンド
+にまたがって使われる変数には$をつける必要があるのです。
+またプログラム中にあらわれているように、$x = 0 といった感じで、
+あらかじめなんらかの値を代入して、この変数を使うということを示す必要があります。</p>
+
+
+	<h2>課題16A: 円</h2>
+
+
+<pre syntax="ruby">
 require 'sgl'
 
 def setup
@@ -217,31 +265,34 @@ end
 mainloop
 </pre>
 
-<p>�~��`���܂��B�}�E�X�{�^���������ƁA�{�^�����������Ƃ���Ɉړ����܂��B
+	<p>円を描きます。マウスボタンを押すと、ボタンを押したところに移動します。</p>
 
-<p>�v���O�����̍\���͉ۑ�15A�œ������ꂽ�A�V�����\�����g���Ă��܂��B
 
-<pre>
+	<p>プログラムの構造は課題15Aで導入された、新しい構造を使っています。</p>
+
+
+<pre syntax="ruby">
 def display
   colorHSV 66, 100, 100, 30
   circle($x, $y, 100, POLYGON)
 end
 </pre>
 
-<p>�h��ׂ��ꂽ�~��`���܂��B
+	<p>塗り潰された円を描きます。</p>
 
-<pre>
+
+<pre syntax="ruby">
 def display
   colorHSV 33, 100, 100, 30
   circle($x, $y, 100, POLYGON, 5)
 end
 </pre>
 
-<p>�܊p�`��`���܂��B���܂܂ŉ~�������Ă��܂������A���͐��m�ɂ�32�p�`��`���Ă����̂ł��B
-���̏؋��ɏ�Lcircle����5�̂Ƃ����32�ɂ���ƁA���ʂ̉~�Ɠ����ɂȂ�܂��B
-</p>
+	<p>五角形を描きます。いままで円を書いてきましたが、実は正確には32角形を描いていたのです。
+その証拠に上記circle文の5のところを32にすると、普通の円と同じになります。</p>
 
-<pre>
+
+<pre syntax="ruby">
 def display
   x = mouseX
   y = mouseY
@@ -250,11 +301,13 @@ def display
 end
 </pre>
 
-<p>�}�E�X��������Ȃ��ł����Ă���悤�ɂ���ɂ́A��L�̂悤�ɂ��܂��B
-</p>
+	<p>マウスを押されないでもついてくるようにするには、上記のようにします。</p>
 
-<h3>���ۑ�18A: 3D</h3>
-<pre>
+
+	<h2>課題18A: 3D</h2>
+
+
+<pre syntax="ruby">
 require 'sgl'
 window -200, -200, 200, 200
 push
@@ -269,18 +322,21 @@ pop
 wait
 </pre>
 
-<p>�ۑ�14�̂Ƃ���ł��������̂̈ړ��̗�ƂقƂ�Ǔ����ł��B
-�܂���͂��̉ۑ�͂قƂ��3D�̐����Ɠ������Ƃ������킯�ł��ˁB
+	<p>課題14のところでだした物体の移動の例とほとんど同じです。
+つまり実はあの課題はほとんど3Dの説明と同じことだったわけですね。</p>
 
-<p>�Ⴂ�́Atranslate 30, 40, 20�Ƃ����ӂ��ɎO�̒l���w�肵�Ă���Ƃ���A
-rotateZ��������Ȃ��ArotateY rotateX���g���Ă���Ƃ���ł��B
-�������O�߂̒l��Z���A�܂艜�s���ł��B
-��O�ɂ���̂����̒l�A���̂ق��ɍs���̂����̒l�ł��B
 
-<p>�܂��Avertex���g�����`�̕`��ł��A����vertex�̌�ɒl�������w�肵�Ă��܂����A
-����������悤�ɎO�̒l���w�肷�邱�Ƃ�3D�ɑΉ��ł��܂��B
+	<p>違いは、translate 30, 40, 20というふうに三つの値を指定しているところ、
+rotateZだけじゃなく、rotateY rotateXを使っているところです。
+もちろん三つめの値はZ軸、つまり奥行きです。
+手前にくるのが正の値、奥のほうに行くのが負の値です。</p>
 
-<pre>
+
+	<p>また、vertexを使った形の描画でも、今はvertexの後に値を二つだけ指定していますが、
+これも同じように三つの値を指定することで3Dに対応できます。</p>
+
+
+<pre syntax="ruby">
 require 'sgl'
 
 def setup
@@ -306,26 +362,26 @@ end
 mainloop
 </pre>
 
-<p>��L�̂悤�ɁA�}�E�X�̈ړ��Ƒg�ݍ��킹�邱�Ƃ��ł��܂��B
-</p>
+	<p>上記のように、マウスの移動と組み合わせることもできます。</p>
 
-<pre>
+
+<pre syntax="ruby">
 require 'sgl'
 
 def setup
   window -200, -200, 200, 200
   background 100
-  $pos = []             #���g����̔z���p�ӂ��܂��B
+  $pos = []             #中身が空の配列を用意します。
 end
 
 def display
   x = mouseX
   y = mouseY
 
-  $pos << [x, y]     #�z��ɁA���݂̃}�E�X�̈ʒu��ǉ����܂��B
+  $pos &lt;&lt; [x, y]     #配列に、現在のマウスの位置を追加します。
 
-  $pos.each {|pos|   #�z��̊e�X�̗v�f�ɂ��āA{}�̒��g�����s���܂��B
-                     #���̊e�X�̗v�f�́Apos�Ƃ����ϐ��ɓ���܂��B
+  $pos.each {|pos|   #配列の各々の要素について、{}の中身を実行します。
+                     #その各々の要素は、posという変数に入ります。
     x = pos[0]
     y = pos[1]
 
@@ -340,7 +396,7 @@ def display
 
   }
 
-  if 10 < $pos.length    #�����z�񂪂��܂肷�����ꍇ�́A�擪���珇�Ɏ̂ĂĂ����܂��B
+  if 10 &lt; $pos.length    #もし配列がたまりすぎた場合は、先頭から順に捨てていきます。
     $pos.shift
   end
 
@@ -349,11 +405,13 @@ end
 mainloop
 </pre>
 
-<p>�z��̎g�p�Ƒg�ݍ��킹�Ă݂܂����B
-</p>
+	<p>配列の使用と組み合わせてみました。</p>
 
-<h3>���ۑ�19A: ���x</h3>
-<pre>
+
+	<h2>課題19A: 速度</h2>
+
+
+<pre syntax="ruby">
 require 'sgl'
 def setup
   window -200, -200, 200, 200
@@ -361,7 +419,7 @@ def setup
   $x = 0
   $y = 0
 end
- 
+
 def display
   x = mouseX
   y = mouseY
@@ -376,21 +434,21 @@ end
 mainloop
 </pre>
 
-<p>���܂܂ŕ��̈ʒu�����������Ă��܂������A�����ɑ��x�𓱓����Ă��܂��B
-�~���}�E�X�̂Ƃ���ɋߕt�����Ƃ��܂��B
-</p>
+	<p>いままで物の位置だけを扱ってきましたが、そこに速度を導入しています。
+円がマウスのところに近付こうとします。</p>
 
-<pre>
+
+<pre syntax="ruby">
 require 'sgl'
 def setup
   window -200, -200, 200, 200
   background 100
   $pos=[]
   for i in 0..9
-    $pos[i] = [-200 + i * 40, 0]     #�ŏ��̈ʒu���w�肵�܂��B
+    $pos[i] = [-200 + i * 40, 0]     #最初の位置を指定します。
   end
 end
- 
+
 def display
   x = mouseX
   y = mouseY
@@ -398,45 +456,46 @@ def display
   speed = 10.0
   for i in 0..9
     pos = $pos[i]
-    vx = (x - pos[0]) / speed     #�}�E�X�ɋz���񂹂��鑬�x
+    vx = (x - pos[0]) / speed     #マウスに吸い寄せられる速度
     vy = (y - pos[1]) / speed
-    speed += 2.0                  #�~�ɂ���đ��x���قȂ�悤�ɂ���B
-    pos[0] = pos[0] + vx          #�}�E�X�ɋz���񂹂�ꂽ�ʒu
+    speed += 2.0                  #円によって速度が異なるようにする。
+    pos[0] = pos[0] + vx          #マウスに吸い寄せられた位置
     pos[1] = pos[1] + vy
     color 100, 0, 0, 10
     circle(pos[0], pos[1], 50, POLYGON)
   end
- 
+
 end
 mainloop
 </pre>
 
-<p>�z��̎g�������킩��₷���������Ă��܂��B
+	<p>配列の使い方をわかりやすく説明しています。</p>
 
-<pre>
+
+<pre syntax="ruby">
 require 'sgl'
 
 def setup
   window -200, -200, 200, 200
   background 100
- 
+
   $pos=[]
   $orgpos=[]
   for i in 0..19
-    $pos[i]    = [-200 + i * 40, 0]     #�ŏ��̈ʒu���w�肵�܂��B
-    $orgpos[i] = [-200 + i * 40, 0]     #�ŏ��̈ʒu��������ʂ̔z��ɕۑ����Ă����܂��B
+    $pos[i]    = [-200 + i * 40, 0]     #最初の位置を指定します。
+    $orgpos[i] = [-200 + i * 40, 0]     #最初の位置をもう一つ別の配列に保存しておきます。
   end
 end
- 
+
 def display
   x = mouseX
   y = mouseY
 
   for i in 0..19
-    pos    = $pos[i]     #���݂̉~�̈ʒu
-    orgpos = $orgpos[i]  #���X�̈ʒu
+    pos    = $pos[i]     #現在の円の位置
+    orgpos = $orgpos[i]  #元々の位置
 
-    if mouseDown         #�}�E�X�̃{�^����������Ă���Ƃ������A�}�E�X�ɋz�����B
+    if mouseDown         #マウスのボタンが押されているときだけ、マウスに吸いつく。
       vx = x - pos[0]
       vy = y - pos[1]
       mag = Math.sqrt(vx * vx + vy * vy)
@@ -449,59 +508,60 @@ def display
     end
 
     speed = 3.0
-    vx2 = (orgpos[0] - pos[0]) / speed     #���X�̈ʒu�ɋz���񂹂��鑬�x
+    vx2 = (orgpos[0] - pos[0]) / speed     #元々の位置に吸い寄せられる速度
     vy2 = (orgpos[1] - pos[1]) / speed
-    pos[0] = pos[0] + vx2                  #�}�E�X�ɋz���񂹂�ꂽ�ʒu
+    pos[0] = pos[0] + vx2                  #マウスに吸い寄せられた位置
     pos[1] = pos[1] + vy2
     color 100, 0, 0, 30
     circle(pos[0], pos[1], 50, POLYGON)
   end
- 
+
 end
 mainloop
 </pre>
 
-<p>�}�E�X�ɂ����悹����~�ł��B�}�E�X�{�^���������Ă���Ƃ������������܂��B
-�ȒP�����Ɍ����邩������܂��񂪁A���ۂɂ���Ă邱�Ƃ͓���ł��B
-</p>
+	<p>マウスにすいよせられる円です。マウスボタンを押しているときだけ反応します。
+簡単そうに見えるかもしれませんが、実際にやってることは難しいです。</p>
 
-<pre>
+
+<pre syntax="ruby">
 require 'sgl'
 def setup
   window -200, -200, 200, 200
   background 100
-  $xpos = []    #�z�����������B
+  $xpos = []    #配列を準備する。
   $ypos = []
   for i in 0..9
     $xpos[i] = -200 + i * 40
     $ypos[i] = 0
   end
 end
- 
+
 def display
   x = mouseX
   y = mouseY
 
   speed = 10.0
   for i in 0..9
-    vx = (x - $xpos[i]) / speed     #�}�E�X�ɋz���񂹂��鑬�x
+    vx = (x - $xpos[i]) / speed     #マウスに吸い寄せられる速度
     vy = (y - $ypos[i]) / speed
-    speed += 2.0                  #�~�ɂ���đ��x���قȂ�悤�ɂ���B
-    $xpos[i] = $xpos[i] + vx                  #�}�E�X�ɋz���񂹂�ꂽ�ʒu
+    speed += 2.0                  #円によって速度が異なるようにする。
+    $xpos[i] = $xpos[i] + vx                  #マウスに吸い寄せられた位置
     $ypos[i] = $ypos[i] + vy
     color 100, 0, 0, 10
     circle($xpos[i], $ypos[i], 50, POLYGON)
   end
- 
 end
 mainloop
 </pre>
 
-<p>�z��̎g���������������킩��₷�����܂����B
-</p>
+	<p>配列の使い方をもう少しわかりやすくしました。</p>
 
-<h3>���ۑ�20A: �L�[�{�[�h����̓��͂̎d��</h3>
-<pre>
+
+	<h2>課題20A: キーボードからの入力の仕方</h2>
+
+
+<pre syntax="ruby">
 require 'sgl'
 def setup
   window 200, 200
@@ -513,7 +573,7 @@ def onKeyDown(key)
   p key
   $key = key
 end
- 
+
 def display
   colorHSV $key, 100, 100
   line $key, 0, $key, 200
@@ -521,72 +581,76 @@ end
 mainloop
 </pre>
 
-<p>�A���t�@�x�b�g�̃L�[�������ƁAkey�Ƃ����Ƃ����1�`26�̒l���͂���
-�Ă��܂��BA���������Ƃ���1�AZ���������Ƃ���26�ł��B
+	<p>アルファベットのキーを押すと、keyというところに1〜26の値がはいっ
+てきます。Aを押したときは1、Zを押したときは26です。</p>
 
-<p>���Ƃ͈͓̔��ł̓A���t�@�x�b�g�̃L�[�����ł���Ă݂Ă��������B
-�ȉ��͂���ȊO�̃L�[���g�������l�̂��߂̃A�h�o���X�Ȓm���Ƃ��ď����Ă��܂��B
 
-<p>�����ȊO�̃L�[���������Ƃ��́A���낢��Ȑ��l���͂����Ă��܂��B
-�Ⴆ�ΐ�����0�������ꂽ�Ƃ��́A<tt>SDL::Key::K0</tt>�Ƃ����l���͂����Ă��܂��B
-���̂ւ��SDL�Ƃ������̃��C�u�����̐��l�����̂܂܎g���Ă��܂��B
-���̐��l�̈ꗗ�́A<tt>c:\ruby\doc\rubysdl\rubysdl_const_list.txt</tt>�����Ă݂Ă��������B
-</p>
+	<p>授業の範囲内ではアルファベットのキーだけでやってみてください。
+以下はそれ以外のキーも使いたい人のためのアドバンスな知識として書いています。</p>
 
-<h3>���ۑ�21A: �z��̎g����return</h3>
-<pre>
+
+	<p>それら以外のキーを押したときは、いろいろな数値がはいってきます。
+例えば数字の0が押されたときは、<tt><span class="caps">SDL</span>::Key::K0</tt>という値がはいってきます。
+このへんはSDLという元のライブラリの数値をそのまま使っています。
+この数値の一覧は、<tt>c:\ruby\doc\rubysdl\rubysdl_const_list.txt</tt>を見てみてください。</p>
+
+
+	<h2>課題21A: 配列の使い方return</h2>
+
+
+<pre syntax="ruby">
 require 'sgl'
 
 def setup
   window -200, -200, 200, 200
   background 100
-  $pos = []             #���g����̔z���p�ӂ��܂��B
-  for a in 0..10        #�z��̗v�f���ꂼ��ɂ��ČJ��Ԃ��܂��B
-    $pos[a] = 0         #���g�ɑS��0�����Ă����܂��B
+  $pos = []             #中身が空の配列を用意します。
+  for a in 0..10        #配列の要素それぞれについて繰り返します。
+    $pos[a] = 0         #中身に全部0を入れておきます。
   end
-  $index = 0            #���ݔz��̂ǂ��̕������w���Ă��邩�������ϐ��ł��B
+  $index = 0            #現在配列のどこの部分を指しているかを示す変数です。
 end
 
 def display
 
-  $pos[$index] = mouseX #�z���$index�̎����Ƃ���Ɍ��݂̃}�E�X��x���W�����܂��B
+  $pos[$index] = mouseX #配列の$indexの示すところに現在のマウスのx座標を入れます。
 
-  for a in 0..10        #�z��̗v�f���ꂼ��ɂ��ČJ��Ԃ��܂��B
+  for a in 0..10        #配列の要素それぞれについて繰り返します。
     x = $pos[a]
     color 0
-    line x, -100, x, 100 #�c����`���܂��B
+    line x, -100, x, 100 #縦線を描きます。
   end
 
-  $index = $index + 1   #���݂�����$index���A���̒l�̂Ƃ���ɃZ�b�g���܂��B
-  if 10 < $index        #$index���z��̑傫�����z���Ă��܂�����A0�ɃZ�b�g���Ȃ����܂��B
+  $index = $index + 1   #現在を示す$indexを、次の値のところにセットします。
+  if 10 &lt; $index        #$indexが配列の大きさを越えてしまったら、0にセットしなおします。
     $index = 0
   end
 
-  p $pos                #���̍s�ŁA$pos�Ƃ����z��̒��g���ǂ��Ȃ��Ă��邩��\�����Ă��܂��B
+  p $pos                #この行で、$posという配列の中身がどうなっているかを表示しています。
 
 end
 
 mainloop
 </pre>
 
-<p>�z��̎g�����̊�{�`�ł��B
-<p>�c�����A�}�E�X�̓�����ǂ��ē����܂��B�܂�}�E�X��x���W������ۑ����Ă��܂��B
-x���W�Ay���W��ۑ�����Ƃǂ̂悤�ɂȂ�ł��傤���B
-</p>
+	<p>配列の使い方の基本形です。
+縦線が、マウスの動きを追って動きます。つまりマウスのx座標だけを保存しています。
+x座標、y座標を保存するとどのようになるでしょうか。</p>
 
-<pre>
+
+<pre syntax="ruby">
 require 'sgl'
 
 def setup
   window -200, -200, 200, 200
   background 100
-  $xpos = []             #���g����̔z����Ax���W�Ay���W�ɂ��ėp�ӂ��܂��B
+  $xpos = []             #中身が空の配列を、x座標、y座標について用意します。
   $ypos = []
-  for a in 0..10        #�z��̗v�f���ꂼ��ɂ��ČJ��Ԃ��܂��B
+  for a in 0..10        #配列の要素それぞれについて繰り返します。
     $xpos[a] = 0
     $ypos[a] = 0
   end
-  $index = 0            #���ݔz��̂ǂ��̕������w���Ă��邩�������ϐ��ł��B
+  $index = 0            #現在配列のどこの部分を指しているかを示す変数です。
 end
 
 def display
@@ -594,15 +658,15 @@ def display
   $xpos[$index] = mouseX
   $ypos[$index] = mouseY
 
-  for a in 0..10        #�z��̗v�f���ꂼ��ɂ��ČJ��Ԃ��܂��B
+  for a in 0..10        #配列の要素それぞれについて繰り返します。
     x = $xpos[a]
     y = $ypos[a]
     color 0
     circle x, y, 50
   end
 
-  $index = $index + 1   #���݂�����$index���A���̒l�̂Ƃ���ɃZ�b�g���܂��B
-  if 10 < $index        #$index���z��̑傫�����z���Ă��܂�����A0�ɃZ�b�g���Ȃ����܂��B
+  $index = $index + 1   #現在を示す$indexを、次の値のところにセットします。
+  if 10 &lt; $index        #$indexが配列の大きさを越えてしまったら、0にセットしなおします。
     $index = 0
   end
 
@@ -614,10 +678,14 @@ end
 mainloop
 </pre>
 
-<p>���̂悤�ɒl��ۑ�����z��𑝂₵�Ă����΂悢�킯�ł��B</p>
-</div>
-</div>
+	<p>このように値を保存する配列を増やしていけばよいわけです。</p>
+    <p class="coda">
+      19th June 2007<br>
+      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
+    </p>
 </div>
 
-</div>
-</body></html>
+<!-- insert site tracking codes here, like Google Urchin -->
+
+</body>
+</html>

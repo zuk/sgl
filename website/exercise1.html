@@ -1,51 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>sgl Exercise 1</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      sgl Exercise 1
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
 </head>
 <body>
+<div id="main">
 
-<div class="container">
-<div class="main">
-<div class="adminmenu">
-<p><a href="index.html">back</a></p>
-</div>
+    <h1>sgl Exercise 1</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/sgl"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/sgl" class="numbers">0.3.1</a>
+    </div>
+    <ul>
+	<li>èª²é¡Œ 1ã€œ10</li>
+	</ul>
 
-<h1>sgl Exercise 1</h1>
 
-<div class="day">
-<h2>‰Û‘è 1`10</h2>
-<div class="body">
-<div class="section">
+	<h2>èª²é¡Œ1: åŸºæœ¬ (window, background, color, line)</h2>
 
-<h3>œ‰Û‘è1: Šî–{ (window, background, color, line)</h3>
-1A: ˆê–{‚Ìü‚ð•`‚­ƒvƒƒOƒ‰ƒ€‚ðì‚è‚È‚³‚¢B<br>
-1B: ‚ ‚él‚¦‚ÌŒ³‚É3–{‚Ìü‚ð•`‚­ƒvƒƒOƒ‰ƒ€‚ðì‚è‚È‚³‚¢B<br>
-1C: 5–{ˆÈ‰º‚Ì’¼ü‚Åu•Ï‰»v‚ð•\Œ»‚·‚éƒvƒƒOƒ‰ƒ€‚ðì‚è‚È‚³‚¢B<br>
-1D: 10–{ˆÈ‰º‚Ì’¼ü‚Åuƒn[ƒ‚ƒj[i’²˜ajv‚ð•\Œ»‚·‚éƒvƒƒOƒ‰ƒ€‚ðì‚è‚È‚³‚¢B<br>
-<pre>
-require 'sgl'         # ƒvƒƒOƒ‰ƒ€‚ÌÅ‰‚É•K‚¸‘‚­•K—v‚ª‚ ‚é
-window 100, 100       # window‚ðŠJ‚­
-background 0          # ”wŒi‚ð•‚É‚·‚é
-color 100             # •`‰æ‚·‚éF‚ð”’‚É‚·‚é
-line 0, 0, 100, 100   # ¶‰º‚©‚ç‰Eã‚Éü‚ð•`‚­
-wait                  # ‚»‚Ì‚Ü‚Ü‘Ò‚Â
+
+	<ul>
+	<li>1A: ä¸€æœ¬ã®ç·šã‚’æããƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ä½œã‚Šãªã•ã„ï¼Ž</li>
+		<li>1B: ã‚ã‚‹è€ƒãˆã®å…ƒã«3æœ¬ã®ç·šã‚’æããƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ä½œã‚Šãªã•ã„ï¼Ž</li>
+		<li>1C: 5æœ¬ä»¥ä¸‹ã®ç›´ç·šã§ã€Œå¤‰åŒ–ã€ã‚’è¡¨ç¾ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ä½œã‚Šãªã•ã„ï¼Ž</li>
+		<li>1D: 10æœ¬ä»¥ä¸‹ã®ç›´ç·šã§ã€Œãƒãƒ¼ãƒ¢ãƒ‹ãƒ¼ï¼ˆèª¿å’Œï¼‰ã€ã‚’è¡¨ç¾ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ä½œã‚Šãªã•ã„ï¼Ž</li>
+	</ul>
+
+
+<pre syntax="ruby">
+require 'sgl'         # ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®æœ€åˆã«å¿…ãšæ›¸ãå¿…è¦ãŒã‚ã‚‹
+window 100, 100       # windowã‚’é–‹ã
+background 0          # èƒŒæ™¯ã‚’é»’ã«ã™ã‚‹
+color 100             # æç”»ã™ã‚‹è‰²ã‚’ç™½ã«ã™ã‚‹
+line 0, 0, 100, 100   # å·¦ä¸‹ã‹ã‚‰å³ä¸Šã«ç·šã‚’æã
+wait                  # ãã®ã¾ã¾å¾…ã¤
 </pre>
-”¼“§–¾F‚ÌŽg‚¢•û
-<pre>
+
+	<p>åŠé€æ˜Žè‰²ã®ä½¿ã„æ–¹</p>
+
+
+<pre syntax="ruby">
 require 'sgl'
 window 100,100
-color 100, 0, 0       # Ô
-rect 10,10,70,70      # ŽlŠp
-color 0,0,100,50      # ”¼“§–¾‚ÌÂ
-rect 30,30,90,90      # ŽlŠp‚ðd‚Ë‚Ä‚©‚­
+color 100, 0, 0       # èµ¤
+rect 10,10,70,70      # å››è§’
+color 0,0,100,50      # åŠé€æ˜Žã®é’
+rect 30,30,90,90      # å››è§’ã‚’é‡ã­ã¦ã‹ã
 wait
 </pre>
 
-<h3>œ‰Û‘è2A:</h3>
- ˆê‚Â‚Ì•Ï”‚ðŽg‚Á‚Ä‚Q–{‚Ì’¼ü‚Ì\¬‚ðƒRƒ“ƒgƒ[ƒ‹‚·‚éƒvƒƒOƒ‰ƒ€‚ðì‚è‚È‚³‚¢B<br>
-<pre>
+	<h2>èª²é¡Œ2A</h2>
+
+
+ä¸€ã¤ã®å¤‰æ•°ã‚’ä½¿ã£ã¦2æœ¬ã®ç›´ç·šã®æ§‹æˆã‚’ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ä½œã‚‹ï¼Ž
+<pre syntax="ruby">
 require 'sgl'
 window 100, 100
 a = 50
@@ -54,9 +86,11 @@ line 100, 0, 50, a
 wait
 </pre>
 
-<h3>œ‰Û‘è3A: ŒJ‚è•Ô‚µ (for a in 0..100; end)</h3>
-ŒJ‚è•Ô‚µ‚ðŽg‚Á‚½Œ`‘Ô‚ð•`‚«‚È‚³‚¢B
-<pre>
+	<h2>èª²é¡Œ3A ç¹°ã‚Šè¿”ã— (for a in 0..100; end)</h2>
+
+
+ç¹°ã‚Šè¿”ã—ã‚’ä½¿ã£ãŸå½¢æ…‹ã‚’æãï¼Ž
+<pre syntax="ruby">
 require 'sgl'
 window 100, 100
 for a in 20..80
@@ -66,9 +100,11 @@ end
 wait
 </pre>
 
-<h3>œ‰Û‘è4A: ŒvŽZ (+ - * /)</h3>
-ŒvŽZ‚ðŽg‚Á‚½Œ`‘Ô‚ð‚©‚­ƒvƒƒOƒ‰ƒ€‚ðì‚è‚È‚³‚¢B
-<pre>
+	<h2>èª²é¡Œ4A è¨ˆç®— (+ &#8211; * /)</h2>
+
+
+è¨ˆç®—ã‚’ä½¿ã£ãŸå½¢æ…‹ã‚’ã‹ããƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ä½œã‚‹ï¼Ž
+<pre syntax="ruby">
 require 'sgl'
 window 100, 100
 for a in 20..40
@@ -78,9 +114,11 @@ end
 wait
 </pre>
 
-<h3>œ‰Û‘è6A: kadai6a.rb</h3>
-œ6. “ü‚êŽq\‘¢: 6A: ŠiŽqó‚É‚Ð‚ë‚ª‚éŒ`‘Ô‚ðì‚è‚È‚³‚¢
-<pre>
+	<h2>èª²é¡Œ6A kadai6a.rb</h2>
+
+
+â—6. å…¥ã‚Œå­æ§‹é€  6A æ ¼å­çŠ¶ã«ã²ã‚ãŒã‚‹å½¢æ…‹ã‚’ä½œã‚‹ï¼Ž
+<pre syntax="ruby">
 # kadai6a.rb
 require 'sgl'
 window 200,200
@@ -93,15 +131,17 @@ end
 wait
 </pre>
 
-<h3>œ‰Û‘è7A: kadai7a.rb</h3>
-œ7. Ž¿–â (if 50 &lt; a; end): 7A: ‰æ–Ê‚Ì¶‰E‚Åˆá‚¤Œ`‘Ô‚ð‚©‚«‚È‚³‚¢B
-<pre>
+	<h2>èª²é¡Œ7A kadai7a.rb</h2>
+
+
+â—7. è³ªå• (if 50 &lt; a; end) 7A ç”»é¢ã®å·¦å³ã§é•ã†å½¢æ…‹ã‚’æãï¼Ž
+<pre syntax="ruby">
 # kadai7a.rb
 require 'sgl'
 window 200,200
 for a in 0..200
   color a/2, 50, 50
-  if a < 100
+  if a &lt; 100
     line a, 50, a, 100
   else
     line a, 100, a, 150
@@ -110,11 +150,14 @@ end
 wait
 </pre>
 
-<h3>œ‰Û‘è8A:</h3>
-def‚ðŽg‚Á‚ÄŽ©•ª‚È‚è‚ÌƒRƒ}ƒ“ƒh‚ðì‚èA‚»‚ê‚ð—p‚¢‚½Œ`‘Ô‚ð‚©‚«‚È‚³‚¢B
-<br>
-ƒtƒ@ƒCƒ‹–¼: kadai8a.rb<br>
-<pre>
+	<h2>èª²é¡Œ8A</h2>
+
+
+	<p>defã‚’ä½¿ã£ã¦è‡ªåˆ†ãªã‚Šã®ã‚³ãƒžãƒ³ãƒ‰ã‚’ä½œã‚Šï¼Œãã‚Œã‚’ç”¨ã„ãŸå½¢æ…‹ã‚’æãï¼Ž</p>
+
+
+ãƒ•ã‚¡ã‚¤ãƒ«å kadai8a.rb
+<pre syntax="ruby">
 require 'sgl'
 window 100,100
 background 100
@@ -134,20 +177,25 @@ my_rect(60, 60, 80, 90, 70, 90)
 wait
 </pre>
 
-def‚Æ‚¢‚¤ƒRƒ}ƒ“ƒh‚ÅAŠÖ”’è‹`‚ð‚µ‚Ä‚¢‚Ü‚·B‚±‚±‚ÅŽ©•ª‚ª‚æ‚­Žg‚¤A˜g
-•t‚«‚Ì“h‚è‚Â‚Ô‚³‚ê‚½ŽlŠpŒ`‚ð’è‹`‚µ‚Ä‚¢‚Ü‚·B‚»‚ÌŽŸ‚É‚­‚é‚Ì‚ªŠÖ”–¼‚Å
-‚·BƒAƒ‹ƒtƒ@ƒxƒbƒg‚Ì¬•¶Žš‚©‚çŽn‚Ü‚Á‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·B<p>
+	<p>defã¨ã„ã†ã‚³ãƒžãƒ³ãƒ‰ã§ï¼Œé–¢æ•°å®šç¾©ã‚’ã™ã‚‹ï¼Žè‡ªåˆ†ãŒã‚ˆãä½¿ã†ï¼Œæž ä»˜ãã®å¡—ã‚Šã¤ã¶
+ã•ã‚ŒãŸå››è§’å½¢ã‚’å®šç¾©ã™ã‚‹ï¼Ždefã®å¾Œã«ç¶šãã®ãŒé–¢æ•°åã§ã‚ã‚‹ï¼Žã‚¢ãƒ«ãƒ•ã‚¡ãƒ™ãƒƒãƒˆ
+ã®å°æ–‡å­—ã‹ã‚‰å§‹ã¾ã£ã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼Ž</p>
 
-‚±‚ÌŽlŠp‚ð•`‚©‚¹‚Ä‚Ý‚é‚ÆAŠp‚Ì‚Æ‚±‚ë‚ª1ƒhƒbƒg‚¾‚¯Œ‡‚¯‚Ä‚µ‚Ü‚¤‚±‚Æ‚ª
-‚ ‚é‚ÆŽv‚¢‚Ü‚·B‚±‚Ìƒ‰ƒCƒuƒ‰ƒŠ[‚Ì“Á«‚ÅA‚»‚¤‚È‚Á‚Ä‚µ‚Ü‚¢‚Ü‚·B“®‚«
-‚ÌƒfƒUƒCƒ“‚ð‚·‚é‚æ‚¤‚É‚È‚éê‡‚Í‹C‚É‚È‚ç‚È‚­‚È‚é‚ÆŽv‚¢‚Ü‚·‚Ì‚ÅŒä—¹³
-‰º‚³‚¢B<p>
 
-<h3>œ‰Û‘è9A:</h3>
-flip‚ðŽg‚Á‚ÄƒAƒjƒ[ƒVƒ‡ƒ“‚ðì‚è‚È‚³‚¢B
-<br>
-ƒtƒ@ƒCƒ‹–¼: kadai9a.rb<br>
-<pre>
+	<p>ã“ã®å››è§’ã‚’æã‹ã›ã¦ã¿ã‚‹ã¨ï¼Œè§’ã®ã¨ã“ã‚ãŒ1ãƒ‰ãƒƒãƒˆã ã‘æ¬ ã‘ã¦ã—ã¾ã†ã“ã¨ãŒ
+ã‚ã‚‹ã¨æ€ã„ã¾ã™ï¼Žã“ã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒªãƒ¼ã®ç‰¹æ€§ã§ï¼Œãã†ãªã£ã¦ã—ã¾ã„ã¾ã™ï¼Žå‹•ã
+ã®ãƒ‡ã‚¶ã‚¤ãƒ³ã‚’ã™ã‚‹ã‚ˆã†ã«ãªã‚‹å ´åˆã¯æ°—ã«ãªã‚‰ãªããªã‚‹ã¨æ€ã„ã¾ã™ã®ã§å¾¡äº†æ‰¿
+ä¸‹ã•ã„ï¼Ž</p>
+
+
+	<h2>èª²é¡Œ9A</h2>
+
+
+	<p>flipã‚’ä½¿ã£ã¦ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ä½œã‚Šãªã•ã„ï¼Ž</p>
+
+
+ãƒ•ã‚¡ã‚¤ãƒ«å kadai9a.rb
+<pre syntax="ruby">
 require 'sgl'
 window 100,100
 loop do
@@ -159,15 +207,19 @@ end
 wait
 </pre>
 
-flip‚Æ‚¢‚¤‚Æ‚±‚ë‚ªƒ|ƒCƒ“ƒg‚Å‚·B‚±‚±‚ÅA‚¿‚å‚¤‚ÇŽ†‚ð‚ß‚­‚é‚æ‚¤‚È“®ì‚ð‚µ‚Ä‚¢‚Ü‚·B<br>
-loop do ``` end ‚Æ‚¢‚¤‚Æ‚±‚ë‚àƒ|ƒCƒ“ƒg‚Å‚·B‚»‚ÌŠÔ‚ð–³ŒÀ‚ÉŒJ‚è•Ô‚·‚Æ‚¢‚¤‚±‚Æ‚ð‚µ‚Ä‚¢‚Ü‚·B
+	<p>flipã¨ã„ã†ã¨ã“ã‚ãŒãƒã‚¤ãƒ³ãƒˆã§ã‚ã‚‹ï¼Žã“ã“ã§ï¼Œã¡ã‚‡ã†ã©ç´™ã‚’ã‚ãã‚‹ã‚ˆã†ãªå‹•ä½œã‚’
+ã—ã¦ã„ã‚‹ï¼Žloop do ã€œã€œã€œ end ã§ï¼Œãã®é–“ã‚’ç„¡é™ã«ç¹°ã‚Šè¿”ã—ã¦ã„ã‚‹ï¼Ž</p>
 
-<h3>œ‰Û‘è10A:</h3>
-HSV‚É‚æ‚éFŽw’è‚ðŽg‚¢AŽ©•ª‚È‚è‚ÌFƒOƒ‰ƒf[ƒVƒ‡ƒ“‚ðì‚è‚È
-‚³‚¢BÃŽ~‰æ‚Å‚àƒAƒjƒ[ƒVƒ‡ƒ“‚Å‚à‚æ‚¢‚Å‚·B(colorHSV,
-backgroundHSV)<br>
-ƒtƒ@ƒCƒ‹–¼: kadai10a.rb<br>
-<pre>
+
+	<h2>èª²é¡Œ10A</h2>
+
+
+	<p><span class="caps">HSV</span>ã«ã‚ˆã‚‹è‰²æŒ‡å®šã‚’ä½¿ã„ï¼Œè‡ªåˆ†ãªã‚Šã®è‰²ã‚°ãƒ©ãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ä½œã‚Šãªã•ã„ï¼Žé™æ­¢ç”»
+ã§ã‚‚ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã§ã‚‚ã‚ˆã„ã§ã™ï¼Ž(colorHSV, backgroundHSV)</p>
+
+
+ãƒ•ã‚¡ã‚¤ãƒ«å kadai10a.rb
+<pre syntax="ruby">
 require 'sgl'
 window 100,100
 background 100
@@ -182,27 +234,37 @@ end
 wait
 </pre>
 
-colorHSV(h, s, v) ¨ hue, saturation, value<br>
-hue ¨ F’²<br>
-saturation ¨ ‚Ç‚ê‚¾‚¯Œ´F‚É‹ß‚¢‚©<br>
-value ¨ –¾‚é‚³<br>
-<p>
-4”Ô–Ú‚Ìƒpƒ‰ƒ[ƒ^[‚ðŽg‚Á‚ÄA“§–¾“x‚ðÝ’è‚·‚é‚±‚Æ‚à‚Å‚«‚Ü‚·B<br>
-backgroundHSV‚Æ‚¢‚¤ƒRƒ}ƒ“ƒh‚à‚ ‚è‚Ü‚·B<br>
-<p>
+	<ul>
+	<li>colorHSV(h, s, v) â†’ hue, saturation, value</li>
+		<li>hue â†’ è‰²èª¿</li>
+		<li>saturation â†’ ã©ã‚Œã ã‘åŽŸè‰²ã«è¿‘ã„ã‹</li>
+		<li>value â†’ æ˜Žã‚‹ã•</li>
+	</ul>
 
-<hr>
-‰Û‘è‚Í‚¢‚¸‚ê‚àwindowƒTƒCƒY‚È‚Ç‚ÍŽ©—R‚Å‚·B‰Û‘è—á‚Í100,100‚ÌƒTƒCƒY‚É
-‚µ‚Ä‚¢‚Ü‚·‚ªA‚Å‚«‚é‚¾‚¯‘å‚«‚¢windowƒTƒCƒY‚Å‚â‚Á‚Ä‚Ý‚Ä‚­‚¾‚³‚¢B<p>
 
-ƒtƒ@ƒCƒ‹–¼‚Í•K‚¸Žw’è‚Ì‚à‚Ì‚É‚µ‚ÄAZ:‚ÉƒZ[ƒu‚µ‚Ä‚­‚¾‚³‚¢B‰Û‘è’ño‚Í
-Z:‚É‚ ‚éƒtƒ@ƒCƒ‹‚ðŽ©“®“I‚É”FŽ¯‚µ‚ÄA‰Û‘è‚ð’ño‚µ‚½‚à‚Ì‚Æ‚Ý‚È‚µ‚Ä‚¢‚Ü
-‚·Bƒtƒ@ƒCƒ‹–¼‚ªˆá‚¤ê‡‚Í’ño‚µ‚Ä‚È‚¢‚±‚Æ‚É‚È‚Á‚Ä‚µ‚Ü‚¤‚Ì‚Å‹C‚ð‚Â‚¯
-‚Ä‚­‚¾‚³‚¢B<p>
-</div>
-</div>
+	<ul>
+	<li>4ç•ªç›®ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ã‚’ä½¿ã£ã¦ï¼Œé€æ˜Žåº¦ã‚’è¨­å®šã™ã‚‹ã“ã¨ã‚‚ã§ãã‚‹ï¼Ž</li>
+		<li>backgroundHSVã¨ã„ã†ã‚³ãƒžãƒ³ãƒ‰ã‚‚ã‚ã‚‹ï¼Ž</li>
+	</ul>
+
+
+	<h2>èª²é¡Œã®æ³¨æ„ç‚¹</h2>
+
+
+	<p>èª²é¡Œã¯ã„ãšã‚Œã‚‚windowã‚µã‚¤ã‚ºãªã©ã¯è‡ªç”±ã§ã‚ã‚‹ï¼Žèª²é¡Œä¾‹ã¯100,100ã®ã‚µã‚¤ã‚ºã«
+ãªã£ã¦ã„ã‚‹ãŒï¼Œã§ãã‚‹ã ã‘å¤§ãã„windowã‚µã‚¤ã‚ºã‚’é¸æŠžã™ã‚‹ã“ã¨ï¼Ž<p></p>
+
+
+	<p>ãƒ•ã‚¡ã‚¤ãƒ«åã¯å¿…ãšæŒ‡å®šã®ã‚‚ã®ã«ã—ï¼ŒZ:ã«ä¿å­˜ã™ã‚‹ï¼ŽZ:ã«æŒ‡å®šã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹
+ã‹ã©ã†ã‹ã§èª²é¡Œæå‡ºã‚’åˆ¤å®šã™ã‚‹ï¼Žãƒ•ã‚¡ã‚¤ãƒ«ã‚’è‡ªå‹•çš„ã«èªè­˜ã—ï¼Œèª²é¡Œã‚’æå‡ºã—ãŸ
+ã‚‚ã®ã¨ã¿ãªã™ï¼Žãƒ•ã‚¡ã‚¤ãƒ«åãŒé•ã†å ´åˆã¯æå‡ºã—ã¦ãªã„ã“ã¨ã«ãªã‚‹ã®ã§æ³¨æ„ã™ã‚‹ï¼Ž</p>
+    <p class="coda">
+      19th June 2007<br>
+      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
+    </p>
 </div>
 
-</div>
+<!-- insert site tracking codes here, like Google Urchin -->
+
 </body>
 </html>
