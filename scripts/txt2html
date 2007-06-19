@@ -6,7 +6,7 @@ require 'syntax/convertors/html'
 require 'erb'
 require File.dirname(__FILE__) + '/../lib/sgl/version.rb'
 
-version  = Sgl::VERSION::STRING
+version  = SGL::VERSION::STRING
 download = 'http://rubyforge.org/projects/sgl'
 
 class Fixnum

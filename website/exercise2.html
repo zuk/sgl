@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>
-      sgl Exercise 2
+      練習問題 11〜21
   </title>
   <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
 <style>
@@ -30,25 +30,35 @@
 <body>
 <div id="main">
 
-    <h1>sgl Exercise 2</h1>
+    <h1>練習問題 11〜21</h1>
     <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/sgl"; return false'>
       <p>Get Version</p>
       <a href="http://rubyforge.org/projects/sgl" class="numbers">0.3.1</a>
     </div>
-    <h2>課題 11〜21</h2>
+    <p>(setq skk-kutouten-type &#8216;en)
+(setq skk-kutouten-type &#8216;ja)
+，．、。()（）</p>
 
 
-	<ul>
-	<li>課題15: マウスのボタンが押された時に</li>
-		<li>課題16: 円の描き方</li>
-		<li>課題18: 三次元</li>
-		<li>課題19: 速度</li>
-		<li>課題20: キーボードからの入力</li>
-		<li>課題21: 配列の使い方</li>
-	</ul>
+	<h2>課題15 マウスのボタンが押された時に</h2>
 
 
-	<h2>課題11A: マウスの位置に反応する形</h2>
+	<h2>課題16 円の描き方</h2>
+
+
+	<h2>課題18 三次元</h2>
+
+
+	<h2>課題19 速度</h2>
+
+
+	<h2>課題20 キーボードからの入力</h2>
+
+
+	<h2>課題21 配列の使い方</h2>
+
+
+	<h2>課題11A マウスの位置に反応する形</h2>
 
 
 <pre syntax="ruby">
@@ -62,20 +72,21 @@ loop do
 end
 </pre>
 
-	<p>mouseXとmouseYというのがポイントです。rectのところで四角を描いています。</p>
+	<p>mouseXとmouseYでマウス位置を取得する．rectで四角形を描画する．</p>
 
 
-	<p>rectの前に「color x, y, 0」
-rectの後に「
+	<p>rectの前に<code>color x, y, 0</code>をいれてみる．</p>
+
+
+rectの後に下記をいれてみる．
+<pre syntax="ruby">
 line   0,   0, x, y
 line 200,   0, x, y
 line   0, 200, x, y
 line 200, 200, x, y
-」
-など試してみてください。</p>
+</pre>
 
-
-	<h2>課題12A: 複雑な形の描画</h2>
+	<h2>課題12A 複雑な形の描画</h2>
 
 
 <pre syntax="ruby">
@@ -90,8 +101,8 @@ endObj
 wait
 </pre>
 
-	<p>「window -200, -200, 200, 200」このように四つの値を指定することができます。
-beginObjとendObjではさまれた領域で形を描きます。</p>
+	<p><code>window -200, -200, 200, 200</code>のようにして四つの値を指定できる．
+beginObjとendObjではさまれた領域で形を描く．</p>
 
 
 <pre syntax="ruby">
@@ -107,7 +118,7 @@ vertex 120, -90
 endObj
 </pre>
 
-	<p>このように頂点ごとに色を指定できます。</p>
+	<p>頂点ごとに色を指定できる．</p>
 
 
 <pre syntax="ruby">
@@ -123,10 +134,10 @@ vertex 120, -90
 endObj
 </pre>
 
-	<p>このように頂点ごとに、透明度も変えられます。</p>
+	<p>頂点ごとに透明度も変えられる．</p>
 
 
-	<h2>課題13A: スムースな線の描画</h2>
+	<h2>課題13A スムースな線の描画</h2>
 
 
 <pre syntax="ruby">
@@ -146,22 +157,19 @@ endObj
 wait
 </pre>
 
-	<p>windowの前にポツンと置いてあるuseSmoothがポイントです。</p>
+	<p>windowの前にuseSmoothを指定することによって，アンチエイリアスを
+かけることができる．</p>
 
 
-	<p>beginObjの括弧の中は、一般的には <tt><span class="caps">POLYGON</span></tt> または <tt><span class="caps">LINE</span>_LOOP</tt> を指定します。</p>
-
-
-	<p>この二つだけ使えればほぼ全ての形は描けます。それ以外にもいくつか指定
-できる形があるのですが、使い方は同じなので特にとりあげません。以下に
-一覧だけをあげておきます。</p>
+	<p>beginObjの括弧の中は，<code>POLYGON</code>または<code>LINE_LOOP</code>を指定する．
+この二つがあればほぼ十分であるが，他に下記方法も指定できる．</p>
 
 
 	<p><span class="caps">LINES</span>, POINTS, <span class="caps">LINE</span>_STRIP, <span class="caps">LINE</span>_LOOP, <span class="caps">TRIANGLES</span>, TRIANGLE_STRIP,
 <span class="caps">TRIANGLE</span>_FAN, <span class="caps">QUADS</span>, QUAD_STRIP, <span class="caps">POLYGON</span>,</p>
 
 
-	<h2>課題14A: 物体の移動</h2>
+	<h2>課題14A 物体の移動</h2>
 
 
 <pre syntax="ruby">
@@ -177,15 +185,16 @@ pop
 wait
 </pre>
 
-	<p>今回でてきた新しいコマンドが、push, pop, translate, rotateZ, scaleです。
-pushとpopで囲むことが重要です。translate, rotateZ, scaleと、この順番で指定することが重要です。</p>
+	<p>今回でてきた新しいコマンドが，</p>
 
 
-	<p>このコマンドを使うと、形を描くコマンドと、その位置、回転などを指
-定するコマンドとを分離することができます。</p>
+	<p>push, pop, translate, rotateZ, scaleを使って回転移動拡大縮小などができ
+るようになる．pushとpopで囲まれていることが非常に重要である．また襦袢
+として，translate, rotateZ, scaleの順番に指定することが重要．形を描く
+コマンドと，位置，回転角度などの指定を分離できる．</p>
 
 
-	<h2>課題15A: ボタンが押されたその時に</h2>
+	<h2>課題15A ボタンが押されたその時に</h2>
 
 
 <pre syntax="ruby">
@@ -210,36 +219,27 @@ end
 mainloop
 </pre>
 
-	<p>ここで扱っているコマンドの使い方は、いままとまったく違うものです。
-いままではプログラムはかかれている順番通りに実行されるというものでし
-た。しかしここで行っているのは、まずコマンドを登録して、それがその後
-呼ばれて実行されるというものです。このようにプログラムの実行の順番が
-まったく違うというのがいままでと異なる点です。</p>
+	<p>いままではプログラムはかかれている順番通りに実行されるものだったが，こ
+こでは違う順序となっている．まず最初にコマンドを登録し，それが後に呼ば
+れて実行されることになる．このようにプログラムの実行順番が違う方式をこ
+れから採用する．</p>
 
 
-	<p>まず、setup, onMouseDown, displayというコマンドを登録しています。
-その後mainloopというコマンドをよんでいます。このメインループの中で、
-全てのプログラムが実行され、適宜setup, displayがよびだされます。
-そして、マウスのボタンが押された瞬間に、onMouseDownという関数が呼ばれます。</p>
+	<p>setup, onMouseDown, displayというコマンドを登録する．その後mainloopと
+いうコマンドを呼ぶ．このメインループの中で，全てのプログラムが実行され，
+適宜setup, displayが呼び出される．マウスのボタンが押された瞬間に，
+onMouseDownというコマンドが呼ばれる．</p>
 
 
-	<p>そのonMouseDownの前に、$xという$のついた変数がつかわれています。
-これはなんでしょうか。なぜ$をつける必要があるのでしょうか。これがプ
-ログラムの実行の順番がかわったことと関係しています。実行の順番が、上
-から下という単純な順番ではなくなったので、変数が使える範囲というのも
-単純な順番ではわからなくなったのです。通常の変数は、使う範囲が限られ
-ていて、違うコマンドの中身では同じようには使えませんでした。</p>
+	<p>そのonMouseDownの前に，$xという$のついた変数がつかわれている．変数には
+それぞれ使える範囲というのもがあるのだが，通常は一つのコマンドの範囲内
+でしか使うことができなかった．しかし，$のついた変数であれば，プログラ
+ムが動いている間ずっと残る．プログラムの最初の部分で，<code>$x = 0</code>のように
+して，あらかじめなんらかの値を代入することで，変数を使うということを示
+す必要がある．</p>
 
 
-	<p>そこで$のついた変数を使います。$のついた変数は、プログラムにずっ
-とその値を使いつづけることを指定します。$のついた変数が、違うコマン
-ドにまたがって使われているのがわかるでしょう。このように違うコマンド
-にまたがって使われる変数には$をつける必要があるのです。
-またプログラム中にあらわれているように、$x = 0 といった感じで、
-あらかじめなんらかの値を代入して、この変数を使うということを示す必要があります。</p>
-
-
-	<h2>課題16A: 円</h2>
+	<h2>課題16A 円</h2>
 
 
 <pre syntax="ruby">
@@ -265,10 +265,8 @@ end
 mainloop
 </pre>
 
-	<p>円を描きます。マウスボタンを押すと、ボタンを押したところに移動します。</p>
-
-
-	<p>プログラムの構造は課題15Aで導入された、新しい構造を使っています。</p>
+	<p>円を描く．マウスボタンを押すと，ボタンを押したところに移動する．
+プログラムの構造は課題15Aで導入された構造を使っている．</p>
 
 
 <pre syntax="ruby">
@@ -278,7 +276,7 @@ def display
 end
 </pre>
 
-	<p>塗り潰された円を描きます。</p>
+	<p>塗り潰された円を描く．</p>
 
 
 <pre syntax="ruby">
@@ -288,8 +286,8 @@ def display
 end
 </pre>
 
-	<p>五角形を描きます。いままで円を書いてきましたが、実は正確には32角形を描いていたのです。
-その証拠に上記circle文の5のところを32にすると、普通の円と同じになります。</p>
+	<p>五角形を描く．いままで円といってきたものは，実は正確には正32角形である．
+上記circle文の<code>5</code>のところを<code>32</code>にすると，普通の円と同じになる．</p>
 
 
 <pre syntax="ruby">
@@ -301,10 +299,10 @@ def display
 end
 </pre>
 
-	<p>マウスを押されないでもついてくるようにするには、上記のようにします。</p>
+	<p>マウスを押されないでもついてくるようにする．</p>
 
 
-	<h2>課題18A: 3D</h2>
+	<h2>課題18A 3D</h2>
 
 
 <pre syntax="ruby">
@@ -322,18 +320,11 @@ pop
 wait
 </pre>
 
-	<p>課題14のところでだした物体の移動の例とほとんど同じです。
-つまり実はあの課題はほとんど3Dの説明と同じことだったわけですね。</p>
-
-
-	<p>違いは、translate 30, 40, 20というふうに三つの値を指定しているところ、
-rotateZだけじゃなく、rotateY rotateXを使っているところです。
-もちろん三つめの値はZ軸、つまり奥行きです。
-手前にくるのが正の値、奥のほうに行くのが負の値です。</p>
-
-
-	<p>また、vertexを使った形の描画でも、今はvertexの後に値を二つだけ指定していますが、
-これも同じように三つの値を指定することで3Dに対応できます。</p>
+	<p>課題14の物体の移動の例とほとんど同じである．
+違いは，<code>translate 30, 40, 20</code>というふうに三つの値を指定しているところ，
+rotateZだけじゃなく，rotateY rotateXを使っているところ．三つめの値はZ 
+軸，つまり奥行きである．手前にくるのが正の値，奥のほうに行くのが負の値となる．
+vertexを使った形の描画は，三つの値を指定することで3Dに対応できる．</p>
 
 
 <pre syntax="ruby">
@@ -362,7 +353,7 @@ end
 mainloop
 </pre>
 
-	<p>上記のように、マウスの移動と組み合わせることもできます。</p>
+	<p>マウスの移動と組み合わせることもできる．</p>
 
 
 <pre syntax="ruby">
@@ -371,17 +362,17 @@ require 'sgl'
 def setup
   window -200, -200, 200, 200
   background 100
-  $pos = []             #中身が空の配列を用意します。
+  $pos = []             # 中身が空の配列を用意する．
 end
 
 def display
   x = mouseX
   y = mouseY
 
-  $pos &lt;&lt; [x, y]     #配列に、現在のマウスの位置を追加します。
+  $pos &lt;&lt; [x, y]     # 配列に現在のマウスの位置を追加する．
 
-  $pos.each {|pos|   #配列の各々の要素について、{}の中身を実行します。
-                     #その各々の要素は、posという変数に入ります。
+  $pos.each {|pos|   # 配列の各々の要素について，{}の中身を実行する．
+                     # その各々の要素は，posという変数に入る．
     x = pos[0]
     y = pos[1]
 
@@ -396,7 +387,7 @@ def display
 
   }
 
-  if 10 &lt; $pos.length    #もし配列がたまりすぎた場合は、先頭から順に捨てていきます。
+  if 10 &lt; $pos.length    # 配列がたまりすぎた場合は，先頭から順に捨てていく．
     $pos.shift
   end
 
@@ -405,10 +396,10 @@ end
 mainloop
 </pre>
 
-	<p>配列の使用と組み合わせてみました。</p>
+	<p>配列の使用と組み合わせてみる．</p>
 
 
-	<h2>課題19A: 速度</h2>
+	<h2>課題19A 速度</h2>
 
 
 <pre syntax="ruby">
@@ -434,8 +425,7 @@ end
 mainloop
 </pre>
 
-	<p>いままで物の位置だけを扱ってきましたが、そこに速度を導入しています。
-円がマウスのところに近付こうとします。</p>
+	<p>物の位置に加え，速度を導入する．円がマウスのところに近付こうとする．</p>
 
 
 <pre syntax="ruby">
@@ -445,7 +435,7 @@ def setup
   background 100
   $pos=[]
   for i in 0..9
-    $pos[i] = [-200 + i * 40, 0]     #最初の位置を指定します。
+    $pos[i] = [-200 + i * 40, 0]     # 最初の位置を指定する．
   end
 end
 
@@ -456,10 +446,10 @@ def display
   speed = 10.0
   for i in 0..9
     pos = $pos[i]
-    vx = (x - pos[0]) / speed     #マウスに吸い寄せられる速度
+    vx = (x - pos[0]) / speed     # マウスに吸い寄せられる速度
     vy = (y - pos[1]) / speed
-    speed += 2.0                  #円によって速度が異なるようにする。
-    pos[0] = pos[0] + vx          #マウスに吸い寄せられた位置
+    speed += 2.0                  # 円によって速度が異なるようにする．
+    pos[0] = pos[0] + vx          # マウスに吸い寄せられた位置
     pos[1] = pos[1] + vy
     color 100, 0, 0, 10
     circle(pos[0], pos[1], 50, POLYGON)
@@ -469,7 +459,7 @@ end
 mainloop
 </pre>
 
-	<p>配列の使い方をわかりやすく説明しています。</p>
+	<p>配列の使い方を説明する．</p>
 
 
 <pre syntax="ruby">
@@ -482,8 +472,8 @@ def setup
   $pos=[]
   $orgpos=[]
   for i in 0..19
-    $pos[i]    = [-200 + i * 40, 0]     #最初の位置を指定します。
-    $orgpos[i] = [-200 + i * 40, 0]     #最初の位置をもう一つ別の配列に保存しておきます。
+    $pos[i]    = [-200 + i * 40, 0]     # 最初の位置を指定する．
+    $orgpos[i] = [-200 + i * 40, 0]     # もう一つ別の配列も用意してそちらにも保存する．
   end
 end
 
@@ -492,10 +482,10 @@ def display
   y = mouseY
 
   for i in 0..19
-    pos    = $pos[i]     #現在の円の位置
-    orgpos = $orgpos[i]  #元々の位置
+    pos    = $pos[i]     # 現在の円の位置
+    orgpos = $orgpos[i]  # 元々の位置
 
-    if mouseDown         #マウスのボタンが押されているときだけ、マウスに吸いつく。
+    if mouseDown         # ボタンが押されているときだけマウスに吸いつく．
       vx = x - pos[0]
       vy = y - pos[1]
       mag = Math.sqrt(vx * vx + vy * vy)
@@ -508,9 +498,9 @@ def display
     end
 
     speed = 3.0
-    vx2 = (orgpos[0] - pos[0]) / speed     #元々の位置に吸い寄せられる速度
+    vx2 = (orgpos[0] - pos[0]) / speed     # 元々の位置に吸い寄せられる速度
     vy2 = (orgpos[1] - pos[1]) / speed
-    pos[0] = pos[0] + vx2                  #マウスに吸い寄せられた位置
+    pos[0] = pos[0] + vx2                  # マウスに吸い寄せられた位置
     pos[1] = pos[1] + vy2
     color 100, 0, 0, 30
     circle(pos[0], pos[1], 50, POLYGON)
@@ -520,8 +510,7 @@ end
 mainloop
 </pre>
 
-	<p>マウスにすいよせられる円です。マウスボタンを押しているときだけ反応します。
-簡単そうに見えるかもしれませんが、実際にやってることは難しいです。</p>
+	<p>マウスにすいよせられる円．マウスボタンを押しているときだけ反応する．</p>
 
 
 <pre syntax="ruby">
@@ -529,7 +518,7 @@ require 'sgl'
 def setup
   window -200, -200, 200, 200
   background 100
-  $xpos = []    #配列を準備する。
+  $xpos = []    # 配列を準備する．
   $ypos = []
   for i in 0..9
     $xpos[i] = -200 + i * 40
@@ -543,10 +532,10 @@ def display
 
   speed = 10.0
   for i in 0..9
-    vx = (x - $xpos[i]) / speed     #マウスに吸い寄せられる速度
+    vx = (x - $xpos[i]) / speed     # マウスに吸い寄せられる速度
     vy = (y - $ypos[i]) / speed
-    speed += 2.0                  #円によって速度が異なるようにする。
-    $xpos[i] = $xpos[i] + vx                  #マウスに吸い寄せられた位置
+    speed += 2.0                  # 円によって速度が異なるようにする．
+    $xpos[i] = $xpos[i] + vx                  # マウスに吸い寄せられた位置
     $ypos[i] = $ypos[i] + vy
     color 100, 0, 0, 10
     circle($xpos[i], $ypos[i], 50, POLYGON)
@@ -555,10 +544,10 @@ end
 mainloop
 </pre>
 
-	<p>配列の使い方をもう少しわかりやすくしました。</p>
+	<p>配列の使い方を変更した．</p>
 
 
-	<h2>課題20A: キーボードからの入力の仕方</h2>
+	<h2>課題20A キーボードからの入力の仕方</h2>
 
 
 <pre syntax="ruby">
@@ -581,21 +570,16 @@ end
 mainloop
 </pre>
 
-	<p>アルファベットのキーを押すと、keyというところに1〜26の値がはいっ
-てきます。Aを押したときは1、Zを押したときは26です。</p>
+	<p>アルファベットのキーを押すと，keyに1〜26の値がはいってくる．
+Aを押したときは1，Zを押したときは26となる．</p>
 
 
-	<p>授業の範囲内ではアルファベットのキーだけでやってみてください。
-以下はそれ以外のキーも使いたい人のためのアドバンスな知識として書いています。</p>
+	<p>それら以外のキーを押したときにどのようなキーコードになるかは，
+<code>c:\ruby\doc\rubysdl\rubysdl_const_list.txt</code> を参照する．
+例えば数字の0が押されたときは，<code>SDL::Key::K0</code>という値となる．</p>
 
 
-	<p>それら以外のキーを押したときは、いろいろな数値がはいってきます。
-例えば数字の0が押されたときは、<tt><span class="caps">SDL</span>::Key::K0</tt>という値がはいってきます。
-このへんはSDLという元のライブラリの数値をそのまま使っています。
-この数値の一覧は、<tt>c:\ruby\doc\rubysdl\rubysdl_const_list.txt</tt>を見てみてください。</p>
-
-
-	<h2>課題21A: 配列の使い方return</h2>
+	<h2>課題21A 配列の使い方return</h2>
 
 
 <pre syntax="ruby">
@@ -604,38 +588,36 @@ require 'sgl'
 def setup
   window -200, -200, 200, 200
   background 100
-  $pos = []             #中身が空の配列を用意します。
-  for a in 0..10        #配列の要素それぞれについて繰り返します。
-    $pos[a] = 0         #中身に全部0を入れておきます。
+  $pos = []             # 中身が空の配列を用意する．
+  for a in 0..10        # 配列の要素それぞれについて繰り返す．
+    $pos[a] = 0         # 中身に全部0を入れておく．
   end
-  $index = 0            #現在配列のどこの部分を指しているかを示す変数です。
+  $index = 0            # 現在配列のどこの部分を指しているかを示す変数である．
 end
 
 def display
 
-  $pos[$index] = mouseX #配列の$indexの示すところに現在のマウスのx座標を入れます。
+  $pos[$index] = mouseX # 配列の$indexの示す個所に現在のマウスのx座標を入れる．
 
-  for a in 0..10        #配列の要素それぞれについて繰り返します。
+  for a in 0..10        # 配列の要素それぞれについて繰り返します．
     x = $pos[a]
     color 0
-    line x, -100, x, 100 #縦線を描きます。
+    line x, -100, x, 100 # 縦線を描きます．
   end
 
-  $index = $index + 1   #現在を示す$indexを、次の値のところにセットします。
-  if 10 &lt; $index        #$indexが配列の大きさを越えてしまったら、0にセットしなおします。
+  $index = $index + 1   # 現在を示す$indexを次の値のところにセットする．
+  if 10 &lt; $index        # $indexが配列の大きさを越えたら0にセットしなおす．
     $index = 0
   end
 
-  p $pos                #この行で、$posという配列の中身がどうなっているかを表示しています。
-
+  p $pos                # $posという配列の中身を表示する．
 end
 
 mainloop
 </pre>
 
-	<p>配列の使い方の基本形です。
-縦線が、マウスの動きを追って動きます。つまりマウスのx座標だけを保存しています。
-x座標、y座標を保存するとどのようになるでしょうか。</p>
+	<p>配列の使い方の基本形である．縦線が，マウスの動きを追って動く．つまりマ
+ウスのx座標だけを保存している．x座標，y座標を保存するとどうなるか，実験する．</p>
 
 
 <pre syntax="ruby">
@@ -644,13 +626,13 @@ require 'sgl'
 def setup
   window -200, -200, 200, 200
   background 100
-  $xpos = []             #中身が空の配列を、x座標、y座標について用意します。
+  $xpos = []             # 中身が空の配列を，x座標，y座標について用意する．
   $ypos = []
-  for a in 0..10        #配列の要素それぞれについて繰り返します。
+  for a in 0..10        # 配列の要素それぞれについて繰り返す．
     $xpos[a] = 0
     $ypos[a] = 0
   end
-  $index = 0            #現在配列のどこの部分を指しているかを示す変数です。
+  $index = 0            # 現在配列のどこの部分を指しているかを示す変数です．
 end
 
 def display
@@ -658,30 +640,28 @@ def display
   $xpos[$index] = mouseX
   $ypos[$index] = mouseY
 
-  for a in 0..10        #配列の要素それぞれについて繰り返します。
+  for a in 0..10        # 配列の要素それぞれについて繰り返す．
     x = $xpos[a]
     y = $ypos[a]
     color 0
     circle x, y, 50
   end
 
-  $index = $index + 1   #現在を示す$indexを、次の値のところにセットします。
-  if 10 &lt; $index        #$indexが配列の大きさを越えてしまったら、0にセットしなおします。
+  $index = $index + 1   # 現在を示す$indexを，次の値のところにセットする．
+  if 10 &lt; $index        # $indexが配列の最大を越えたら，0にセットしなおす．
     $index = 0
   end
 
   p $xpos
   p $ypos
-
 end
 
 mainloop
 </pre>
 
-	<p>このように値を保存する配列を増やしていけばよいわけです。</p>
+	<p>このように値を保存する配列を増やしていけばよいわけです．</p>
     <p class="coda">
       19th June 2007<br>
-      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
     </p>
 </div>
 

@@ -2,22 +2,24 @@ h1. sgl
 
 h1. &#x2192; simple generic library
 
-h2. What
+h2. What is sgl?
 
 'sgl' is a simgple generic library to create a program with graphics and sound.
 
 h2. Requirement
 
 h3. Windows
+
 * Ruby 1.8.5 or later
 * Ruby/OpenGL
 * Ruby/Math3D
 * Ruby/SDL
 
-You can see a document to install these libraries here.
-http://eto.com/wiki/RubySDLonWindows.html
+You can see "Ruby/SDL on Windows":http://eto.com/d/RubySDLonWindows.html
+to install these libraries.
 
 h3. Mac OS X
+
 * Mac OS X 10.3 or later
 * Ruby 1.8.5 or later
 * X Window system
@@ -28,7 +30,7 @@ h2. Installing
 
 h2. The basics
 
-Save this progarm as <tt>test1.rb</tt>.
+Save this progarm as @test1.rb@.
 <pre syntax="ruby">
 require "sgl"
 window 100, 100
@@ -36,7 +38,7 @@ line 0, 0, 100, 100
 wait
 </pre>
 
-Run the program with <tt>ruby test1.rb</tt>.
+Run the program with @ruby test1.rb@.
 
 <pre syntax="ruby">
 require "sgl"
@@ -53,22 +55,25 @@ mainloop
 </pre>
 
 h2. Pages
-* <a href="cocoa.html">cocoa version</a>
-* <a href="description.html">sglの説明</a>
-* <a href="setup.html">sgl設定方法</a>
-* <a href="howto.html">便利情報</a>
-* <a href="sound.html">サウンド機能の説明</a>
+
+* "cocoa version":cocoa.html
+
+* Pages below are in Japanese
+** "description":description.html
+** "How to for beginner":howto.html
+** "How to use Sound function":sound.html
 
 h2. Classes
 
-We have had classes using sgl.
-I'll include some materials for the classes.
+We did some classes using sgl in art schools.
+You'll see the materials for the classes.
 
-* <a href="exercise1.html">課題 1〜10</a>
-* <a href="exercise2.html">課題 11〜21</a>
-* <a href="challenge1.html">特別課題1</a>
-* <a href="challenge2.html">特別課題2</a>
-* <a href="challenge3.html">最終課題</a>
+* Pages below are in Japanese
+** "exercise 1 to 10":exercise1.html
+** "exercise 11 to 21":exercise2.html
+** "special exercise 1":challenge1.html
+** "special exercise 2":challenge2.html
+** "final exercise":challenge3.html
 
 h2. Repositry
 

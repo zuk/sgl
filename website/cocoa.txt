@@ -1,10 +1,8 @@
-h1. sgl-cocoa
-
-h1. &#x2192; sgl with Ruby/Cocoa
+h1. sgl-cocoa &#x2192; sgl with Ruby/Cocoa
 
 h2. What
 
-'sgl-cocoa' is cocoa version sgl.
+'sgl-cocoa' is a cocoa version of sgl.
 You can use sgl functions with Ruby/Cocoa.
 
 h2. Requirement
@@ -12,13 +10,14 @@ h2. Requirement
 You can use this only on Mac OS X.
 
 h3. Mac OS X
+
 * Mac OS X 10.3 or later
 * ruby 1.8.5 or later
 * RubyCocoa 0.4.1 or later
 
 h2. The basics
 
-Save this progarm as <tt>test1.rb</tt>.
+Save this progarm as @test1.rb@.
 <pre syntax="ruby">
 require "sgl/cocoa"
 
@@ -33,4 +32,4 @@ end
 mainloop
 </pre>
 
-Run the program with <tt>ruby test1.rb</tt>.
+Run the program with @ruby test1.rb@.
