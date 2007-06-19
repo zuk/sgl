@@ -3,19 +3,20 @@
 
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-require 'test_helper'
-require 'test-all'
-#require 'test-cocoa-app'
-require 'test-module-ruby16'
-require 'test-opengl-app'
-require 'test-opengl-basic'
-require 'test-opengl-fullscreen'
-require 'test-opengl-novice'
-
 $LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
 
 $VERBOSE = true
 
+require 'test_helper'
+#require 'test_all'
+#require 'test_cocoa_app'
+require 'test_module_ruby16'
+require 'test_opengl_app'
+require 'test_opengl_basic'
+require 'test_opengl_fullscreen'
+require 'test_opengl_novice'
+
+=begin
 def load_files(dir, base)
   Dir.chdir(dir)
   Dir.glob(base+"*.rb") {|filename|
@@ -28,3 +29,4 @@ def main(argv)
   load_files("..", "sgl/sgl-")
 end
 main(ARGV)
+=end

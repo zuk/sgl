@@ -2,6 +2,9 @@
 # Copyright (C) 2004-2005 Kouichirou Eto, All rights reserved.
 
 $LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
+
+if /cocoa/ =~ RUBY_PLATFORM
+
 require "sgl/cocoa-app"
 require "test/unit"
 
@@ -283,4 +286,6 @@ class TestCocoaMovie
     }
     app.mainloop
   end
+end
+
 end
