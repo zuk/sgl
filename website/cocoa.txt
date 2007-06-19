@@ -1,0 +1,6 @@
+h1. sgl-cocoa
+
+h2. What
+
+'sgl-cocoa' is sgl with Ruby/Cocoa.
+
