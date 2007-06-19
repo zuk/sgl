@@ -6,6 +6,8 @@
 
 	* Move test files to test dir.
 
+	* Rename test files.
+
 2005-07-14  Kouichirou Eto  <2005 eto.com>
 
 	* opengl-event.rb: Bug fix. Do not reentrant mainloop.
