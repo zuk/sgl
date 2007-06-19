@@ -1,36 +1,62 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>sgl sound</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      sgl sound
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
 </head>
 <body>
+<div id="main">
 
-<div class="container">
+    <h1>sgl sound</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/sgl"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/sgl" class="numbers">0.3.1</a>
+    </div>
+    <h2>sgl ã‚µã‚¦ãƒ³ãƒ‰æ©Ÿèƒ½ã®ä½¿ã„æ–¹</h2>
 
-<h1>sgl sound</h1>
-<h2>sgl ƒTƒEƒ“ƒh‹@”\‚ÌŽg‚¢•û</h2>
 
-<p>ƒTƒEƒ“ƒh‹@”\‚ÌŽg‚¢•û‚É‚Â‚¢‚ÄŠÈ’P‚É‰ðà‚µ‚Ü‚·B</p>
+	<p>ã‚µã‚¦ãƒ³ãƒ‰æ©Ÿèƒ½ã®ä½¿ã„æ–¹ã«ã¤ã„ã¦è§£èª¬ã™ã‚‹ï¼Ž</p>
 
-<pre>
+
+<pre syntax="ruby">
 require 'sgl'
-useSound         #‚±‚Ìs‚ÅAsound‚ðŽg‚¤‚±‚Æ‚ðéŒ¾‚µ‚Ü‚·B
-sound = loadSound('sine.wav')     #‚±‚Ìs‚ÅAƒTƒ“ƒvƒ‹‰¹‚ð“Ç‚Ý‚±‚Ý‚Ü‚·B
-                 #“¯‚¶ƒfƒBƒŒƒNƒgƒŠ[‚Ésine.wav‚Æ‚¢‚¤ƒtƒ@ƒCƒ‹‚ª‚ ‚é‚±‚Æ‚ª‘O’ñðŒ‚Å‚·B
-sound.play       #‚»‚ÌƒTƒ“ƒvƒ‹‰¹‚ð‚È‚ç‚µ‚Ü‚·B
-wait             #ƒvƒƒOƒ‰ƒ€‚ª‚·‚®I—¹‚·‚é‚Ì‚ð‚Ó‚¹‚®‚½‚ß‚É‘Ò‚¿‚Ü‚·B
-                 #ƒvƒƒOƒ‰ƒ€‚ªI—¹‚µ‚È‚­‚È‚é‚Ì‚ÅACtrl+C‚ÅI—¹‚µ‚Ü‚·B
+useSound         # soundã‚’ä½¿ã†ã“ã¨ã‚’å®£è¨€ã™ã‚‹ï¼Ž
+sound = loadSound('sine.wav')     # ã‚µãƒ³ãƒ—ãƒ«éŸ³ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿ã“ã‚€ï¼Ž
+                 # åŒã˜ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ¼ã«sine.wavã¨ã„ã†ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç½®ã„ã¦ãŠãï¼Ž
+sound.play       # ãã®ã‚µãƒ³ãƒ—ãƒ«éŸ³ã‚’å†ç”Ÿã™ã‚‹ï¼Ž
+wait             # ãƒ—ãƒ­ã‚°ãƒ©ãƒ ãŒã™ãçµ‚äº†ã™ã‚‹ã®ã‚’ãµã›ããŸã‚ã«å¾…ã¤ï¼Ž
+                 # Ctrl+Cã§ï¼Œãƒ—ãƒ­ã‚°ãƒ©ãƒ ãŒçµ‚äº†ã™ã‚‹ï¼Ž
 </pre>
 
-<p>‚à‚Á‚Æ‚àŠÈ’P‚ÈŽg‚¢•û‚Å‚·B
+	<p>å…ƒã¨ãªã‚‹ã‚µãƒ³ãƒ—ãƒ«éŸ³ã¯ï¼Œãƒžã‚¤ã‚¯ã‹ã‚‰ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°ã—ãŸã‚Šï¼Œã‚¤ãƒ³ã‚¿ãƒ¼ãƒãƒƒãƒˆã‹ã‚‰
+ãƒ•ãƒªãƒ¼ã®éŸ³æºã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ï¼Žæ³¢å½¢ç·¨é›†ã‚½ãƒ•ãƒˆã‚’ä½¿ã£ã¦MP3ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰
+åˆ‡ã‚Šå‡ºã—ãŸã‚Šã™ã‚‹æ–¹æ³•ã‚‚ã‚ã‚‹ï¼Ž</p>
 
-<p>Œ³‚Æ‚È‚éƒTƒ“ƒvƒ‹‰¹‚ÍA‚Ç‚±‚©‚ç‚à‚Á‚Ä‚­‚ê‚Î‚¢‚¢‚Ì‚©? ‚±‚ê
-‚Í“ï–â‚ÅAƒ}ƒCƒN‚©‚çƒTƒ“ƒvƒŠƒ“ƒO‚·‚é‚Æ‚©ACD‚©‚çƒTƒ“ƒvƒŠƒ“ƒO
-‚·‚é‚Æ‚©‚µ‚Ü‚·B‚Ç‚Ì‚æ‚¤‚ÉƒTƒ“ƒvƒŠƒ“ƒO‚·‚é‚Ì‚©B”gŒ`•ÒWƒ\ƒt
-ƒg‚ðŽg‚Á‚ÄMP3ƒtƒ@ƒCƒ‹‚©‚çØ‚èo‚µ‚½‚è‚·‚é‚Ì‚Å‚·‚ªA‚»‚ÌŽg‚¢
-•û‚Ü‚Å‹³‚¦‚é‚ÆŒ‹\‘å•Ï‚»‚¤‚È‚Ì‚ÅçSçO‚µ‚Ä‚Ü‚·B
 
-<pre>
+<pre syntax="ruby">
 require 'sgl'
 def setup
   useSound
@@ -50,9 +76,10 @@ end
 mainloop
 </pre>
 
-<p>ƒ}ƒEƒX‚ª‰Ÿ‚³‚ê‚é‚ÆA‚»‚Ì‚‚³‚É‰ž‚¶‚½‰¹‚ð‚¾‚µ‚Ü‚·B
+	<p>ãƒžã‚¦ã‚¹ãŒæŠ¼ã•ã‚Œã‚‹ã¨ï¼Œãã®é«˜ã•ã«å¿œã˜ãŸéŸ³ã‚’å†ç”Ÿã™ã‚‹ï¼ŽéŸ³é‡ã‚‚å¤‰åŒ–ã™ã‚‹ï¼Ž</p>
 
-<pre>
+
+<pre syntax="ruby">
 require 'sgl'
 def setup
   useSound
@@ -74,43 +101,33 @@ end
 mainloop
 </pre>
 
-<p>‰¹—Ê‚à•Ï‚¦‚Ä‚Ý‚Ü‚µ‚½B</p>
+	<h2>æ³¨æ„ç‚¹</h2>
 
-<h3>’ˆÓ“_</h3>
 
-<p>Žö‹Æ‚Å‚Í‘å‹}‚¬‚Å‹³‚¦‚½‚Ì‚Å‚¢‚­‚Â‚©’ˆÓ“_‚ð‹³‚¦‚»‚±‚Ë‚Ä‚µ‚Ü‚¢‚Ü‚µ‚½B
+	<p>éŸ³ã‚’åŒæ™‚ã«ãŸãã•ã‚“å‡ºã™ã¨ï¼Œã‚·ã‚¹ãƒ†ãƒ å…¨ä½“ãŒå›ºã¾ã‚‹ï¼Žãƒ—ãƒ­ã‚°ãƒ©ãƒ ãŒæ­¢ã¾ã‚‹ã ã‘
+ã§ãªãï¼Œãƒžã‚·ãƒ³å…¨ä½“ãŒå›ºã¾ã‚‹ï¼Žã‚ã¾ã‚ŠãŸãã•ã‚“éŸ³ã‚’åŒæ™‚ã«å‡ºã—ã™ãŽãªã„ã‚ˆã†ã«
+ãƒ—ãƒ­ã‚°ãƒ©ãƒ å´ã§èª¿æ•´ã™ã‚‹ï¼Ž</p>
 
-<p>‰¹‚ð“¯Žž‚É‚½‚­‚³‚ño‚µ‚·‚¬‚é‚ÆAƒVƒXƒeƒ€‘S‘Ì‚ªŒÅ‚Ü‚Á‚Ä‚µ‚Ü‚¢‚Ü‚·B
-ƒvƒƒOƒ‰ƒ€‚ª‚Æ‚Ü‚é‚¾‚¯‚Å‚È‚­Aƒ}ƒVƒ“‘S‘Ì‚ª‚©‚½‚Ü‚è‚Ü‚·B‚È‚Ì‚Å‚ ‚Ü‚è
-‚É‚½‚­‚³‚ñ‰¹‚ð“¯Žž‚Éo‚µ‚·‚¬‚È‚¢‚æ‚¤‚ÉƒvƒƒOƒ‰ƒ€‘¤‚Å’²®‚µ‚Ä‚­‚¾‚³‚¢B
 
-<h3>”gŒ`•ÒWƒ\ƒtƒg</h3>
+	<h2>æ³¢å½¢ç·¨é›†ã‚½ãƒ•ãƒˆ</h2>
 
-<p>Tiny Wave Editor (TWE)‚Æ‚¢‚¤ƒtƒŠ[‚Ì”gŒ`•ÒWƒ\ƒtƒg‚ðŽg‚Á‚ÄƒTƒ“ƒv
-ƒ‹‰¹‚ðì‚é•û–@‚ð‹³‚¦‚Ü‚µ‚½BƒtƒŠ[ƒ\ƒtƒg‚È‚Ì‚ÅŽ©•ª‚Ìƒ}ƒVƒ“‚É‚àƒCƒ“ƒX
-ƒg[ƒ‹‚Å‚«‚Ü‚·B
 
-<ul>
-<li><a href="http://www.yamaha.co.jp/product/syndtm/dl/driver.html#ut">ƒ_ƒEƒ“ƒ[ƒhæ</a>
-(<a href="http://www.yamaha.co.jp/product/syndtm/dl/soft/twe231w.zip">’¼ƒŠƒ“ƒN Wave Editor TWE V2.3.1</a>)
-<li><a href="http://www.yamaha.co.jp/xg/SoundVQ/doc/knowhow/basic_ed.html">TWE‚ÌŠÈ’P‚ÈŽg‚¢•û</a>
-</ul>
+	<p>Audacityã‚„Wave Editor <span class="caps">TWE</span>ãªã©ã®ãƒ•ãƒªãƒ¼ã®æ³¢å½¢ç·¨é›†ã‚½ãƒ•ãƒˆã‚’ä½¿ã£ã¦ã‚µãƒ³ãƒ—ãƒ«
+éŸ³ã‚’ç·¨é›†ã§ãã‚‹ï¼Žè‡ªåˆ†ãŒæŒã£ã¦ã„ã‚‹MP3ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å…ƒã«ç·¨é›†ã™ã‚‹ã“ã¨ã‚‚ã§ãã‚‹ï¼Ž
+Audacityãªã©ã§MP3ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ãï¼Œè©²å½“å€‹æ‰€ã®ã¿ã‚’åˆ‡ã‚Šå‡ºã—ã¦ä¿å­˜ã—ãªãŠã™
+ã¨ã‚ˆã„ï¼Ž</p>
 
-<h3>‰¹ŠyCD‚©‚ç‚ÌŽæ‚èž‚Ý</h3>
 
-<p>‰¹ŠyCD‚©‚ç‚ÌŽæ‚èž‚Ý‚É‚ÍRealJukebox Basic‚Æ‚¢‚¤ƒ\ƒtƒg‚ðŽg—p‚µ‚Ü‚µ
-‚½B‚±‚Ìƒ\ƒtƒg‚ÍŠwZ‚ÌPC‚É‚ÍƒCƒ“ƒXƒg[ƒ‹‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B‚±‚Ìƒ\ƒtƒg
-‚àƒtƒŠ[‚È‚Ì‚ÅAŽ©•ª‚ÌPC‚ÉƒCƒ“ƒXƒg[ƒ‹‚µ‚ÄAŽ©•ª‚ÅŽæ‚èž‚ß‚é‚æ‚¤‚É‚·
-‚é‚Æ‚¢‚¢‚ÆŽv‚¢‚Ü‚·B
-
-<p>’ˆÓ“_‚ÍATWE‚ªMP3ƒtƒ@ƒCƒ‹‚Ì“Ç‚Ýž‚Ý‚É‘Î‰ž‚µ‚Ä‚¢‚È‚¢‚½‚ßAWAVƒtƒ@
-ƒCƒ‹‚É‚µ‚È‚­‚Ä‚Í‚¢‚¯‚È‚¢‚Æ‚¢‚¤‚Æ‚±‚ë‚Å‚·BŠÂ‹«Ý’è‚ð•ÏX‚·‚é‚±‚Æ‚ÅA
-WAVƒtƒ@ƒCƒ‹‚Æ‚µ‚ÄŽæ‚èž‚ß‚é‚æ‚¤‚É‚È‚è‚Ü‚·B
-
-<ul>
-<li><a href="http://www.jp.real.com/jukebox/index_jp.html">RealJukebox Basic</a>
-</ul>
-
+	<ul>
+	<li><a href="http://audacity.sourceforge.net/">Audacity</a></li>
+		<li><a href="http://www.yamaha.co.jp/product/syndtm/dl/utility/twe/">Wave Editor <span class="caps">TWE</span></a></li>
+	</ul>
+    <p class="coda">
+      19th June 2007<br>
+    </p>
 </div>
+
+<!-- insert site tracking codes here, like Google Urchin -->
+
 </body>
 </html>
