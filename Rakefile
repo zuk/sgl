@@ -157,7 +157,7 @@ end
 
 desc 'Change mode to erase executable bits.'
 task :chmod => [:clean] do
-  sh "chmod 644 Rakefile"
+  sh "chmod 644 Rakefile ChangeLog"
   sh "chmod 644 *.txt */*.txt"
   sh "chmod 644  */*.html"
   sh "chmod 644  */*.rhtml"
