@@ -172,7 +172,7 @@ task :replace do
   Dir.glob("*/*/*.rb").each {|file|
     str = open(file) {|f| f.read }
     if /\$test/ =~ str
-      str.gsub!(/\$test/) { '$__sgl_test__' }
+      str.gsub!(/\$test/) { '$__test_sgl__' }
       qp file, str.length
       open(file, "wb") {|f| f.print str }
     end

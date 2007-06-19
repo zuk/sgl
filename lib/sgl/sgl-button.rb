@@ -103,10 +103,10 @@ end
 
 if $0 == __FILE__
   require "test/unit"
-  $test = true
+  $__test_sgl__ = true
 end
 
-if defined?($test) && $test
+if defined?($__test_sgl__) && $__test_sgl__
   class TestSglButton < Test::Unit::TestCase
     def test_button
       b = Button.new(1, 2)

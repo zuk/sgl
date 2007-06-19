@@ -68,10 +68,10 @@ end
 
 if $0 == __FILE__
   require "test/unit"
-  $test = true
+  $__test_sgl__ = true
 end
 
-if defined?($test) && $test
+if defined?($__test_sgl__) && $__test_sgl__
   class TestSglColor_SglColor < Test::Unit::TestCase
     def test_all
       rgb = SGL::ColorTranslatorRGB.new(100, 100, 100, 100)
