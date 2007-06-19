@@ -1,5 +1,5 @@
 body {
-  background-color: #E1D1F1;
+  background-color: #fff;
   font-family: "Georgia", sans-serif;
   font-size: 16px;
   line-height: 1.6em;
@@ -23,8 +23,8 @@ li {
   list-style-type: square;
 }
 a {
-  color: #5E5AFF;
-	background-color: #DAC;
+  color: #555;
+	background-color: #eee;
   font-weight: normal;
   text-decoration: underline;
 }
@@ -101,7 +101,7 @@ pre, code {
   text-align: right;
   font-family: sans-serif;
   font-weight: normal;
-  background-color: #B3ABFF;
+  background-color: #ddd;
   color: #141331;
   padding: 15px 20px 10px 20px;
   margin: 0 auto;
@@ -120,7 +120,7 @@ pre, code {
 #version p {
   text-decoration: none;
 	color: #141331;
-	background-color: #B3ABFF;
+	background-color: #ddd;
 	margin: 0;
 	padding: 0;
 }
@@ -128,7 +128,7 @@ pre, code {
 #version a {
   text-decoration: none;
 	color: #141331;
-	background-color: #B3ABFF;
+	background-color: #ddd;
 }
 
 .clickable {

@@ -1,10 +1,30 @@
 h1. sgl
 
-h1. &#x2192; 'sgl'
-
+h1. &#x2192; simple generic library
 
 h2. What
 
+'sgl' is a simgple generic library to create a program with graphics and sound.
+
+This library contains two version.
+
+h2. Requirement
+
+h3. Windows
+
+* Ruby 1.8.5 or later
+* Ruby/OpenGL
+* Ruby/Math3D
+* Ruby/SDL
+
+You can see a document to install these libraries here.
+http://eto.com/wiki/RubySDLonWindows.html
+
+h3. Mac OS X
+
+* Mac OS X 10.3 or later
+* Ruby 1.8.5 or later
+* X Window system
 
 h2. Installing
 
@@ -12,27 +32,38 @@ h2. Installing
 
 h2. The basics
 
+Save this progarm as <tt>test1.rb</tt>.
+<pre syntax="ruby">
+require "sgl"
+window 100, 100
+line 0, 0, 100, 100
+wait
+</pre>
 
-h2. Demonstration of usage
+Run the program with <tt>ruby test1.rb</tt>.
 
+<pre syntax="ruby">
+require "sgl"
 
+def setup
+  window 100, 100
+end
 
-h2. Forum
+def display
+  line 0, 0, 100, 100
+end
 
-"http://groups.google.com/group/sgl":http://groups.google.com/group/sgl
+mainloop
+</pre>
 
-TODO - create Google Group - sgl
-
-h2. How to submit patches
-
-Read the "8 steps for fixing other people's code":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/ and for section "8b: Submit patch to Google Groups":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8b-google-groups, use the Google Group above.
+h2. Repositry
 
 The trunk repository is <code>svn://rubyforge.org/var/svn/sgl/trunk</code> for anonymous access.
 
 h2. License
 
-This code is free to use under the terms of the MIT license. 
+Ruby License.
 
 h2. Contact
 
-Comments are welcome. Send an email to "FIXME full name":mailto:FIXME email.
+Comments are welcome. Send an email to "Kouichirou Eto" <eto at rubyforge dot org>.

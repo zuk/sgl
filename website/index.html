@@ -1,11 +1,137 @@
-<html>
-	<head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-		<title>sgl</title>
-		
-	</head>
-	<body id="body">
-		<p>This page has not yet been created for RubyGem <code>sgl</code></p>
-		<p>To the developer: To generate it, update website/index.txt and run the rake task <code>website</code> to generate this <code>index.html</code> file.</p>
-	</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      sgl
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
+</head>
+<body>
+<div id="main">
+
+    <h1>sgl</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/sgl"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/sgl" class="numbers">0.0.4</a>
+    </div>
+    <h1>&#x2192; simple generic library</h1>
+
+
+	<h2>What</h2>
+
+
+	<p>&#8216;sgl&#8217; is a simgple generic library to create a program with graphics and sound.</p>
+
+
+	<p>This library contains two version.</p>
+
+
+	<h2>Requirement</h2>
+
+
+	<h3>Windows</h3>
+
+
+	<ul>
+	<li>Windows 2000 or later</li>
+		<li>ruby 1.8.2 MinGW version</li>
+		<li>Ruby/OpenGL</li>
+		<li>Ruby/Math3D</li>
+		<li>Ruby/SDL</li>
+	</ul>
+
+
+	<p>You can see a document to install these libraries here.
+http://eto.com/wiki/RubySDLonWindows.html</p>
+
+
+	<h3>Mac <span class="caps">OS X</span></h3>
+
+
+	<ul>
+	<li>Mac <span class="caps">OS X 10</span>.3 (Panther)</li>
+		<li>ruby 1.8.2</li>
+		<li>X Window system</li>
+	</ul>
+
+
+	<h2>Installing</h2>
+
+
+<pre syntax="ruby">sudo gem install sgl</pre>
+
+	<h2>The basics</h2>
+
+
+Save this progarm as <tt>test1.rb</tt>.
+<pre syntax="ruby">
+require "sgl" 
+window 100, 100
+line 0, 0, 100, 100
+wait
+</pre>
+
+	<p>Run the program with <tt>ruby test1.rb</tt>.</p>
+
+
+<pre syntax="ruby">
+require "sgl" 
+
+def setup
+  window 100, 100
+end
+
+def display
+  line 0, 0, 100, 100
+end
+
+mainloop
+</pre>
+
+	<h2>Repositry</h2>
+
+
+	<p>The trunk repository is <code>svn://rubyforge.org/var/svn/sgl/trunk</code> for anonymous access.</p>
+
+
+	<h2>License</h2>
+
+
+	<p>Ruby License.</p>
+
+
+	<h2>Contact</h2>
+
+
+	<p>Comments are welcome. Send an email to &#8220;Kouichirou Eto&#8221; <eto at rubyforge dot org>.</p>
+    <p class="coda">
+      19th June 2007<br>
+      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
+    </p>
+</div>
+
+<!-- insert site tracking codes here, like Google Urchin -->
+
+</body>
 </html>
