@@ -54,7 +54,7 @@ EOS
     s = f.to_s
     return if s =~ /~$/
     ignore_pattern = %w(
-CVS memo.txt tar.gz .cvsignore
+CVS memo.txt tar.gz .cvsignore .svn
 .stackdump .o .so
 )
     ignore_pattern.each {|pat|
@@ -90,6 +90,8 @@ CVS memo.txt tar.gz .cvsignore
 
   def cp_all(src, dest)
     src.each {|file|
+      next if file.include?('.svn')
+      #qp file
       path = file.path
       dir = path.dirname
       destdir = dest.path+dir

@@ -1,4 +1,4 @@
 module SGL
-  VERSION = "0.2"
-  RELEASE_DATE = "20050422"
+  VERSION = "0.3"
+  RELEASE_DATE = "20070610"
 end
