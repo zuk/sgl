@@ -1,5 +1,6 @@
 #!/usr/local/bin/ruby -w
 # by eto 011113
+# License: Ruby License
 
 class ObjLib #----------------------------------------------------------------------
   START_CATEGORY = 1

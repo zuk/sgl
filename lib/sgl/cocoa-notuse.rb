@@ -1,4 +1,5 @@
 # Copyright (C) 2004-2007 Kouichirou Eto, All rights reserved.
+# License: Ruby License
 # These classes are not using.
 
 module SGL

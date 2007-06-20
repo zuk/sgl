@@ -1,4 +1,5 @@
 # Copyright (C) 2004-2007 Kouichirou Eto, All rights reserved.
+# License: Ruby License
 
 $LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
 
@@ -209,4 +210,3 @@ if defined?($__test_sgl__) && $__test_sgl__
     end
   end
 end
-83

@@ -1,4 +1,5 @@
 # Copyright (C) 2004-2007 Kouichirou Eto, All rights reserved.
+# License: Ruby License
 
 module SGL
   # window functions

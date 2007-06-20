@@ -1,4 +1,5 @@
 # Copyright (C) 2004-2007 Kouichirou Eto, All rights reserved.
+# License: Ruby License
 
 require "Win32API"
 require "singleton"
@@ -236,7 +237,7 @@ module Bass
   end
 
   # ----------------------------------------------- 非公開内部クラス
-  class SampleLoader
+  class SampleLoader #:nodoc:
     include Singleton
 
     MAX_SIMULTANEOUS_PLAYBACKS = 1000    #MAX_SIMULTANEOUS_PLAYBACKS = 65535
@@ -300,10 +301,13 @@ module Bass
       load_file(file) if file != nil
       self
     end
+
     attr_accessor :base
+
     def load_file(file)
       @hsample, @samplefreq = SampleLoader.instance.get(file)
     end
+
     def playEx(start=0, freq=-1, volume=-1, pan=-101, loop=-1) #外部非公開
 #freq The sample rate... 100 (min) - 100000 (max), -1 = use sample's default. 
 #volume The volume... 0 (silent) - 100 (max), -1 = use sample's default. 
@@ -323,22 +327,27 @@ module Bass
       #printf("HCHANNEL is %x\n", ch)
       @bass.add_playing_channel(ch)
     end
+
     def play(note=60, volume=-1, pan=-101)
       freq = mtof(note)
       sfreq = @samplefreq * freq / mtof(@base)
       playEx(0, sfreq, volume, pan)
     end
+
     #alias playNote play
+
     def mtof(note)
       return mtof(0) if note < 0
       return mtof(127) if 127 < note
       return 8.17579891564 * Math.exp(0.0577622650 * note)
     end
+
     def mtof_nu(f)
       return 0 if (f <= -1500)
       return(mtof(1499)) if (f > 1499)
       return (8.17579891564 * Math.exp(0.0577622650 * f));
     end
+
     def ftom(f)
       return (f > 0 ? 17.3123405046 * Math.log(0.12231220585 * f) : -1500);
     end
