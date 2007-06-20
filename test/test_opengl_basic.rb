@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby -w
 # Copyright (C) 2004-2007 Kouichirou Eto, All rights reserved.
+# License: Ruby License
 
 $LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
 require "sgl/opengl"
