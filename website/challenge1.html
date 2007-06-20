@@ -1,53 +1,82 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>sgl challenge 1</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      ���ʉۑ�1
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
 </head>
 <body>
+<div id="main">
 
-<div class="container">
-<div class="main">
-<div class="adminmenu">
-<p><a href="index.html">back</a></p>
+    <h1>���ʉۑ�1</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/sgl"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/sgl" class="numbers">0.3.1</a>
+    </div>
+    <h2> �e�[�}�ɉ������A�j���[�V����</h2>
+
+
+	<ul>
+	<li>�ۑ�: �����̃e�[�}��I�����C5�̃A�j���[�V�����ɂ���ĕ\������D
+	<ul>
+	<li>�e�[�}�ݒ�̗�: ���s���C�������C���̓����C�F�̑Δ�C�ȂǁD</li>
+	</ul>
+	</li>
+		<li>�G�R���e: �܂��ۑ�̃e�[�}���l���C�ǂ̂悤�ȓ������v���O�����Ŏ�������ׂ������G�R���e�ɂ܂Ƃ߂�D
+	<ul>
+	<li>����̎��Ƃ̍ŏ��ɊG�R���e���o����D���Ǝ��ԓ��ɊG�R���e�͕ԋp����D</li>
+	</ul>
+	</li>
+		<li>���\: �����T�̎��Ǝ��ԓ��Ƀv���[���e�[�V�����`���Ŕ��\����D
+	<ul>
+	<li>�e�[�}�����C�v���O���������s����(5�����ԂɌ�����)�C�v���O�����̓��e����(�H�v�����_�Ȃ�)�C�Ƃ������ԂŔ��\����D</li>
+	</ul></li>
+	</ul>
+
+
+	<h3>�v���O�����̒��ӓ_</h3>
+
+
+	<ul>
+	<li>window�̑傫���͎��R�D�Œ�200&#215;200�ȏ�Ƃ���D</li>
+		<li>�R�}���h���`����@�\���Œ�3�͎g�����ƁD</li>
+		<li>�t�@�C�����͎w��̂��̂ɂ��邱�ƁD</li>
+		<li>�t�@�C����: special1a.rb, special1b.rb, special1c.rb, special1d.rb, special1e.rb</li>
+	</ul>
+
+
+	<h3>�̓_</h3>
+
+
+	<p>�e�[�}�I�сC�G�R���e���܂߁C���e���d�������̓_�����܂��D</p>
+    <p class="coda">
+      20th June 2007<br>
+    </p>
 </div>
 
-<h1>sgl challenge 1</h1>
-<div class="day">
-<h2>特別課題1</h2>
-<div class="body">
-<div class="section">
+<!-- insert site tracking codes here, like Google Urchin -->
 
-<h3>特別課題1: テーマに沿ったアニメーション</h3>
-
-<dl>
-<dt>特別課題1
-<dd>ある一つのテーマを選び、そのテーマを5個のアニメーションによって表現する。
-<dt>テーマ設定の例
-<dd>奥行感、透明性、虫の動き、色の対比、など。
-<dt>絵コンテ
-<dd>まず課題のテーマを考え、どのような動きをプログラムで実現するべきかを考え、それを絵コンテにまとめる。<br>
-来週の授業(10/16)の最初に、その絵コンテを提出する。授業時間内にその絵コンテは返却します。
-<dt>発表
-<dd>課題は、10/23の授業内に、プレゼンテーションという形式で発表する。<br>
-プレゼンテーションでは、テーマの説明、プログラムの実行(5個を順番に見せる)、
-プログラムの内容の説明(工夫した点など)、という順番で行う。
-<dt>プログラムの注意点
-<dd>
-<ul>
-<li>windowの大きさは自由だが、最低200x200以上。
-<li>コマンドを定義する機能を最低3個は使うこと。
-<li>ファイル名は指定のものにすること。<br>
-ファイル名: special1a.rb, special1b.rb, special1c.rb, special1d.rb, special1e.rb
-</ul>
-<dt>採点:
-<dd>テーマ選び、絵コンテも含め、内容を重視した採点をします。
-</dl>
-
-</div>
-</div>
-</div>
-</div>
-</div>
 </body>
 </html>

@@ -1,6 +1,4 @@
-h1. sgl
-
-h1. &#x2192; simple generic library
+h1. sgl &#x2192; simple generic library
 
 h2. What is sgl?
 
@@ -40,6 +38,17 @@ wait
 
 Run the program with @ruby test1.rb@.
 
+@test2.rb@.
+<pre syntax="ruby">
+require "sgl"
+window 100, 100
+background 0
+color 100
+line 0, 0, 100, 100
+wait
+</pre>
+
+@test3.rb@.
 <pre syntax="ruby">
 require "sgl"
 
