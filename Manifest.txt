@@ -34,6 +34,7 @@ examples/sample7.rb
 examples/sample9.rb
 examples/testgl.rb
 lib/sgl.rb
+lib/sgl/bass.rb
 lib/sgl/cocoa-app.rb
 lib/sgl/cocoa-color.rb
 lib/sgl/cocoa-draw.rb
@@ -50,7 +51,6 @@ lib/sgl/opengl-event.rb
 lib/sgl/opengl-modules.rb
 lib/sgl/opengl-window.rb
 lib/sgl/opengl.rb
-lib/sgl/sgl-bass.rb
 lib/sgl/sgl-button.rb
 lib/sgl/sgl-client.rb
 lib/sgl/sgl-color.rb

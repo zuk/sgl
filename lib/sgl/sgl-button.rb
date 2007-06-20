@@ -107,7 +107,7 @@ if $0 == __FILE__
 end
 
 if defined?($__test_sgl__) && $__test_sgl__
-  class TestSglButton < Test::Unit::TestCase
+  class TestSglButton < Test::Unit::TestCase #:nodoc:
     def test_button
       b = Button.new(1, 2)
       assert_equal(1, b.x)

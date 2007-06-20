@@ -43,7 +43,7 @@ if $0 == __FILE__
 end
 
 if defined?($__test_sgl__) && $__test_sgl__
-  class TestSglServer < Test::Unit::TestCase
+  class TestSglServer < Test::Unit::TestCase #:nodoc:
     def test_all
       server = Sgl::Server.new
       Thread.start {

@@ -18,6 +18,8 @@
 
 	* Add license information to each files.
 
+	* Reformat for RDoc.
+
 2007-06-19  Kouichirou Eto  <2007 eto.com>
 
 	* Restructuring. Adapt to newgem source code tree.

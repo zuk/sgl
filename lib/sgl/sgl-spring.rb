@@ -4,9 +4,11 @@
 $LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
 
 module SGL
+=begin
   # not yet.
   module SpringModule
   end
+=end
 
   class Spring
     EPSILON = 0.01
@@ -121,6 +123,7 @@ module SGL
   end
 end
 
+=begin
 class NuSpringPos
   EPSILON = 0.01
 
@@ -188,6 +191,7 @@ class NuNumSpring
     @ks = 1 if @ks <= 0
   end
 end
+=end
 
 if $0 == __FILE__
   require "test/unit"
@@ -195,7 +199,7 @@ if $0 == __FILE__
 end
 
 if defined?($__test_sgl__) && $__test_sgl__
-  class TestSglSpring < Test::Unit::TestCase
+  class TestSglSpring < Test::Unit::TestCase #:nodoc:
     def test_all
 
       s = SGL::NumSpring.new(0, 1, 0.1, 0.1)

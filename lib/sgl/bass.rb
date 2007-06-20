@@ -355,7 +355,7 @@ module Bass
 end
 
 if __FILE__ == $0
-  def main
+  def main #:nodoc:
     p "main"
     include Bass
     #bass = BassLib.new

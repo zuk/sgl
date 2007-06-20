@@ -2,6 +2,7 @@
 # License: Ruby License
 # These classes are not using.
 
+=begin
 module SGL
   class NuVideo
     include Singleton
@@ -436,7 +437,8 @@ module SGL
   class SglSound < OSX::NSSound
 #    def play()	play_;	end
   end
-
+end
+=end
 
 =begin
   # sgl commands
@@ -489,5 +491,3 @@ module SGL
     OSX::NSAffineTransform.transform.set
   end
 =end
-
-end

@@ -6,13 +6,13 @@ require "pathname"
 require "fileutils"
 require "sgl/version"
 
-class String
+class String #:nodoc:
   def path
     Pathname.new(self)
   end
 end
 
-class ReleaseMaker
+class ReleaseMaker #:nodoc:
   def self.main(argv)
     releasemaker = self.new
     puts "make version"
