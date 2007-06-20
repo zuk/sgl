@@ -10,9 +10,8 @@ class TestOpenGLFullscreen < Test::Unit::TestCase
     app = SGL::Application.new
     app.set_setup {
       app.useFullscreen(1024, 768)
-     #app.useFullscreen(640, 480)
       app.window(100, 100)
-      app.runtime = 10.1
+      app.runtime = 1.1
     }
     @i = 0
     app.set_display {

@@ -11,6 +11,8 @@
 	* Update copyright lines to this year 2007.
 	* Update copyright lines again.
 
+	* test_opengl_fullscreen.rb: Change runtime to a second.
+
 2007-06-19  Kouichirou Eto  <2007 eto.com>
 
 	* Restructuring. Adapt to newgem source code tree.
