@@ -169,7 +169,8 @@ end
 
 task :replace do
   require "qp"
-  Dir.glob("*/*/*.rb").each {|file|
+  #Dir.glob("*/*/*.rb").each {|file|
+  Dir.glob("*/*.rb").each {|file|
     str = open(file) {|f| f.read }
     if /2004\-2005/ =~ str
       str.gsub!(/2004\-2005/) { '2004-2007' }
