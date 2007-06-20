@@ -22,6 +22,7 @@
 
 	* Truncate unused files.
 	* Delete unused files.
+	* Delete unused directories.
 
 2007-06-19  Kouichirou Eto  <2007 eto.com>
 
