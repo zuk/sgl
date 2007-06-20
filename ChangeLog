@@ -20,6 +20,8 @@
 
 	* Reformat for RDoc.
 
+	* Truncate unused files.
+
 2007-06-19  Kouichirou Eto  <2007 eto.com>
 
 	* Restructuring. Adapt to newgem source code tree.
