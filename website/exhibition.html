@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      作品合同展示
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
+</head>
+<body>
+<div id="main">
+
+    <h1>作品合同展示</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/sgl"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/sgl" class="numbers">0.3.1</a>
+    </div>
+    <h2>合同展示</h2>
+
+
+	<ul>
+	<li>展示場所，見せ方について考える．複数のプログラムを統合したものを見せる．</li>
+		<li>まずは全員のプログラムをお互いに観賞し，どのような作品ができたかを見る．</li>
+		<li>useFullScreenを使って画面を最大化する．必要な変更をする．
+	<ul>
+	<li>全画面使用に伴い，デザインを変更する必要がある．</li>
+	</ul>
+	</li>
+		<li>キーボードは展示に出さないため，マウスだけで操作できるようにする．
+	<ul>
+	<li>どのように変更すればいいかを説明する．</li>
+	</ul>
+	</li>
+		<li>複数のプログラムを連結する方法について説明する．
+	<ul>
+	<li>展示用のファイル名を指定する．指定したディレクトリーにそのファイルを置く．</li>
+	</ul>
+	</li>
+		<li>展示についてのリーダーを決める．</li>
+	</ul>
+
+
+	<h2>サウンド機能</h2>
+
+
+	<ul>
+	<li>作品はサウンドのあるなしで大分印象が違う．</li>
+		<li>音をつける手順について説明する．</li>
+		<li>まずどのような音をつけるか考える．後で変えられるので簡単でよい．</li>
+		<li>サンプル音は，マイクで取り込む，フリーのサンプル音を使う，MP3から切り出すなどがある．</li>
+		<li>波形編集ソフトで必要な部分だけを抜き出す．0.1秒くらいを目途にする．</li>
+		<li>useSoundの使い方を学ぶ．</li>
+		<li>サウンドファイルを再生する方法．音程，音量，パンなどを指定できる．</li>
+		<li>小さい音を重ねて再生するようにすると効果的である．50音程度は再生できる．</li>
+	</ul>
+    <p class="coda">
+      20th June 2007<br>
+    </p>
+</div>
+
+<!-- insert site tracking codes here, like Google Urchin -->
+
+</body>
+</html>
