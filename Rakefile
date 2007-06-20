@@ -179,4 +179,9 @@ task :replace do
   }
 end
 
+desc 'Create Manifest.txt file.'
+task :manifest => [:chmod, :clean] do
+  sh "ruby scripts/makemanifest.rb"
+end
+
 #task :default => :test

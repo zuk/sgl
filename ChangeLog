@@ -1,3 +1,9 @@
+2007-06-20  Kouichirou Eto  <2007 eto.com>
+
+	* Update documents.
+
+	* Rakefile: Add new task manifest to create Manifest.txt.
+
 2007-06-19  Kouichirou Eto  <2007 eto.com>
 
 	* Restructuring. Adapt to newgem source code tree.
