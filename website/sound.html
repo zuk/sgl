@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>
-      sgl sound
+      サウンド機能
   </title>
   <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
 <style>
@@ -30,12 +30,12 @@
 <body>
 <div id="main">
 
-    <h1>sgl sound</h1>
+    <h1>サウンド機能</h1>
     <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/sgl"; return false'>
       <p>Get Version</p>
       <a href="http://rubyforge.org/projects/sgl" class="numbers">0.3.1</a>
     </div>
-    <h2>sgl サウンド機能の使い方</h2>
+    <h2>使い方</h2>
 
 
 	<p>サウンド機能の使い方について解説する．</p>
@@ -43,10 +43,14 @@
 
 <pre syntax="ruby">
 require 'sgl'
+
 useSound         # soundを使うことを宣言する．
+
 sound = loadSound('sine.wav')     # サンプル音をファイルから読みこむ．
                  # 同じディレクトリーにsine.wavというファイルを置いておく．
+
 sound.play       # そのサンプル音を再生する．
+
 wait             # プログラムがすぐ終了するのをふせぐために待つ．
                  # Ctrl+Cで，プログラムが終了する．
 </pre>
@@ -58,6 +62,7 @@ wait             # プログラムがすぐ終了するのをふせぐために�
 
 <pre syntax="ruby">
 require 'sgl'
+
 def setup
   useSound
   window -200, -200, 200, 200
@@ -73,6 +78,7 @@ end
 def display
   line -200, $y, 200, $y
 end
+
 mainloop
 </pre>
 
@@ -81,6 +87,7 @@ mainloop
 
 <pre syntax="ruby">
 require 'sgl'
+
 def setup
   useSound
   window -200, -200, 200, 200
@@ -98,6 +105,7 @@ end
 def display
   circle($x, $y, 10)
 end
+
 mainloop
 </pre>
 
@@ -123,7 +131,7 @@ AudacityなどでMP3ファイルを開き，該当個所のみを切り出して
 		<li><a href="http://www.yamaha.co.jp/product/syndtm/dl/utility/twe/">Wave Editor <span class="caps">TWE</span></a></li>
 	</ul>
     <p class="coda">
-      19th June 2007<br>
+      20th June 2007<br>
     </p>
 </div>
 

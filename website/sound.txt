@@ -1,15 +1,19 @@
-h1. sgl sound
+h1. サウンド機能
 
-h2. sgl サウンド機能の使い方
+h2. 使い方
 
 サウンド機能の使い方について解説する．
 
 <pre syntax="ruby">
 require 'sgl'
+
 useSound         # soundを使うことを宣言する．
+
 sound = loadSound('sine.wav')     # サンプル音をファイルから読みこむ．
                  # 同じディレクトリーにsine.wavというファイルを置いておく．
+
 sound.play       # そのサンプル音を再生する．
+
 wait             # プログラムがすぐ終了するのをふせぐために待つ．
                  # Ctrl+Cで，プログラムが終了する．
 </pre>
@@ -20,6 +24,7 @@ wait             # プログラムがすぐ終了するのをふせぐために�
 
 <pre syntax="ruby">
 require 'sgl'
+
 def setup
   useSound
   window -200, -200, 200, 200
@@ -35,6 +40,7 @@ end
 def display
   line -200, $y, 200, $y
 end
+
 mainloop
 </pre>
 
@@ -42,6 +48,7 @@ mainloop
 
 <pre syntax="ruby">
 require 'sgl'
+
 def setup
   useSound
   window -200, -200, 200, 200
@@ -59,6 +66,7 @@ end
 def display
   circle($x, $y, 10)
 end
+
 mainloop
 </pre>
 
