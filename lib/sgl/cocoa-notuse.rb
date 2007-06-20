@@ -1,4 +1,4 @@
-# Copyright (C) 2004-2005 Kouichirou Eto, All rights reserved.
+# Copyright (C) 2004-2007 Kouichirou Eto, All rights reserved.
 # These classes are not using.
 
 module SGL
