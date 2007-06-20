@@ -124,9 +124,7 @@ module SGL
     end
 
     def do_display # callback
-      #qp @setup_done
       return if @setup_done.nil?
-#      qp @display_drawing
 #      return if @display_drawing
       @display_drawing = true
       display_pre

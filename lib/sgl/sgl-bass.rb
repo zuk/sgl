@@ -337,40 +337,42 @@ module Bass
     def mtof_nu(f)
       return 0 if (f <= -1500)
       return(mtof(1499)) if (f > 1499)
-      return (8.17579891564 * Math.exp(.0577622650 * f));
+      return (8.17579891564 * Math.exp(0.0577622650 * f));
     end
     def ftom(f)
-      return (f > 0 ? 17.3123405046 * Math.log(.12231220585 * f) : -1500);
+      return (f > 0 ? 17.3123405046 * Math.log(0.12231220585 * f) : -1500);
     end
   end
 end
 
-#----------------------------------------------------------------------
-def main
-  p ["main"]
-  include Bass
-  bass = BassLib.new
-  samp = Sample.new("start.wav")
-  5.times {
-    ret = samp.play
-    printf("ret is %x, errorcode is %d\n", ret, Bass.errorGetCode())
-    sleep 0.1
-  }
-  sleep 1
-  20.times { |i|
-    #ret = bass_SamplePlayEx.call(hsample, 0, 1000 * i, 100, 0, -1)
-    #ret = bass_SamplePlayEx.call(hsample, 0, -1, -1, -1, -1)
-    #ret = bass_SamplePlayEx.call(hsample, 0, -1, 10 * i, -1, -1)
-    #ret = bass_SamplePlayEx.call(hsample, 0, -1, -1, 10 * i, -1)
-    #ret = bass_SamplePlayEx.call(hsample, 0, 8000 + 1000 * i, -1, -1, -1)
-    ret = samp.playEx(0, 8000 + 1000 * i, -1, -1, -1)
-    #printf("ret is %x, errorcode is %d\n", ret, Bass.errorGetCode())
-    printf("ret is %x, errorcode is %d\n", ret, Bass::BASS_ErrorGetCode.call())
-    ###define BASS_ERROR_START	= 9	/// BASS_Start has not been successfully called
-    sleep 0.2
-  }
-end
-
 if __FILE__ == $0
+  def main
+    p "main"
+    include Bass
+    #bass = BassLib.new
+    bass = BassLib.instance
+    samp = Sample.new("start.wav")
+    5.times {
+      ret = samp.play
+      #puts "ret is #{ret}, errorcode is #{Bass.errorGetCode}"
+      puts "ret is #{ret}"
+      sleep 0.1
+    }
+    sleep 1
+    20.times { |i|
+      #ret = bass_SamplePlayEx.call(hsample, 0, 1000 * i, 100, 0, -1)
+      #ret = bass_SamplePlayEx.call(hsample, 0, -1, -1, -1, -1)
+      #ret = bass_SamplePlayEx.call(hsample, 0, -1, 10 * i, -1, -1)
+      #ret = bass_SamplePlayEx.call(hsample, 0, -1, -1, 10 * i, -1)
+      #ret = bass_SamplePlayEx.call(hsample, 0, 8000 + 1000 * i, -1, -1, -1)
+      ret = samp.playEx(0, 8000 + 1000 * i, -1, -1, -1)
+      #printf("ret is %x, errorcode is %d\n", ret, Bass.errorGetCode())
+      #printf("ret is %x, errorcode is %d\n", ret, Bass::BASS_ErrorGetCode.call())
+      puts"ret is #{ret}, errorcode is #{ Bass::BASS_ErrorGetCode.call}"
+      ###define BASS_ERROR_START	= 9	/// BASS_Start has not been successfully called
+      sleep 0.2
+    }
+  end
+
   main
 end

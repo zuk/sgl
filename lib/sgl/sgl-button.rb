@@ -67,7 +67,6 @@ class ButtonColumn
   def move(x, y)
     # @y_spring.target = y.abs < (768/2 - 120) ? @hy : @dy
     #if y.abs < (768/2 - 120)
-    #qp @dy, y, (@dy - y), (@dy - y).abs
     if (@dy - y).abs < 50
       @y_spring.target = @dy
     else

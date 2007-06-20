@@ -171,8 +171,8 @@ task :replace do
   require "qp"
   Dir.glob("*/*/*.rb").each {|file|
     str = open(file) {|f| f.read }
-    if /\$test/ =~ str
-      str.gsub!(/\$test/) { '$__test_sgl__' }
+    if /2004\-2005/ =~ str
+      str.gsub!(/2004\-2005/) { '2004-2007' }
       qp file, str.length
       open(file, "wb") {|f| f.print str }
     end

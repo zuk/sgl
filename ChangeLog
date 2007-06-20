@@ -4,6 +4,10 @@
 
 	* Rakefile: Add new task manifest to create Manifest.txt.
 
+	* Remove qp related lines.
+
+	* sgl-bass.rb: Update main not to define always.
+
 2007-06-19  Kouichirou Eto  <2007 eto.com>
 
 	* Restructuring. Adapt to newgem source code tree.

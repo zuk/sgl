@@ -4,7 +4,6 @@
 require "pathname"
 require "fileutils"
 require "sgl/version"
-require "sgl/qp"
 
 class String
   def path
@@ -91,7 +90,6 @@ CVS memo.txt tar.gz .cvsignore .svn
   def cp_all(src, dest)
     src.each {|file|
       next if file.include?('.svn')
-      #qp file
       path = file.path
       dir = path.dirname
       destdir = dest.path+dir
