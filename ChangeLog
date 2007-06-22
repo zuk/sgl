@@ -17,6 +17,10 @@
 
 	* bin: Remove unused directory.
 
+	* sgl/bass.rb: Restructuring.
+	* sgl/bass-api.rb: New file.
+	* sgl/bass-sample.rb: New file.
+
 2007-06-21  Kouichirou Eto  <2007 eto.com>
 
 	* test_*: Update require.
