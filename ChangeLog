@@ -1,3 +1,18 @@
+2007-06-22  Kouichirou Eto  <2007 eto.com>
+
+	* test_helper.rb: Update to include LOAD_PATH.
+
+	* test_opengl_fullscreen.rb: Change runtime to 0.1
+
+	* examples/*: Change sgl/opengl to sgl.
+	* examples/*: Update comment.
+
+	* sgl/sgl.rb: Use sgl/opengl as default sgl_type.
+
+	* sgl/sgl-timer.rb: Refine comment.
+
+	* sgl/sgl-basic.rb: Create test case.
+
 2007-06-21  Kouichirou Eto  <2007 eto.com>
 
 	* test_*: Update require.

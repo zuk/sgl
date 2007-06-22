@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 # Copyright (C) 2004-2007 Kouichirou Eto, All rights reserved.
 
-$LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
 require "sgl/cocoa-app"
 
 app = SGL::Application.new

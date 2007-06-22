@@ -2,7 +2,7 @@
 # License: Ruby License
 
 module SGL
-  #starttime秒後に始まって、endtime秒後に終る。
+  # starttime秒後に始まって、endtime秒後に終る。
   class Timer
     def initialize(st, et)
       @st, @et = st, et
@@ -36,7 +36,7 @@ module SGL
       @bt = Time.now.to_f - @st if ! started?
     end
 
-    #begintime→開始時間
+    # begintime→開始時間
     def revert
       @bt = Time.now.to_f
     end
@@ -49,8 +49,8 @@ module SGL
   end
 
   module Fadeout
-    EXISTENCE_TIME = 6 #生存時間
-    FADEOUT_TIME = 2   #fadeoutする時間
+    EXISTENCE_TIME = 6 # 生存時間
+    FADEOUT_TIME = 2   # fadeoutする時間
 
     def fadeout_initialize
       @timer = Timer.new(EXISTENCE_TIME - FADEOUT_TIME, EXISTENCE_TIME)

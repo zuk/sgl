@@ -1,3 +1,6 @@
+# You can use this test program to run Ruby/SDL, Ruby/OpenGL themselves.
+# I created sgl by extending this small program.
+
 require 'sdl'
 require 'opengl'
 

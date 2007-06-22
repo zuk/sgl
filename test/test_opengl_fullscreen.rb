@@ -10,7 +10,7 @@ class TestOpenGLFullscreen < Test::Unit::TestCase
     app.set_setup {
       app.useFullscreen(1024, 768)
       app.window(100, 100)
-      app.runtime = 1.1
+      app.runtime = 0.1
     }
     @i = 0
     app.set_display {

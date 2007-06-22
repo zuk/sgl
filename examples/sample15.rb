@@ -1,4 +1,4 @@
-require "sgl/opengl"
+require "sgl"
 
 def setup
   window 100, 100

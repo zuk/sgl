@@ -3,5 +3,8 @@
 
 $__test_sgl__ = true
 
+libdir = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH.unshift(libdir) if !$LOAD_PATH.include?(libdir)
+
 require 'test/unit'
-require File.dirname(__FILE__) + '/../lib/sgl'
+require 'sgl'
