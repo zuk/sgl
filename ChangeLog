@@ -13,6 +13,8 @@
 
 	* sgl/sgl-basic.rb: Create test case.
 
+	* sgl/make-release.rb: Remove unused file.
+
 2007-06-21  Kouichirou Eto  <2007 eto.com>
 
 	* test_*: Update require.
