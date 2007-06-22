@@ -155,8 +155,10 @@ task :install_gem => [:clean, :package] do
   end
 end
 
+task :clean => [:chmod]
+
 desc 'Change mode to erase executable bits.'
-task :chmod => [:clean] do
+task :chmod do
   sh "chmod 644 Rakefile ChangeLog"
   sh "chmod 644 *.txt */*.txt"
   sh "chmod 644  */*.html"
@@ -169,8 +171,7 @@ end
 
 task :replace do
   require "qp"
-  #Dir.glob("*/*/*.rb").each {|file|
-  Dir.glob("*/*.rb").each {|file|
+  Dir.glob("*/*/*.rb */*.rb").each {|file|
     str = open(file) {|f| f.read }
     if /2004\-2005/ =~ str
       str.gsub!(/2004\-2005/) { '2004-2007' }

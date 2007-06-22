@@ -199,4 +199,62 @@ module SGL
       box(x - s, y - s, z - s, x + s, y + s, z + s)
     end
   end
+
+  # This class is not used for now.
+  class FasterCircle
+    # circle
+    def self.circleUnit(style=LINE_LOOP, div=nil)
+      div = 32 if div == nil
+      e = 2 * Math::PI / div
+      beginObj(style)
+      div.times {|i|
+	rad = i * e
+	x = Math.cos(rad)
+	y = Math.sin(rad)
+	vertex(x, y)
+      }
+      endObj()
+    end
+
+    def self.make_list
+      GL.NewList(1, GL::COMPILE)
+      self.circleUnit(LINE_LOOP, 32)
+      GL.EndList()
+      GL.NewList(2, GL::COMPILE)
+      self.circleUnit(POLYGON, 32)
+      GL.EndList()
+      GL.NewList(3, GL::COMPILE)
+      self.circleUnit(LINE_LOOP, 6)
+      GL.EndList()
+      GL.NewList(4, GL::COMPILE)
+      self.circleUnit(POLYGON, 6)
+      GL.EndList()
+    end
+
+    def self.circleUnitList(style=LINE_LOOP, div=nil)
+      if div == 32
+	if style == LINE_LOOP
+	  GL.CallList(1)
+	elsif style == POLYGON
+	  GL.CallList(2)
+	end
+      elsif div == 6
+	if style == LINE_LOOP
+	  GL.CallList(3)
+	elsif style == POLYGON
+	  GL.CallList(4)
+	end
+      end
+    end
+
+    def self.circle(x, y, r, style=LINE_LOOP, div=nil)
+      push()
+      translate(x, y)
+      scale(r)
+      #circleUnit(style, div)
+      self.circleUnitList(style, div)
+      pop()
+    end
+  end
+
 end

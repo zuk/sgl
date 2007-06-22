@@ -2,11 +2,7 @@
 # Copyright (C) 2004-2007 Kouichirou Eto, All rights reserved.
 # License: Ruby License
 
-$LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
-require "sgl/opengl"
-require "test/unit"
-#puts $LOAD_PATH
-#puts $"
+require File.dirname(__FILE__) + '/test_helper.rb'
 
 if $0 == __FILE__
 class TestOpenGLNovice < Test::Unit::TestCase

@@ -1,3 +1,14 @@
+2007-06-21  Kouichirou Eto  <2007 eto.com>
+
+	* test_*: Update require.
+	* test_cocoa_app.rb: Add if.
+	* test_module_ruby16.rb: Add if.
+	* Rakefile: Add rule chmod to clean.
+	* sgl-objlib.rb: Moved to sgl-objs.rb
+	* sgl-objs.rb: New file.
+	* sgl-timer.rb: New file.
+	* sgl-basic.rb: New file.
+
 2007-06-20  Kouichirou Eto  <2007 eto.com>
 
 	* Update documents.

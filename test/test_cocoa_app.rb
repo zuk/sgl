@@ -2,12 +2,11 @@
 # Copyright (C) 2004-2007 Kouichirou Eto, All rights reserved.
 # License: Ruby License
 
-$LOAD_PATH.unshift("..") if !$LOAD_PATH.include?("..")
+require File.dirname(__FILE__) + '/test_helper.rb'
 
-if /cocoa/ =~ RUBY_PLATFORM
+if /osx/ =~ RUBY_PLATFORM
 
 require "sgl/cocoa-app"
-require "test/unit"
 
 class TestCocoaBasic < Test::Unit::TestCase
   def test_basic
