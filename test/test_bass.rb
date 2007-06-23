@@ -31,7 +31,7 @@ class TestSample < Test::Unit::TestCase
     }
   end
 
-  def test_1_change_freq
+  def nu_test_1_change_freq
     bass = Bass::BassLib.instance
     samp = Bass::Sample.new(TEST_FILENAME)
     20.times { |i|
