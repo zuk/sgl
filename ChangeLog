@@ -1,5 +1,11 @@
 2007-06-25  Kouichirou Eto  <2007 eto.com>
 
+	* version: Version up to 0.4.0
+
+	* sgl-0.4.0 released.
+
+2007-06-25  Kouichirou Eto  <2007 eto.com>
+
 	* test_bass.rb: Reformat.
 	* test_bass.rb: Ditto.
 
@@ -16,8 +22,6 @@
 	* examples/sgl-sound1.rb: Ditto.
 	* examples/sgl-sound2.rb: Ditto.
 	* examples/sine.ogg: Sample sound.
-
-	* version: Version up to 0.4.0
 
 2007-06-23  Kouichirou Eto  <2007 eto.com>
 
