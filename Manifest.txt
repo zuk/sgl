@@ -32,8 +32,13 @@ examples/sample16a.rb
 examples/sample6.rb
 examples/sample7.rb
 examples/sample9.rb
+examples/sgl-sound1.rb
+examples/sgl-sound2.rb
+examples/sine.ogg
 examples/testgl.rb
 lib/sgl.rb
+lib/sgl/bass-api.rb
+lib/sgl/bass-sample.rb
 lib/sgl/bass.rb
 lib/sgl/cocoa-app.rb
 lib/sgl/cocoa-color.rb
@@ -43,7 +48,6 @@ lib/sgl/cocoa-media.rb
 lib/sgl/cocoa-notuse.rb
 lib/sgl/cocoa-window.rb
 lib/sgl/cocoa.rb
-lib/sgl/make-release.rb
 lib/sgl/notuse-objs.rb
 lib/sgl/opengl-app.rb
 lib/sgl/opengl-color.rb
@@ -60,6 +64,7 @@ lib/sgl/sgl-connect.rb
 lib/sgl/sgl-objlib.rb
 lib/sgl/sgl-objs.rb
 lib/sgl/sgl-server.rb
+lib/sgl/sgl-sound.rb
 lib/sgl/sgl-spring.rb
 lib/sgl/sgl-timer.rb
 lib/sgl/sgl.rb
@@ -67,6 +72,7 @@ lib/sgl/version.rb
 scripts/makemanifest.rb
 scripts/txt2html
 setup.rb
+test/test_bass.rb
 test/test_cocoa_app.rb
 test/test_helper.rb
 test/test_module_ruby16.rb
@@ -75,6 +81,7 @@ test/test_opengl_basic.rb
 test/test_opengl_fullscreen.rb
 test/test_opengl_novice.rb
 test/test_sgl.rb
+test/test_sound.rb
 website/challenge1.html
 website/challenge1.txt
 website/challenge2.html
@@ -98,5 +105,6 @@ website/index.txt
 website/javascripts/rounded_corners_lite.inc.js
 website/sound.html
 website/sound.txt
+website/stylesheets/grade.png
 website/stylesheets/screen.css
 website/template.rhtml

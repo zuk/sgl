@@ -8,12 +8,9 @@ require "sgl/opengl-window"
 require "sgl/opengl-color"
 require "sgl/opengl-event"
 require "sgl/opengl-draw"
+require "sgl/sgl-sound"
 
 module SGL
-  # dummy
-  def useSound(*a)	end
-  def stopSound(*a)	end
-
   class Application
     def initialize
       Thread.abort_on_exception = true

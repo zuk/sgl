@@ -13,7 +13,7 @@ include FileUtils
 require File.join(File.dirname(__FILE__), 'lib', 'sgl', 'version')
 
 AUTHOR = 'Kouichirou Eto'
-EMAIL = "eto@rubyforge.org.please.do.not.send.spam.example.com"
+EMAIL = "eto at rubyforge dot org"
 DESCRIPTION = '"sgl: simple generic library" enables you to create a program with graphics and sound easily.'
 GEM_NAME = 'sgl'
 
@@ -183,7 +183,11 @@ end
 
 desc 'Create Manifest.txt file.'
 task :manifest => [:chmod, :clean] do
-  sh "ruby scripts/makemanifest.rb"
+  ruby "scripts/makemanifest.rb"
 end
+
+# Add tasks to gem
+task :gem => [:manifest]
+#task :gem => [:website_generate]
 
 #task :default => :test

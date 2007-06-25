@@ -65,7 +65,7 @@ mainloop
 
 h2. Pages
 
-* "Document":../doc/index.html
+* "API Documnet (Rdoc)":../doc/index.html
 * "cocoa version":cocoa.html
 
 * Pages below are in Japanese

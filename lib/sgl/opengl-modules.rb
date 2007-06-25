@@ -5,7 +5,6 @@ module SGL
   # module control
   def useMidi()		$__a__.useMidi;		end
   def useMidiIn(*a)	$__a__.useMidiIn(*a)	end
-  def useSound()	$__a__.useSound;	end
 
   class Application
     def useMidi
@@ -18,11 +17,6 @@ module SGL
       printMidiDeviceNames
       openMidiIn(num)
       startMidiInThread
-    end
-
-    def useSound
-      require "sgl/sgl-sound"
-      $__sound__ = SGLSound.instance
     end
   end
 end

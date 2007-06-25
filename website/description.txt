@@ -88,26 +88,3 @@ useSound
 sound = loadSound('sine.wav')
 sound.play(60, 100, -100) # note, vel, pan
 </pre>
-
-h2. What is Ruby?
-
-sglはオブジェクト指向スクリプト言語Rubyを基盤として用いている．もし授
-業の範囲を離れてプログラミング言語としての機能を学びたい場合は直接Ruby 
-についてのドキュメントを参照してください．
-
-* "Ruby":http://www.ruby-lang.org/ja/
-
-以下の書籍をおすすめする．
-
-* "プログラミングRuby 第2版 言語編":http://www.amazon.co.jp/dp/4274066428/etocom05-22
-* "プログラミングRuby 第2版 ライブラリ編":http://www.amazon.co.jp/dp/4274066436/etocom05-22
-
-h2. What is OpenGL?
-
-sglはグラフィック描画のためにOpenGLを使っている．そのため直接OpenGLの
-関数を使うことも可能である．OpenGLについては様々な書籍があるが，下記の
-テキストをおすすめする．sgl内からOpenGLを呼び出す方法については，直接
-聞いてください．
-
-* "OpenGLプログラミングコース":http://www.exa-corp.co.jp/solution/UBIQ/OpenGL/index.shtml
-** "OpenGLプログラミングテキスト":http://www.exa-corp.co.jp/solution/UBIQ/OpenGL/OpenGL-text-091.pdf

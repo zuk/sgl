@@ -29,3 +29,28 @@ h2. コマンドプロンプトの使い方
 * @dir@で，現在のディレクトリーにあるファイルの一覧を表示する．
 * @dir *.rb@で，ファイルの終わりに@.rb@がついたファイル一覧を表示する．
 ** このコマンドでちゃんとセーブされているかを確認する．
+
+h2. Rubyとは?
+
+sglはオブジェクト指向スクリプト言語Rubyを基盤として用いている．もしプ
+ログラミング言語としてのRubyを学びたい場合は直接Ruby についての本を参
+照する．
+
+* "Ruby":http://www.ruby-lang.org/ja/
+
+下記の書籍をおすすめする．
+
+* "プログラミングRuby 第2版 言語編":http://www.amazon.co.jp/dp/4274066428/etocom05-22
+* "プログラミングRuby 第2版 ライブラリ編":http://www.amazon.co.jp/dp/4274066436/etocom05-22
+
+h2. OpenGLとは?
+
+OpenGLとはグラフィックを描画するためのプログラミングにおける方法の一つ
+である．sglはグラフィック描画の仕組みとして内部的にOpenGLを使っている．
+もしsglの提供するグラフィックを超えてグラフィックを使いたい場合は，直
+接OpenGLを使うこともできる．
+
+OpenGLの使い方は，下記のテキストをおすすめする．
+
+* "OpenGLプログラミングコース":http://www.exa-corp.co.jp/solution/UBIQ/OpenGL/index.shtml
+** "OpenGLプログラミングテキスト":http://www.exa-corp.co.jp/solution/UBIQ/OpenGL/OpenGL-text-091.pdf

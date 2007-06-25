@@ -3,6 +3,22 @@
 	* test_bass.rb: Reformat.
 	* test_bass.rb: Ditto.
 
+	* Rakefile: Obfuscate mail address.
+	* Rakefile: Reformat.
+
+	* website/stylesheets/grade.png: Add backgorund image.
+	* website/stylesheets/screen.css: Ditto.
+
+	* lib/sgl/sgl-sound.rb: New function sound.
+	* lib/sgl/opengl-app.rb: Ditto.
+	* lib/sgl/opengl-modules.rb: Ditto.
+	* test/test_sound.rb: Ditto.
+	* examples/sgl-sound1.rb: Ditto.
+	* examples/sgl-sound2.rb: Ditto.
+	* examples/sine.ogg: Sample sound.
+
+	* version: Version up to 0.4.0
+
 2007-06-23  Kouichirou Eto  <2007 eto.com>
 
 	* test_bass.rb: New file. Test case for bass.
