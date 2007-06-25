@@ -1,10 +1,12 @@
+2007-06-25  Kouichirou Eto  <2007 eto.com>
+
+	* test_bass.rb: Reformat.
+
 2007-06-23  Kouichirou Eto  <2007 eto.com>
 
 	* test_bass.rb: New file. Test case for bass.
 
 	* bin: New directory.
-
-
 	
 2007-06-22  Kouichirou Eto  <2007 eto.com>
 
