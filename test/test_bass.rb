@@ -24,23 +24,4 @@ class TestSample < Test::Unit::TestCase
     # test_pan
     10.times {|pos| samp.play(60, 100, pos * 20 - 100); sleep 0.05 }
   end
-
-  def nu_test_1_change_freq
-    bass = Bass::BassLib.instance
-    samp = Bass::Sample.new(TEST_FILENAME)
-    20.times { |i|
-      #ret = bass_SamplePlayEx.call(hsample, 0, 1000 * i, 100, 0, -1)
-      #ret = bass_SamplePlayEx.call(hsample, 0, -1, -1, -1, -1)
-      #ret = bass_SamplePlayEx.call(hsample, 0, -1, 10 * i, -1, -1)
-      #ret = bass_SamplePlayEx.call(hsample, 0, -1, -1, 10 * i, -1)
-      #ret = bass_SamplePlayEx.call(hsample, 0, 8000 + 1000 * i, -1, -1, -1)
-     #ret = samp.playEx(0, 8000 + 1000 * i, -1, -1, -1)
-      ret = samp.play(0, 8000 + 1000 * i, -1, -1, -1)
-      #printf("ret is %x, errorcode is %d\n", ret, Bass.errorGetCode())
-      #printf("ret is %x, errorcode is %d\n", ret, Bass::BASS_ErrorGetCode.call())
-      puts"ret is #{ret}, errorcode is #{ Bass::BASS_ErrorGetCode.call}"
-      ###define BASS_ERROR_START	= 9	/// BASS_Start has not been successfully called
-      sleep 0.2
-    }
-  end
 end
