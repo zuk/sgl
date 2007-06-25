@@ -14,7 +14,7 @@ h3. Windows
 * Ruby/SDL
 
 You can see "Ruby/SDL on Windows":http://eto.com/d/RubySDLonWindows.html
-to install these libraries.
+install documnet.
 
 h3. Mac OS X
 
@@ -28,18 +28,16 @@ h2. Installing
 
 h2. The basics
 
-Save this progarm as @test1.rb@.
 <pre syntax="ruby">
+# test1.rb
 require "sgl"
 window 100, 100
 line 0, 0, 100, 100
 wait
 </pre>
 
-Run the program with @ruby test1.rb@.
-
-@test2.rb@.
 <pre syntax="ruby">
+# test2.rb
 require "sgl"
 window 100, 100
 background 0
@@ -48,8 +46,8 @@ line 0, 0, 100, 100
 wait
 </pre>
 
-@test3.rb@.
 <pre syntax="ruby">
+# test3.rb
 require "sgl"
 
 def setup
@@ -63,27 +61,30 @@ end
 mainloop
 </pre>
 
-h2. Pages
+h2. Documents
 
-* "API Documnet (Rdoc)":../doc/index.html
-* "cocoa version":cocoa.html
+* "API Reference":../doc/index.html
+* "Description of sgl-cocoa":cocoa.html
 
 * Pages below are in Japanese
-** "description":description.html
-** "How to for beginner":howto.html
+** "Description":description.html
+** "How to for Beginner":howto.html
 ** "How to use Sound function":sound.html
 
 h2. Classes
 
-We did some classes using sgl in art schools.
-You'll see the materials for the classes.
+We did some classes using sgl in some art schools.
+You can see some materials for the classes.
 
 * Pages below are in Japanese
-** "exercise 1 to 10":exercise1.html
-** "exercise 11 to 21":exercise2.html
-** "special exercise 1":challenge1.html
-** "special exercise 2":challenge2.html
-** "final exercise":challenge3.html
+** "Exercise 1":exercise1.html
+** "Exercise 2":exercise2.html
+** "Exercise 3":exercise3.html
+** "Exercise 4":exercise4.html
+** "Exercise 5":exercise5.html
+** "Special Exercise 1":challenge1.html
+** "Special Exercise 2":challenge2.html
+** "Final Exercise":challenge3.html
 
 h2. Repositry
 
@@ -95,4 +96,4 @@ Ruby License.
 
 h2. Contact
 
-Comments are welcome. Send an email to "Kouichirou Eto" <eto at rubyforge dot org>.
+Comments are welcome. Send an email to Kouichirou Eto "eto at rubyforge dot org".

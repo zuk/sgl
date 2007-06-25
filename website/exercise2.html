@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>
-      練習問題 11〜21
+      練習問題2
   </title>
   <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
 <style>
@@ -30,33 +30,16 @@
 <body>
 <div id="main">
 
-    <h1>練習問題 11〜21</h1>
+    <h1>練習問題2</h1>
     <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/sgl"; return false'>
       <p>Get Version</p>
       <a href="http://rubyforge.org/projects/sgl" class="numbers">0.4.0</a>
     </div>
-    <h2>課題15 マウスのボタンが押された時に</h2>
-
-
-	<h2>課題16 円の描き方</h2>
-
-
-	<h2>課題18 三次元</h2>
-
-
-	<h2>課題19 速度</h2>
-
-
-	<h2>課題20 キーボードからの入力</h2>
-
-
-	<h2>課題21 配列の使い方</h2>
-
-
-	<h2>課題11A マウスの位置に反応する形</h2>
+    <h2>課題14: マウスの位置に反応する形</h2>
 
 
 <pre syntax="ruby">
+# kadai14.rb
 require 'sgl'
 
 window 200,200
@@ -83,10 +66,11 @@ line   0, 200, x, y
 line 200, 200, x, y
 </pre>
 
-	<h2>課題12A 複雑な形の描画</h2>
+	<h2>課題15: 複雑な形の描画</h2>
 
 
 <pre syntax="ruby">
+# kadai15.rb
 require 'sgl'
 
 window -200, -200, 200, 200
@@ -137,10 +121,11 @@ endObj
 	<p>頂点ごとに透明度も変えられる．</p>
 
 
-	<h2>課題13A スムースな線の描画</h2>
+	<h2>課題16: スムースな線の描画</h2>
 
 
 <pre syntax="ruby">
+# kadai16.rb
 require 'sgl'
 
 useSmooth
@@ -173,10 +158,11 @@ wait
 <span class="caps">TRIANGLE</span>_FAN, <span class="caps">QUADS</span>, QUAD_STRIP, <span class="caps">POLYGON</span>,</p>
 
 
-	<h2>課題14A 物体の移動</h2>
+	<h2>課題17: 物体の移動</h2>
 
 
 <pre syntax="ruby">
+# kadai17.rb
 require 'sgl'
 
 useSmooth
@@ -200,10 +186,11 @@ push, pop, translate, rotateZ, scaleを使って回転移動拡大縮小など�
 コマンドと，位置，回転角度などの指定を分離できる．</p>
 
 
-	<h2>課題15A ボタンが押されたその時に</h2>
+	<h2>課題18: ボタンが押された時に</h2>
 
 
 <pre syntax="ruby">
+# kadai18.rb
 require 'sgl'
 
 def setup
@@ -243,437 +230,8 @@ onMouseDownというコマンドが呼ばれる．</p>
 ムが動いている間ずっと残る．プログラムの最初の部分で，<code>$x = 0</code>のように
 して，あらかじめなんらかの値を代入することで，変数を使うということを示
 す必要がある．</p>
-
-
-	<h2>課題16A 円</h2>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-def setup
-  window -200, -200, 200, 200
-  background 100
-  $x = 0
-  $y = 0
-end
-
-def onMouseDown(x, y)
-  $x = x
-  $y = y
-end
-
-def display
-  color 100, 0, 0
-  circle($x, $y, 100)
-end
-
-mainloop
-</pre>
-
-	<p>円を描く．マウスボタンを押すと，ボタンを押したところに移動する．
-プログラムの構造は課題15Aで導入された構造を使っている．</p>
-
-
-<pre syntax="ruby">
-def display
-  colorHSV 66, 100, 100, 30
-  circle($x, $y, 100, POLYGON)
-end
-</pre>
-
-	<p>塗り潰された円を描く．</p>
-
-
-<pre syntax="ruby">
-def display
-  colorHSV 33, 100, 100, 30
-  circle($x, $y, 100, POLYGON, 5)
-end
-</pre>
-
-	<p>五角形を描く．いままで円といってきたものは，実は正確には正32角形である．
-上記circle文の<code>5</code>のところを<code>32</code>にすると，普通の円と同じになる．</p>
-
-
-<pre syntax="ruby">
-def display
-  x = mouseX
-  y = mouseY
-  colorHSV 8, 100, 100, 50
-  circle(x, y, 100, POLYGON, 7)
-end
-</pre>
-
-	<p>マウスを押されないでもついてくるようにする．</p>
-
-
-	<h2>課題18A 3D</h2>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-window -200, -200, 200, 200
-
-push
-color 100, 0, 0
-translate 30, 40, 20
-rotateZ 10
-rotateY 20
-rotateX 30
-scale 20
-rect -5, -5, 5, 5
-pop
-
-wait
-</pre>
-
-	<p>課題14の物体の移動の例とほとんど同じだが，<code>translate 30, 40, 20</code>として
-三つの値を指定している点，<code>rotateZ</code>だけではなく，<code>rotateY</code> <code>rotateX</code>を
-使っている点が違う．三つめの値はZ軸，奥行きである．手前が正の値，奥の
-ほうが負の値となる．vertexを使った形の描画は，三つの値を指定することで
-3Dに対応できる．</p>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-def setup
-  window -200, -200, 200, 200
-  background 100
-end
-
-def display
-  x = mouseX
-  y = mouseY
-
-  push
-  color 100, 0, 0
-  translate x, y, 0
-  rotateX x
-  rotateY y
-  scale 20
-  rect -5, -5, 5, 5
-  pop
-end
-
-mainloop
-</pre>
-
-	<p>マウスの移動と組み合わせることもできる．</p>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-def setup
-  window -200, -200, 200, 200
-  background 100
-  $pos = []             # 中身が空の配列を用意する．
-end
-
-def display
-  x = mouseX
-  y = mouseY
-
-  $pos &lt;&lt; [x, y]     # 配列に現在のマウスの位置を追加する．
-
-  $pos.each {|pos|   # 配列の各々の要素について，{}の中身を実行する．
-                     # その各々の要素は，posという変数に入る．
-    x = pos[0]
-    y = pos[1]
-
-    push
-    colorHSV 0, 100, 100, 10
-    translate x, y, 0
-    rotateX x
-    rotateY y
-    scale 20
-    rect -5, -5, 5, 5
-    pop
-  }
-
-  if 10 &lt; $pos.length    # 配列がたまりすぎた場合は，先頭から順に捨てていく．
-    $pos.shift
-  end
-end
-
-mainloop
-</pre>
-
-	<p>配列の使用と組み合わせてみている．</p>
-
-
-	<h2>課題19A 速度</h2>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-def setup
-  window -200, -200, 200, 200
-  background 100
-  $x = 0
-  $y = 0
-end
-
-def display
-  x = mouseX
-  y = mouseY
-  speed = 20.0
-  vx = (x - $x)/speed
-  vy = (y - $y)/speed
-  $x = $x + vx
-  $y = $y + vy
-  color 100, 0, 0
-  circle($x, $y, 50, POLYGON)
-end
-
-mainloop
-</pre>
-
-	<p>物の位置に加え，速度を導入する．円がマウスのところに近付こうとする．</p>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-def setup
-  window -200, -200, 200, 200
-  background 100
-  $pos=[]
-  for i in 0..9
-    $pos[i] = [-200 + i * 40, 0]     # 最初の位置を指定する．
-  end
-end
-
-def display
-  x = mouseX
-  y = mouseY
-
-  speed = 10.0
-  for i in 0..9
-    pos = $pos[i]
-    vx = (x - pos[0]) / speed     # マウスに吸い寄せられる速度
-    vy = (y - pos[1]) / speed
-    speed += 2.0                  # 円によって速度が異なるようにする．
-    pos[0] = pos[0] + vx          # マウスに吸い寄せられた位置
-    pos[1] = pos[1] + vy
-    color 100, 0, 0, 10
-    circle(pos[0], pos[1], 50, POLYGON)
-  end
-end
-
-mainloop
-</pre>
-
-	<p>配列の使い方を説明する．</p>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-def setup
-  window -200, -200, 200, 200
-  background 100
-
-  $pos=[]
-  $orgpos=[]
-  for i in 0..19
-    $pos[i]    = [-200 + i * 40, 0]     # 最初の位置を指定する．
-    $orgpos[i] = [-200 + i * 40, 0]     # もう一つ別の配列にも保存する．
-  end
-end
-
-def display
-  x = mouseX
-  y = mouseY
-
-  for i in 0..19
-    pos    = $pos[i]     # 現在の円の位置
-    orgpos = $orgpos[i]  # 元々の位置
-
-    if mouseDown         # ボタンが押されているときだけマウスに吸いつく．
-      vx = x - pos[0]
-      vy = y - pos[1]
-      mag = Math.sqrt(vx * vx + vy * vy)
-      mag = mag / 40
-      mag = mag * mag + 1
-      vx = vx / mag
-      vy = vy / mag
-      pos[0] = pos[0] + vx
-      pos[1] = pos[1] + vy
-    end
-
-    speed = 3.0
-    vx2 = (orgpos[0] - pos[0]) / speed     # 元々の位置に吸い寄せられる速度
-    vy2 = (orgpos[1] - pos[1]) / speed
-    pos[0] = pos[0] + vx2                  # マウスに吸い寄せられた位置
-    pos[1] = pos[1] + vy2
-    color 100, 0, 0, 30
-    circle(pos[0], pos[1], 50, POLYGON)
-  end
-end
-
-mainloop
-</pre>
-
-	<p>マウスにすいよせられる円．マウスボタンを押しているときだけ反応する．</p>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-def setup
-  window -200, -200, 200, 200
-  background 100
-  $xpos = []    # 配列を準備する．
-  $ypos = []
-  for i in 0..9
-    $xpos[i] = -200 + i * 40
-    $ypos[i] = 0
-  end
-end
-
-def display
-  x = mouseX
-  y = mouseY
-
-  speed = 10.0
-  for i in 0..9
-    vx = (x - $xpos[i]) / speed     # マウスに吸い寄せられる速度
-    vy = (y - $ypos[i]) / speed
-    speed += 2.0                  # 円によって速度が異なるようにする．
-    $xpos[i] = $xpos[i] + vx                  # マウスに吸い寄せられた位置
-    $ypos[i] = $ypos[i] + vy
-    color 100, 0, 0, 10
-    circle($xpos[i], $ypos[i], 50, POLYGON)
-  end
-end
-
-mainloop
-</pre>
-
-	<p>配列の使い方を変更した．</p>
-
-
-	<h2>課題20A キーボードからの入力の仕方</h2>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-def setup
-  window 200, 200
-  background 100
-  $key = 0
-end
-
-def onKeyDown(key)
-  p key
-  $key = key
-end
-
-def display
-  colorHSV $key, 100, 100
-  line $key, 0, $key, 200
-end
-
-mainloop
-</pre>
-
-	<p>アルファベットのキーを押すと，keyに1〜26の値が入る．Aが1，Zが26という
-関係になる．</p>
-
-
-	<p>それら以外のキーを押したときにどのようなキーコードになるかは，
-<code>c:\ruby\doc\rubysdl\rubysdl_const_list.txt</code> に記述されている．
-数字の0が押されたときは，<code>SDL::Key::K0</code>という値となる．</p>
-
-
-	<h2>課題21A 配列の使い方return</h2>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-def setup
-  window -200, -200, 200, 200
-  background 100
-  $pos = []             # 中身が空の配列を用意する．
-  for a in 0..10        # 配列の要素それぞれについて繰り返す．
-    $pos[a] = 0         # 中身に全部0を入れておく．
-  end
-  $index = 0            # 現在配列のどこの部分を指しているかを示す変数である．
-end
-
-def display
-  $pos[$index] = mouseX # 配列の$indexの示す個所に現在のマウスのx座標を入れる．
-
-  for a in 0..10        # 配列の要素それぞれについて繰り返します．
-    x = $pos[a]
-    color 0
-    line x, -100, x, 100 # 縦線を描く．
-  end
-
-  $index = $index + 1   # 現在を示す$indexを次の値のところにセットする．
-  if 10 &lt; $index        # $indexが配列の大きさを越えたら0にセットしなおす．
-    $index = 0
-  end
-
-  p $pos                # $posという配列の中身を表示する．
-end
-
-mainloop
-</pre>
-
-	<p>配列の使い方の基本形である．縦線が，マウスの動きを追って動く．つまりマ
-ウスのx座標だけを保存している．x座標，y座標を保存するとどうなるか，実
-験する．</p>
-
-
-<pre syntax="ruby">
-require 'sgl'
-
-def setup
-  window -200, -200, 200, 200
-  background 100
-  $xpos = []            # 中身が空の配列を，x座標，y座標について用意する．
-  $ypos = []
-  for a in 0..10        # 配列の要素それぞれについて繰り返す．
-    $xpos[a] = 0
-    $ypos[a] = 0
-  end
-  $index = 0            # 現在配列のどこの部分を指しているかを示す変数．
-end
-
-def display
-  $xpos[$index] = mouseX
-  $ypos[$index] = mouseY
-
-  for a in 0..10        # 配列の要素それぞれについて繰り返す．
-    x = $xpos[a]
-    y = $ypos[a]
-    color 0
-    circle x, y, 50
-  end
-
-  $index = $index + 1   # 現在を示す$indexを，次の値のところにセットする．
-  if 10 &lt; $index        # $indexが配列の最大を越えたら，0にセットしなおす．
-    $index = 0
-  end
-
-  p $xpos
-  p $ypos
-end
-
-mainloop
-</pre>
-
-	<p>このように値を保存する配列を増やしていくようにする．</p>
     <p class="coda">
-      20th June 2007<br>
+      25th June 2007<br>
     </p>
 </div>
 

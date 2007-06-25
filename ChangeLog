@@ -1,5 +1,13 @@
 2007-06-25  Kouichirou Eto  <2007 eto.com>
 
+	* scripts/lib-txt2html.rb: New file for speeding up txt2html.
+	* scripts/txt2html: Modified.
+	* Rakefile: Ditto.
+
+	* website/exercise?.txt: Split exercise pages.
+
+2007-06-25  Kouichirou Eto  <2007 eto.com>
+
 	* version: Version up to 0.4.0
 
 	* sgl-0.4.0 released.

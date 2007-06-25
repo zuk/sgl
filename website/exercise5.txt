@@ -1,0 +1,113 @@
+h1. 練習問題5
+
+h2. 課題22: キーボードからの入力を受け取る
+
+<pre syntax="ruby">
+# kadai22.rb
+require 'sgl'
+
+def setup
+  window 200, 200
+  background 100
+  $key = 0
+end
+
+def onKeyDown(key)
+  p key
+  $key = key
+end
+ 
+def display
+  colorHSV $key, 100, 100
+  line $key, 0, $key, 200
+end
+
+mainloop
+</pre>
+
+アルファベットのキーを押すと，keyに1〜26の値が入る．Aが1，Zが26という
+関係になる．
+
+それら以外のキーを押したときにどのようなキーコードになるかは，
+@c:\ruby\doc\rubysdl\rubysdl_const_list.txt@ に記述されている．
+数字の0が押されたときは，@SDL::Key::K0@という値となる．
+
+h2. 課題23: 配列の使い方をもう一度考える
+
+<pre syntax="ruby">
+# kadai23.rb
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $pos = []             # 中身が空の配列を用意する．
+  for a in 0..10        # 配列の要素それぞれについて繰り返す．
+    $pos[a] = 0         # 中身に全部0を入れておく．
+  end
+  $index = 0            # 現在配列のどこの部分を指しているかを示す変数である．
+end
+
+def display
+  $pos[$index] = mouseX # 配列の$indexの示す個所に現在のマウスのx座標を入れる．
+
+  for a in 0..10        # 配列の要素それぞれについて繰り返します．
+    x = $pos[a]
+    color 0
+    line x, -100, x, 100 # 縦線を描く．
+  end
+
+  $index = $index + 1   # 現在を示す$indexを次の値のところにセットする．
+  if 10 < $index        # $indexが配列の大きさを越えたら0にセットしなおす．
+    $index = 0
+  end
+
+  p $pos                # $posという配列の中身を表示する．
+end
+
+mainloop
+</pre>
+
+配列の使い方の基本形である．縦線が，マウスの動きを追って動く．つまりマ
+ウスのx座標だけを保存している．x座標，y座標を保存するとどうなるか，実
+験する．
+
+<pre syntax="ruby">
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $xpos = []            # 中身が空の配列を，x座標，y座標について用意する．
+  $ypos = []
+  for a in 0..10        # 配列の要素それぞれについて繰り返す．
+    $xpos[a] = 0
+    $ypos[a] = 0
+  end
+  $index = 0            # 現在配列のどこの部分を指しているかを示す変数．
+end
+
+def display
+  $xpos[$index] = mouseX
+  $ypos[$index] = mouseY
+
+  for a in 0..10        # 配列の要素それぞれについて繰り返す．
+    x = $xpos[a]
+    y = $ypos[a]
+    color 0
+    circle x, y, 50
+  end
+
+  $index = $index + 1   # 現在を示す$indexを，次の値のところにセットする．
+  if 10 < $index        # $indexが配列の最大を越えたら，0にセットしなおす．
+    $index = 0
+  end
+
+  p $xpos
+  p $ypos
+end
+
+mainloop
+</pre>
+
+このように値を保存する配列を増やしていくようにする．

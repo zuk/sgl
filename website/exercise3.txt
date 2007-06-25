@@ -1,0 +1,155 @@
+h1. 練習問題3
+
+h2. 課題19: 円
+
+<pre syntax="ruby">
+# kadai19.rb
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $x = 0
+  $y = 0
+end
+
+def onMouseDown(x, y)
+  $x = x
+  $y = y
+end
+
+def display
+  color 100, 0, 0
+  circle($x, $y, 100)
+end
+
+mainloop
+</pre>
+
+円を描く．マウスボタンを押すと，ボタンを押したところに移動する．
+プログラムの構造は課題15Aで導入された構造を使っている．
+
+<pre syntax="ruby">
+def display
+  colorHSV 66, 100, 100, 30
+  circle($x, $y, 100, POLYGON)
+end
+</pre>
+
+塗り潰された円を描く．
+
+<pre syntax="ruby">
+def display
+  colorHSV 33, 100, 100, 30
+  circle($x, $y, 100, POLYGON, 5)
+end
+</pre>
+
+五角形を描く．いままで円といってきたものは，実は正確には正32角形である．
+上記circle文の@5@のところを@32@にすると，普通の円と同じになる．
+
+<pre syntax="ruby">
+def display
+  x = mouseX
+  y = mouseY
+  colorHSV 8, 100, 100, 50
+  circle(x, y, 100, POLYGON, 7)
+end
+</pre>
+
+マウスを押されないでもついてくるようにする．
+
+h2. 課題20: 三次元
+
+<pre syntax="ruby">
+# kadai20.rb
+require 'sgl'
+
+window -200, -200, 200, 200
+
+push
+color 100, 0, 0
+translate 30, 40, 20
+rotateZ 10
+rotateY 20
+rotateX 30
+scale 20
+rect -5, -5, 5, 5
+pop
+
+wait
+</pre>
+
+課題14の物体の移動の例とほとんど同じだが，@translate 30, 40, 20@として
+三つの値を指定している点，@rotateZ@だけではなく，@rotateY@ @rotateX@を
+使っている点が違う．三つめの値はZ軸，奥行きである．手前が正の値，奥の
+ほうが負の値となる．vertexを使った形の描画は，三つの値を指定することで
+3Dに対応できる．
+
+<pre syntax="ruby">
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+end
+
+def display
+  x = mouseX
+  y = mouseY
+
+  push
+  color 100, 0, 0
+  translate x, y, 0
+  rotateX x
+  rotateY y
+  scale 20
+  rect -5, -5, 5, 5
+  pop
+end
+
+mainloop
+</pre>
+
+マウスの移動と組み合わせることもできる．
+
+<pre syntax="ruby">
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $pos = []             # 中身が空の配列を用意する．
+end
+
+def display
+  x = mouseX
+  y = mouseY
+
+  $pos << [x, y]     # 配列に現在のマウスの位置を追加する．
+
+  $pos.each {|pos|   # 配列の各々の要素について，{}の中身を実行する．
+                     # その各々の要素は，posという変数に入る．
+    x = pos[0]
+    y = pos[1]
+
+    push
+    colorHSV 0, 100, 100, 10
+    translate x, y, 0
+    rotateX x
+    rotateY y
+    scale 20
+    rect -5, -5, 5, 5
+    pop
+  }
+
+  if 10 < $pos.length    # 配列がたまりすぎた場合は，先頭から順に捨てていく．
+    $pos.shift
+  end
+end
+
+mainloop
+</pre>
+
+配列の使用と組み合わせてみている．
+

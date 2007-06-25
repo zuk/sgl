@@ -84,9 +84,18 @@ hoe.remote_rdoc_dir = File.join(PATH.gsub(/^#{RUBYFORGE_PROJECT}\/?/,''), 'rdoc'
 
 desc 'Generate website files'
 task :website_generate do
+  require 'scripts/lib-txt2html'
+  t2h = Txt2Html.new
+  Dir['website/**/*.txt'].each do |txt|
+    puts txt
+    t2h.translate(txt, txt.gsub(/txt$/, 'html'))
+  end
+
+=begin
   Dir['website/**/*.txt'].each do |txt|
     sh %{ ruby scripts/txt2html #{txt} > #{txt.gsub(/txt$/,'html')} }
   end
+=end
 end
 
 # add chmod.

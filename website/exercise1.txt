@@ -1,16 +1,9 @@
-h1. 練習問題 1〜10
+h1. 練習問題1
 
-h2. 課題1 基本 (window, background, color, line)
-
-h3. 課題1A 一本の線を描くプログラムを作る
-
-h3. 課題1B ある考えの元に3本の線を描くプログラムを作る
-
-h3. 課題1C 5本以下の直線で「変化」を表現するプログラムを作る
-
-h3. 課題1D 10本以下の直線で「ハーモニー（調和）」を表現するプログラムを作る
+h2. 課題1: 一本の線を描く
 
 <pre syntax="ruby">
+# kadai1.rb
 require 'sgl'         # プログラムの最初に必ず書く必要がある
 window 100, 100       # windowを開く
 background 0          # 背景を黒にする
@@ -19,22 +12,38 @@ line 0, 0, 100, 100   # 左下から右上に線を描く
 wait                  # そのまま待つ
 </pre>
 
-h3. 半透明色の使い方
+h2. 課題2: ある考えの元に3本の線を描く
 
 <pre syntax="ruby">
+# kadai2.rb
 require 'sgl'
-window 100,100
-color 100, 0, 0       # 赤
-rect 10,10,70,70      # 四角
-color 0,0,100,50      # 半透明の青
-rect 30,30,90,90      # 四角を重ねてかく
+window 100, 100
+background 0
+color 100
+line 0, 0, 100, 100
+line 0, 0, 100,  50
+line 0, 0, 100,  25
 wait
 </pre>
 
-h2. 課題2A
+h2. 課題3: 5本以下の直線で「変化」を表現する
 
-一つの変数を使って2本の直線の構成をコントロールするプログラムを作る．
 <pre syntax="ruby">
+# kadai3.rb
+# 考えてみましょう．
+</pre>
+
+h2. 課題4: 10本以下の直線で「ハーモニー(調和)」を表現する
+
+<pre syntax="ruby">
+# kadai4.rb
+# 考えてみましょう．
+</pre>
+
+h2. 課題5: 一つの変数を使って2本の直線の構成をコントロールする
+
+<pre syntax="ruby">
+# kadai5.rb
 require 'sgl'
 window 100, 100
 a = 50
@@ -43,10 +52,10 @@ line 100, 0, 50, a
 wait
 </pre>
 
-h2. 課題3A 繰り返し (for a in 0..100; end)
+h2. 課題6: 繰り返しを使った形態を描く
 
-繰り返しを使った形態を描く．
 <pre syntax="ruby">
+# kadai6.rb
 require 'sgl'
 window 100, 100
 for a in 20..80
@@ -56,10 +65,10 @@ end
 wait
 </pre>
 
-h2. 課題4A 計算 (+ - * /)
+h2. 課題7: 計算を使った形態を描く
 
-計算を使った形態をかくプログラムを作る．
 <pre syntax="ruby">
+# kadai7.rb
 require 'sgl'
 window 100, 100
 for a in 20..40
@@ -69,11 +78,23 @@ end
 wait
 </pre>
 
-h2. 課題6A kadai6a.rb
+h2. 課題8: 半透明を使った形態を描く
 
-h3. 入れ子構造 6A 格子状にひろがる形態を作る．
 <pre syntax="ruby">
-# kadai6a.rb
+# kadai8.rb
+require 'sgl'
+window 100,100
+color 100, 0, 0       # 赤
+rect 10,10,70,70      # 四角
+color 0,0,100,50      # 半透明の青
+rect 30,30,90,90      # 四角を重ねてかく
+wait
+</pre>
+
+h2. 課題9: 入れ子構造，格子状にひろがる形態を作る
+
+<pre syntax="ruby">
+# kadai9.rb
 require 'sgl'
 window 200,200
 for a in 0..10
@@ -85,11 +106,10 @@ end
 wait
 </pre>
 
-h2. 課題7A kadai7a.rb
+h2. 課題10: 条件分岐，画面の左右で違う形態を描く
 
-h3. 質問 (if 50 &lt; a; end) 7A 画面の左右で違う形態を描く．
 <pre syntax="ruby">
-# kadai7a.rb
+# kadai10.rb
 require 'sgl'
 window 200,200
 for a in 0..200
@@ -103,12 +123,10 @@ end
 wait
 </pre>
 
-h2. 課題8A
+h2. 課題11: 自分なりの命令を作り，それを用いた形態を描く
 
-h3. defを使って自分なりのコマンドを作り，それを用いた形態を描く．
-
-ファイル名 kadai8a.rb
 <pre syntax="ruby">
+# kadai11.rb
 require 'sgl'
 window 100,100
 background 100
@@ -128,16 +146,14 @@ my_rect(60, 60, 80, 90, 70, 90)
 wait
 </pre>
 
-defというコマンドで関数を定義する．自分がよく使う形，例えば枠付きの塗
-りつぶされた四角形を定義する．defの後に続くのが関数名である．アルファ
-ベットの小文字から始まっている必要がある．
+defというコマンドで命令を定義する．ここでは，枠付きの塗りつぶされた四
+角形を定義している．defの後に続くのが命令の名前となる．アルファベット
+の小文字から始まっている必要がある．
 
-h2. 課題9A
+h2. 課題12: flipを使ってアニメーションを作る
 
-h3. flipを使ってアニメーションを作る．
-
-ファイル名 kadai9a.rb
 <pre syntax="ruby">
+# kadai12.rb
 require 'sgl'
 window 100,100
 loop do
@@ -149,17 +165,15 @@ end
 wait
 </pre>
 
-flipというところで、ちょうど紙をめくるように次の画面を表示させている。
+flipというところで，ちょうど紙をめくるように次の画面を表示させている．
 @loop do 〜〜〜 end@ で，その間を無限に繰り返す．
 
-h2. 課題10A
-
-h3. HSVによる色指定を使って，自分なりの色グラデーションを作る。
+h2. 課題13: HSVによる色指定を使り，自分なりの色グラデーションを作る
 
 静止画でもアニメーションでもよい．(colorHSV, backgroundHSV)
 
-ファイル名 kadai10a.rb
 <pre syntax="ruby">
+# kadai13.rb
 require 'sgl'
 window 100,100
 background 100
@@ -181,12 +195,3 @@ wait
 
 * 4番目のパラメーターを使って，透明度を設定することもできる．
 * backgroundHSVというコマンドもある．
-
-h2. 課題の注意点
-
-課題はいずれもwindowサイズなどは自由．課題例は100,100のサイズになって
-いるが，より大きいwindowサイズを選択してもよい。
-
-ファイル名は必ず指定のものにし，Z:に保存する．指定のファイル名のファイ
-ルが保存されているかどうかで課題提出を判定する．ファイル名が違う場合は
-提出してないことになってしまうので，注意する．

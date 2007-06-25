@@ -18,13 +18,13 @@ h2. 発表
 テーマ説明，プログラムを実行する(5個を順番に見せる)，プログラムの内容
 説明(工夫した点など)，という順番で発表する．
 
-h3. プログラムの注意点
+h2. プログラムの注意点
 
 * windowの大きさは自由．最低200x200以上とする．
 * コマンドを定義する機能を最低3個は使うこと．
 * ファイル名は指定のものにすること．
-* ファイル名: special1a.rb, special1b.rb, special1c.rb, special1d.rb, special1e.rb
+* ファイル名: @special1a.rb, special1b.rb, special1c.rb, special1d.rb, special1e.rb@
 
-h3. 採点
+h2. 採点
 
 テーマ選び，絵コンテも含め，内容を重視した採点をします．

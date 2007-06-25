@@ -1,0 +1,151 @@
+h1. 練習問題4
+
+h2. 課題21: 速度
+
+<pre syntax="ruby">
+# kadai21.rb
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $x = 0
+  $y = 0
+end
+ 
+def display
+  x = mouseX
+  y = mouseY
+  speed = 20.0
+  vx = (x - $x)/speed
+  vy = (y - $y)/speed
+  $x = $x + vx
+  $y = $y + vy
+  color 100, 0, 0
+  circle($x, $y, 50, POLYGON)
+end
+
+mainloop
+</pre>
+
+物の位置に加え，速度を導入する．円がマウスのところに近付こうとする．
+
+<pre syntax="ruby">
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $pos=[]
+  for i in 0..9
+    $pos[i] = [-200 + i * 40, 0]     # 最初の位置を指定する．
+  end
+end
+ 
+def display
+  x = mouseX
+  y = mouseY
+
+  speed = 10.0
+  for i in 0..9
+    pos = $pos[i]
+    vx = (x - pos[0]) / speed     # マウスに吸い寄せられる速度
+    vy = (y - pos[1]) / speed
+    speed += 2.0                  # 円によって速度が異なるようにする．
+    pos[0] = pos[0] + vx          # マウスに吸い寄せられた位置
+    pos[1] = pos[1] + vy
+    color 100, 0, 0, 10
+    circle(pos[0], pos[1], 50, POLYGON)
+  end
+end
+
+mainloop
+</pre>
+
+配列の使い方を説明する．
+
+<pre syntax="ruby">
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+ 
+  $pos=[]
+  $orgpos=[]
+  for i in 0..19
+    $pos[i]    = [-200 + i * 40, 0]     # 最初の位置を指定する．
+    $orgpos[i] = [-200 + i * 40, 0]     # もう一つ別の配列にも保存する．
+  end
+end
+ 
+def display
+  x = mouseX
+  y = mouseY
+
+  for i in 0..19
+    pos    = $pos[i]     # 現在の円の位置
+    orgpos = $orgpos[i]  # 元々の位置
+
+    if mouseDown         # ボタンが押されているときだけマウスに吸いつく．
+      vx = x - pos[0]
+      vy = y - pos[1]
+      mag = Math.sqrt(vx * vx + vy * vy)
+      mag = mag / 40
+      mag = mag * mag + 1
+      vx = vx / mag
+      vy = vy / mag
+      pos[0] = pos[0] + vx
+      pos[1] = pos[1] + vy
+    end
+
+    speed = 3.0
+    vx2 = (orgpos[0] - pos[0]) / speed     # 元々の位置に吸い寄せられる速度
+    vy2 = (orgpos[1] - pos[1]) / speed
+    pos[0] = pos[0] + vx2                  # マウスに吸い寄せられた位置
+    pos[1] = pos[1] + vy2
+    color 100, 0, 0, 30
+    circle(pos[0], pos[1], 50, POLYGON)
+  end
+end
+
+mainloop
+</pre>
+
+マウスにすいよせられる円．マウスボタンを押しているときだけ反応する．
+
+<pre syntax="ruby">
+require 'sgl'
+
+def setup
+  window -200, -200, 200, 200
+  background 100
+  $xpos = []    # 配列を準備する．
+  $ypos = []
+  for i in 0..9
+    $xpos[i] = -200 + i * 40
+    $ypos[i] = 0
+  end
+end
+ 
+def display
+  x = mouseX
+  y = mouseY
+
+  speed = 10.0
+  for i in 0..9
+    vx = (x - $xpos[i]) / speed     # マウスに吸い寄せられる速度
+    vy = (y - $ypos[i]) / speed
+    speed += 2.0                  # 円によって速度が異なるようにする．
+    $xpos[i] = $xpos[i] + vx                  # マウスに吸い寄せられた位置
+    $ypos[i] = $ypos[i] + vy
+    color 100, 0, 0, 10
+    circle($xpos[i], $ypos[i], 50, POLYGON)
+  end
+end
+
+mainloop
+</pre>
+
+配列の使い方を変更した．
+

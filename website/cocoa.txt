@@ -7,9 +7,7 @@ You can use sgl functions with Ruby/Cocoa.
 
 h2. Requirement
 
-You can use this only on Mac OS X.
-
-h3. Mac OS X
+You can use sgl-cocoa only on Mac OS X.
 
 * Mac OS X 10.3 or later
 * ruby 1.8.5 or later
@@ -17,8 +15,8 @@ h3. Mac OS X
 
 h2. The basics
 
-Save this progarm as @test1.rb@.
 <pre syntax="ruby">
+# test1.rb
 require "sgl/cocoa"
 
 def setup
