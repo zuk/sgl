@@ -1,6 +1,9 @@
 2007-06-30  Kouichirou Eto  <2007 eto.com>
 
 	* Rakefile: Add spec support.
+	* spec/sgl_spec.rb: New spec.
+	* spec/spec_helper.rb: Ditto.
+	* spec/spec.opts: Ditto.
 	* lib/sgl/sgl-color.rb: Delete test case.
 
 2007-06-25  Kouichirou Eto  <2007 eto.com>
