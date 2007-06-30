@@ -1,3 +1,8 @@
+2007-06-30  Kouichirou Eto  <2007 eto.com>
+
+	* Rakefile: Add spec support.
+	* lib/sgl/sgl-color.rb: Delete test case.
+
 2007-06-25  Kouichirou Eto  <2007 eto.com>
 
 	* scripts/lib-txt2html.rb: New file for speeding up txt2html.
