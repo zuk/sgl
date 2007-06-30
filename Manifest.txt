@@ -69,9 +69,13 @@ lib/sgl/sgl-spring.rb
 lib/sgl/sgl-timer.rb
 lib/sgl/sgl.rb
 lib/sgl/version.rb
+scripts/lib-txt2html.rb
 scripts/makemanifest.rb
 scripts/txt2html
 setup.rb
+spec/sgl_spec.rb
+spec/spec.opts
+spec/spec_helper.rb
 test/test_bass.rb
 test/test_cocoa_app.rb
 test/test_helper.rb
@@ -96,6 +100,12 @@ website/exercise1.html
 website/exercise1.txt
 website/exercise2.html
 website/exercise2.txt
+website/exercise3.html
+website/exercise3.txt
+website/exercise4.html
+website/exercise4.txt
+website/exercise5.html
+website/exercise5.txt
 website/exhibition.html
 website/exhibition.txt
 website/howto.html

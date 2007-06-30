@@ -66,17 +66,3 @@ module SGL
     end
   end
 end
-
-if $0 == __FILE__
-  require "test/unit"
-  $__test_sgl__ = true
-end
-
-if defined?($__test_sgl__) && $__test_sgl__
-  class TestSglColor_SglColor < Test::Unit::TestCase #:nodoc:
-    def test_all
-      rgb = SGL::ColorTranslatorRGB.new(100, 100, 100, 100)
-      assert_equal([1.0, 1.0, 1.0, 1.0], rgb.norm(100, 100, 100))
-    end
-  end
-end

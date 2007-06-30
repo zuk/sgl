@@ -8,12 +8,19 @@ require 'rake/rdoctask'
 require 'rake/contrib/rubyforgepublisher'
 require 'fileutils'
 require 'hoe'
+begin
+  require 'spec/rake/spectask'
+rescue LoadError
+  puts 'To use rspec for testing you must install rspec gem:'
+  puts '$ sudo gem install rspec'
+  exit
+end
 
 include FileUtils
 require File.join(File.dirname(__FILE__), 'lib', 'sgl', 'version')
 
 AUTHOR = 'Kouichirou Eto'
-EMAIL = "eto at rubyforge dot org"
+EMAIL = "eto _at_ rubyforge _dot_ org"
 DESCRIPTION = '"sgl: simple generic library" enables you to create a program with graphics and sound easily.'
 GEM_NAME = 'sgl'
 
@@ -90,12 +97,6 @@ task :website_generate do
     puts txt
     t2h.translate(txt, txt.gsub(/txt$/, 'html'))
   end
-
-=begin
-  Dir['website/**/*.txt'].each do |txt|
-    sh %{ ruby scripts/txt2html #{txt} > #{txt.gsub(/txt$/,'html')} }
-  end
-=end
 end
 
 # add chmod.
@@ -137,6 +138,13 @@ task :check_version do
   end
 end
 
+desc "Run the specs under spec/models"
+Spec::Rake::SpecTask.new do |t|
+  t.spec_opts = ['--options', "spec/spec.opts"]
+  t.spec_files = FileList['spec/*_spec.rb']
+  t.libs << "lib"
+end
+
 # add chmod.
 task :docs do
   sh %{ chmod -R go+rx doc }
@@ -170,11 +178,12 @@ desc 'Change mode to erase executable bits.'
 task :chmod do
   sh "chmod 644 Rakefile ChangeLog"
   sh "chmod 644 *.txt */*.txt"
-  sh "chmod 644  */*.html"
-  sh "chmod 644  */*.rhtml"
-  sh "chmod 644  */*/*.js"
-  sh "chmod 644  */*/*.css"
+  sh "chmod 644 */*.html"
+  sh "chmod 644 */*.rhtml"
+  sh "chmod 644 */*/*.js"
+  sh "chmod 644 */*/*.css"
   sh "chmod 644 *.rb */*.rb */*/*.rb"
+  sh "chmod 644 */*.opts"
   sh "chmod 755 scripts/*"
 end
 
@@ -197,6 +206,8 @@ end
 
 # Add tasks to gem
 task :gem => [:manifest]
-#task :gem => [:website_generate]
 
+#desc "Default task is to run specs"
+task :default => [:spec]
+#task :default => :spec
 #task :default => :test
