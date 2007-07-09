@@ -63,7 +63,7 @@ mainloop
 
 h2. Documents
 
-* "API Reference":../doc/index.html
+* "API Reference":rdoc/
 * "Description of sgl-cocoa":cocoa.html
 
 * Pages below are in Japanese
@@ -96,4 +96,4 @@ Ruby License.
 
 h2. Contact
 
-Comments are welcome. Send an email to Kouichirou Eto "eto at rubyforge dot org".
+Comments are welcome. Send an email to Kouichirou Eto "eto _at_ rubyforge _dot_ org".

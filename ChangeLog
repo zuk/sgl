@@ -1,3 +1,10 @@
+2007-07-05  Kouichirou Eto  <2007 eto.com>
+
+	* License.txt: Update license to Ruby license.
+
+	* default_task.rb: New file. Splited from Rakefile.
+	* Rakefile: Follow.
+
 2007-06-30  Kouichirou Eto  <2007 eto.com>
 
 	* Rakefile: Add spec support.
